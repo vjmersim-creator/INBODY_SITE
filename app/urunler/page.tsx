@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SectionNavigation } from "@/components/section-navigation";
 import { Breadcrumb, ProductCard, SectionHeading } from "@/components/ui";
 import { productsByCategory } from "@/content/products";
 
@@ -24,9 +25,22 @@ const anchorByCategory = {
   data: "veri-yonetimi",
 } as const;
 
+const categoryNavigation = [
+  { label: "Vücut Kompozisyonu", href: "/urunler#vucut-kompozisyonu" },
+  { label: "Vücut Suyu", href: "/urunler#vucut-suyu" },
+  { label: "Boy Ölçer", href: "/urunler#boy-olcer" },
+  { label: "InGrip", href: "/urunler#ingrip" },
+  { label: "Veri Yönetimi", href: "/urunler#veri-yonetimi" },
+];
+
 export default function ProductsPage() {
   return (
     <main id="ana-icerik">
+      <SectionNavigation
+        label="Ürün kategorileri"
+        links={categoryNavigation}
+        icon="measure"
+      />
       <section className="products-hero">
         <div className="products-hero__image" aria-hidden="true" />
         <div className="products-hero__shade" />

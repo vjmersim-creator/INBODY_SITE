@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
+import { SectionNavigation } from "@/components/section-navigation";
+import { aboutLinks, learnLinks } from "@/content/navigation";
 import type { ContentPage } from "@/content/pages";
 import type { Product } from "@/content/products";
 
@@ -146,9 +148,24 @@ function getContentHero(page: ContentPage) {
 
 export function ContentTemplate({ page }: { page: ContentPage }) {
   const hero = getContentHero(page);
+  const sectionLinks =
+    page.eyebrow === "Hakkımızda"
+      ? aboutLinks
+      : page.eyebrow === "Öğrenin"
+        ? learnLinks
+        : null;
+  const currentHref = sectionLinks?.find((item) => item.href.endsWith(`/${page.slug}`))?.href;
 
   return (
     <main id="ana-icerik">
+      {sectionLinks ? (
+        <SectionNavigation
+          label={page.eyebrow}
+          currentHref={currentHref}
+          links={sectionLinks}
+          icon={page.eyebrow === "Hakkımızda" ? "precision" : "results"}
+        />
+      ) : null}
       <section className="subpage-hero subpage-hero--visual">
         <div className="shell subpage-hero__grid">
           <div className="subpage-hero__copy">
