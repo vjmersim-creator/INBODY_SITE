@@ -41,8 +41,10 @@ export const aboutPages: ContentPage[] = [
     description:
       "InBody'nin misyonu, vizyonu ve sağlık teknolojisine yaklaşımı.",
     body: [
-      "InBody’nin temelleri, Dr. Kichul Cha’nın mevcut Bioelektrik İmpedans Analizi yöntemlerinin sınırlamalarını aşma hedefiyle atıldı. 1996’da kurulan şirket, iki yıl sonra ilk InBody cihazını geliştirdi ve bugün 80’den fazla ülkede sağlık profesyonelleriyle çalışıyor.",
-      "Yaklaşımın merkezinde, sağlığı yalnızca vücut ağırlığıyla değil; kas, yağ ve vücut suyu dağılımı gibi ölçülebilir bileşenlerle değerlendirmek yer alır.",
+      "1990'ların başında kurucumuz ve CEO'muz Dr. Kichul Cha, mevcut BIA cihazlarının sınırlı ve hatalı olduğunu fark etti. Bu cihazlar çoğu zaman yanlış sonuçlar veriyor ve vücut kompozisyonu analizine ihtiyaç duyulan tıbbi uygulamalarda yeterli faydayı sağlayamıyordu.",
+      "Makine mühendisliği geçmişinden yararlanan Dr. Cha, daha iyi bir çözüm tasarlamak için çalışmaya başladı.",
+      "1996 yılında InBody'yi kurdu. İki yıl sonra ilk InBody cihazı geliştirildi. Bugün InBody, Güney Kore'deki küçük bir biyoteknoloji girişiminden 80'den fazla ülkede şubeleri ve distribütörleri bulunan uluslararası bir şirkete dönüştü.",
+      "Müşterilerimiz InBody'nin kullanım kolaylığı, doğruluk ve tekrarlanabilirliği bir arada sunduğunu biliyor. Yaklaşımın merkezinde, kullanıcıların doğru, kullanışlı ve hassas vücut kompozisyonu verilerine ulaşması yer alıyor.",
     ],
     heroImage: {
       src: "/images/official/about-hero.png",
@@ -60,22 +62,22 @@ export const aboutPages: ContentPage[] = [
       {
         title: "Misyonumuz",
         paragraphs: [
-          "Doğru ve kullanışlı vücut kompozisyonu verileriyle insanların daha sağlıklı bir yaşam için harekete geçmesine yardımcı olmak.",
+          "InBody, insanları daha sağlıklı bir yaşam sürmeye teşvik etmek ve bu yolda öncülük etmek için çalışır.",
         ],
       },
       {
         title: "Vizyonumuz",
         paragraphs: [
-          "Vücut kompozisyonu analizini sağlık değerlendirmesinin doğal bir parçası hâline getirerek klinik, beslenme, spor ve araştırma alanlarında daha bilinçli kararları desteklemek.",
+          "InBody'nin vizyonu, sağlığın yalnızca kilonuzu bilmekle değil, vücut kompozisyonunuza ilişkin doğru bir içgörüye sahip olmakla ölçüldüğü bir gelecek oluşturmaktır.",
         ],
       },
       {
         title: "Değerlerimiz",
         items: [
-          "Eğitim: Vücut kompozisyonu bilgisini anlaşılır ve erişilebilir kılmak.",
-          "Motivasyon: Ölçülebilir ilerlemenin sağlıklı değişimi desteklemesini sağlamak.",
-          "Uygulama: Veriyi günlük danışmanlık ve takip süreçlerinde kullanılabilir hâle getirmek.",
-          "İnovasyon: Ölçüm teknolojisini doğruluk, kullanım kolaylığı ve yeni ihtiyaçlar doğrultusunda geliştirmek.",
+          "Eğitim: Yalnızca kilo kaybına odaklanmanın yeterli olmadığını anlatarak konuşmayı BMI ve toplam ağırlıktan yağ kaybı ile kas kazanımının önemine taşımak.",
+          "Motivasyon: Kurumların danışanlarını yaşam tarzlarını dönüştürmeye ve daha sağlıklı seçimler yapmaya nasıl teşvik edebileceğini desteklemek.",
+          "Uygulama: InBody Sonuç Sayfası ile hangi beslenme ve egzersiz yaklaşımlarının işe yaradığını görünür kılmak; tahmin yerine ölçülebilir veriler sunmak.",
+          "İnovasyon: Her yeni üründe daha iyi sonuçlar üretmek için kendimizi geliştirmek ve bugünün yanı sıra gelecek nesiller için de daha iyi bir dünya hedeflemek.",
         ],
       },
       {
@@ -87,8 +89,10 @@ export const aboutPages: ContentPage[] = [
       {
         title: "CEO Mesajı",
         paragraphs: [
-          "InBody, 1996 yılında kurulduğundan bu yana sağlık teknolojisinde kalıcı değer üretmeye ve alanında örnek bir şirket olmaya odaklanmaktadır.",
-          "Dünya lideri teknolojilerle topluma katkıda bulunma misyonu doğrultusunda, yüksek katma değerli ürün ve hizmetlerle sağlık ekosisteminin gelişimini desteklemeyi sürdürmektedir.",
+          "InBody, 1996 yılında kurulduğundan beri 21. yüzyılın örnek şirketlerinden biri olmak için çalışmaktadır.",
+          "Dünya lideri teknolojimizle topluma katkıda bulunma kurumsal misyonumuzu yerine getirerek, yüksek katma değerli ürün ve hizmetlerle toplumun gelişimini desteklemeye devam edeceğiz.",
+          "Tüm zorluklarla yüzleşerek ve güçlü bir sorumluluk duygusuyla beklentilerinizi karşılamak için çalışıyoruz. InBody her geçen gün büyüyor; çünkü yalnızca büyük başarıları değil, her gün elde edilen küçük başarıların birikimini de önemsiyoruz.",
+          "İnsanları daha sağlıklı bir yaşam sürmeye teşvik etme ve bu yolda öncülük etme hedefimizi koruyacağız. Geleceğe doğru 'Hayatı Daha İyi Yapmak' yaklaşımımızı sürdürecek; tutku, emek ve yenilik ilkelerimize bağlı kalacağız.",
         ],
       },
     ],
@@ -334,6 +338,20 @@ export const learnPages: ContentPage[] = [
       "Empedans; dokuların akıma gösterdiği direnç ile hücre zarlarının oluşturduğu reaktans bileşenlerinden oluşur. Bu veriler vücut suyu ve kompozisyonunun değerlendirilmesinde kullanılır.",
     ],
     sections: [
+      {
+        title: "İnsan vücudu ve empedans",
+        paragraphs: [
+          "Bioelektrik İmpedans Analizi, vücuda alternatif akımlar uygulayarak empedansı ölçer. Bu ölçüm, yağsız vücut kütlesi ve yağ kütlesi gibi bileşenlerin değerlendirilmesini sağlar.",
+        ],
+      },
+      {
+        title: "Direnç kavramı",
+        paragraphs: [
+          "Direnci anlamak için trafikteki arabaları düşünün: araba elektrik akımını, yol ise vücut suyunu temsil eder. Yolda başka araç yoksa hareket kolaydır; benzer şekilde yalnızca su bulunan bir ortam elektrik akımına çok az direnç gösterir.",
+          "İnsan vücudu yalnızca sudan oluşmaz. Yağ, kas, kemik ve mineraller akımın geçişini farklı düzeylerde etkiler. Bu bileşenler, vücuttan geçen elektrik akımına karşı ölçülebilir bir direnç oluşturur.",
+          "Kas dokusu yağ dokusuna göre daha fazla su içerir. Bu nedenle kas kütlesi ve vücut suyu arttıkça elektrik akımına karşı ölçülen direnç genellikle azalır.",
+        ],
+      },
       {
         title: "Sekiz noktalı dokunsal elektrot sistemi",
         paragraphs: [

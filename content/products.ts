@@ -81,6 +81,14 @@ export const products: Product[] = [
           text: "Yüksek frekans desteği, hücre içi ve hücre dışı suyun daha ayrıntılı değerlendirilmesini destekler.",
         },
         {
+          title: "Altı farklı sonuç sayfası",
+          text: "Değerlendirme, Araştırma, Karşılaştırma, Vücut Kompozisyonu, Çocuk ve Vücut Suyu Sonuç Sayfaları arasından kullanım amacına uygun rapor seçilebilir.",
+        },
+        {
+          title: "Yaşa özgü değerlendirme",
+          text: "InBody büyük verisi kullanılarak sonuçlar genç yetişkin referanslarıyla T-skoru, aynı yaş grubuyla ise Z-skoru üzerinden karşılaştırılabilir.",
+        },
+        {
           title: "130'dan fazla parametre",
           text: "Vücut kompozisyonu, vücut suyu, faz açısı, araştırma ve karşılaştırma çıktılarıyla derinlemesine analiz sunar.",
         },
@@ -118,6 +126,27 @@ export const products: Product[] = [
         { label: "Boyutlar", value: "614,1 × 963,8 × 1239,3 mm" },
         { label: "Cihaz ağırlığı", value: "41,1 kg" },
         { label: "Kablosuz bağlantı", value: "Bluetooth ve Wi-Fi" },
+        {
+          label: "Aksesuarlar",
+          value: "Stadiyometre, kan basıncı monitörü, InBodyBAND serisi, InGrip ve USB bellek",
+        },
+        {
+          label: "Kullanıcı tanıma",
+          value: "InBodyBAND, parmak izi veya barkod tarayıcı",
+        },
+        {
+          label: "Ek özellikler",
+          value: "Dokunmatik ekran, sesli yönlendirme, güvenlik erişim kodu ve LookinBody uyumu",
+        },
+        {
+          label: "Standart çıktılar",
+          value: "Ağırlık, Toplam Vücut Suyu, Yağsız Vücut Kütlesi, Vücut Yağ Kütlesi, İskelet Kas Kütlesi, Vücut Yağ Yüzdesi, segmental yağsız analiz, ICW, ECW, segmental ECW/TBW ve segmental faz açısı",
+        },
+        {
+          label: "Ek çıktılar",
+          value: "Yağ ve yağsız vücut kütlesi kontrolü, Bazal Metabolizma Hızı, empedans grafiği, Visseral Yağ Alanı, segmental yağ analizi ve InBody Skoru",
+        },
+        { label: "Garanti", value: "2 yıl üretici garantisi" },
       ],
       note: "İçerik ve teknik değerler sağlanan InBody970S kataloğundan aktarılmıştır.",
     },
@@ -143,6 +172,18 @@ export const products: Product[] = [
       intro:
         "InBody770S, esnek el elektrotları ve 130'dan fazla parametresiyle kapsamlı değerlendirmeyi ergonomik bir test deneyimiyle birleştirir.",
       features: [
+        {
+          title: "Yaklaşık 30 saniyelik test",
+          text: "Yağ kütlesi, kas kütlesi ve vücut suyu düzeylerini suya batırma ya da cilt kıvrımı ölçümü gerektirmeden hızlıca değerlendirir.",
+        },
+        {
+          title: "Ampirik tahmin yok",
+          text: "Sonuçların oluşturulmasında cinsiyet ve yaş gibi ampirik tahminler yerine ölçülen empedans verileri temel alınır.",
+        },
+        {
+          title: "LookinBody Web entegrasyonu",
+          text: "Uyumlu bağlantıyla InBody verileri bulut tabanlı veri yönetim sistemine aktarılabilir; sonuçlar ve ilerleme geçmişi merkezi olarak yönetilebilir.",
+        },
         {
           title: "Yenilikçi ölçüm teknolojisi",
           text: "InBody'ye özel ölçüm yaklaşımı, vücut kompozisyonunun ampirik tahmin kullanılmadan değerlendirilmesini destekler.",
@@ -241,6 +282,10 @@ export const products: Product[] = [
           text: "Kompakt ve katlanabilir yapı, taşıma ile sınırlı alanlarda kullanım süreçlerini kolaylaştırır.",
         },
         {
+          title: "Birleşik dört noktalı yük hücresi",
+          text: "Platformdaki dört noktalı yük hücresi düzeni, kullanıcı cihaza çıktığında ağırlık ölçümünün dengeli biçimde başlamasını destekler.",
+        },
+        {
           title: "QR kodla tanıma",
           text: "Mobil cihaz üzerinden kullanıcı verisi girişini kolaylaştırarak tekrar ölçüm akışını hızlandırır.",
         },
@@ -294,6 +339,14 @@ export const products: Product[] = [
         {
           title: "Hızlı ölçüm",
           text: "Yaklaşık 30 saniyede tamamlanan test, kullanıcıların sonuçlarına hızlı biçimde erişmesini sağlar.",
+        },
+        {
+          title: "Ampirik tahmin kullanmayan ölçüm",
+          text: "Vücut kompozisyonu sonuçlarını belirlemek için ölçülen empedans verisi temel alınır; cinsiyet ve yaşa dayalı ampirik tahminlere ihtiyaç duyulmaz.",
+        },
+        {
+          title: "Bulut tabanlı veri yönetimi",
+          text: "Uyumlu LookinBody Web bağlantısıyla ölçümler kaydedilebilir, danışan sonuçları görüntülenebilir ve ilerleme farklı noktalardan takip edilebilir.",
         },
         {
           title: "Kompakt ve taşınabilir",
@@ -729,6 +782,10 @@ export const products: Product[] = [
         {
           title: "Profesyonel değerlendirmeye ek veri",
           text: "Kavrama gücü, uyumlu InBody sonuçlarıyla birlikte kas fonksiyonu değerlendirmesini destekleyen ek bir gösterge sunar.",
+        },
+        {
+          title: "Sarkopeni değerlendirmesini destekler",
+          text: "El kavrama gücü, sarkopeni değerlendirmesinde kullanılan temel prosedürlerden biridir; InGrip bu ölçümün standart ve tekrarlanabilir biçimde uygulanmasına yardımcı olur.",
         },
       ],
       specifications: [

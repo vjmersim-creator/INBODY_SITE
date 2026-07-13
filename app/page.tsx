@@ -286,6 +286,27 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="research-proof section">
+        <div className="shell research-proof__grid">
+          <div className="research-proof__metric">
+            <strong>8.000+</strong>
+            <span>hakemli uluslararası yayın</span>
+          </div>
+          <div className="research-proof__copy">
+            <p className="eyebrow eyebrow--light">Profesyoneller için güvenilir kalite</p>
+            <h2>Ölçüm verileri, dünya çapındaki araştırmalarda kullanılıyor.</h2>
+            <p>
+              InBody teknolojisi; klinik, beslenme, spor ve vücut kompozisyonu
+              araştırmalarında kullanılan verileriyle binlerce hakemli uluslararası
+              yayında yer alıyor.
+            </p>
+            <Link className="button button--light" href="/ogren/inbody-teknolojisi">
+              Araştırma temelini keşfedin <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="technology-feature">
         <Image
           src="/images/hero-technology.jpg"
