@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Icon } from "@/components/icon";
+import { Icon, type IconName } from "@/components/icon";
 import {
   ProductQuickNav,
   ProductRail,
@@ -24,7 +24,14 @@ const navigationProducts: ProductNavigationItem[] = listedProducts.map(
   ({ slug, name, categoryLabel, image }) => ({ slug, name, categoryLabel, image }),
 );
 
-const featureIcons = ["◎", "⌁", "▦", "⇄", "◌", "✓"];
+const featureIcons: IconName[] = [
+  "precision",
+  "measure",
+  "results",
+  "switch",
+  "time",
+  "specs",
+];
 
 function brochureHref(product: Product) {
   return `/iletisim?urun=${product.slug}&talep=brosur#iletisim-formu`;
@@ -98,6 +105,215 @@ const specifications = [
   ["Bağlantı", "Wi-Fi ve Bluetooth"],
   ["Garanti", "2 yıl"],
 ];
+
+type ProductMetric = {
+  value: string;
+  label: string;
+  icon: IconName;
+};
+
+const productMetricMap: Record<string, ProductMetric[]> = {
+  inbody970s: [
+    { value: "3 MHz", label: "En yüksek ölçüm frekansı", icon: "precision" },
+    { value: "≈30 sn", label: "Test süresi", icon: "time" },
+    { value: "130+", label: "Analiz parametresi", icon: "results" },
+    { value: "100.000", label: "Sonuç kapasitesi", icon: "specs" },
+  ],
+  inbody770s: [
+    { value: "1 MHz", label: "En yüksek ölçüm frekansı", icon: "precision" },
+    { value: "≈30 sn", label: "Test süresi", icon: "time" },
+    { value: "130+", label: "Analiz parametresi", icon: "results" },
+    { value: "100.000", label: "Sonuç kapasitesi", icon: "specs" },
+  ],
+  inbody380: [
+    { value: "≈30 sn", label: "Test süresi", icon: "time" },
+    { value: "3", label: "Ölçüm frekansı", icon: "precision" },
+    { value: "2–300 kg", label: "Ağırlık aralığı", icon: "weight" },
+    { value: "100.000", label: "Sonuç kapasitesi", icon: "results" },
+  ],
+  inbody270s: [
+    { value: "≈30 sn", label: "Test süresi", icon: "time" },
+    { value: "13,4 kg", label: "Cihaz ağırlığı", icon: "weight" },
+    { value: "2–250 kg", label: "Ağırlık aralığı", icon: "measure" },
+    { value: "100.000", label: "Sonuç kapasitesi", icon: "results" },
+  ],
+  inbody120: [
+    { value: "≈17 sn", label: "Test süresi", icon: "time" },
+    { value: "4,3 kg", label: "Cihaz ağırlığı", icon: "weight" },
+    { value: "Bluetooth", label: "Kablosuz bağlantı", icon: "switch" },
+    { value: "Taşınabilir", label: "Kompakt kullanım", icon: "measure" },
+  ],
+  "bwa2-0s": [
+    { value: "3 MHz", label: "En yüksek ölçüm frekansı", icon: "precision" },
+    { value: "30 / 60 sn", label: "Tıbbi ve araştırma modu", icon: "time" },
+    { value: "16 nokta", label: "Klamp elektrot sistemi", icon: "measure" },
+    { value: "100.000", label: "Sonuç kapasitesi", icon: "results" },
+  ],
+  inbodys10: [
+    { value: "6", label: "Ölçüm frekansı", icon: "precision" },
+    { value: "≈1 dk 50 sn", label: "Test süresi", icon: "time" },
+    { value: "2 kg", label: "Cihaz ağırlığı", icon: "weight" },
+    { value: "100.000", label: "Sonuç kapasitesi", icon: "results" },
+  ],
+  "bsm-370": [
+    { value: "≈7 sn", label: "Boy ve ağırlık ölçümü", icon: "time" },
+    { value: "±1 mm", label: "Boy ölçüm hassasiyeti", icon: "precision" },
+    { value: "10–200 kg", label: "Ağırlık aralığı", icon: "weight" },
+    { value: "3 bir arada", label: "Boy, ağırlık ve BMI", icon: "results" },
+  ],
+  "bsm-170": [
+    { value: "±1 mm", label: "Boy ölçüm hassasiyeti", icon: "precision" },
+    { value: "35–210 cm", label: "Boy ölçüm aralığı", icon: "measure" },
+    { value: "Bluetooth", label: "Kablosuz aktarım", icon: "switch" },
+    { value: "8,5 kg", label: "Cihaz ağırlığı", icon: "weight" },
+  ],
+  fra: [
+    { value: "10–15 dk", label: "Test süresi", icon: "time" },
+    { value: "0–150 kg", label: "Ölçüm aralığı", icon: "weight" },
+    { value: "19 inç", label: "Dokunmatik ekran", icon: "results" },
+    { value: "USB + LAN", label: "Bağlantı", icon: "switch" },
+  ],
+  ingrip: [
+    { value: "1–100 kg", label: "Ölçüm aralığı", icon: "weight" },
+    { value: "±0,5 kg", label: "Hata aralığı", icon: "precision" },
+    { value: "Bluetooth 5.0", label: "Kablosuz aktarım", icon: "switch" },
+    { value: "650 g", label: "Cihaz ağırlığı", icon: "measure" },
+  ],
+  "lookinbody-web": [
+    { value: "Web", label: "Tarayıcı tabanlı erişim", icon: "results" },
+    { value: "Bulut", label: "Merkezi veri yönetimi", icon: "switch" },
+    { value: "Çoklu cihaz", label: "Uyumlu InBody bağlantısı", icon: "measure" },
+    { value: "Mobil", label: "Dijital sonuç paylaşımı", icon: "specs" },
+  ],
+  "lookinbody-120": [
+    { value: "Windows", label: "Masaüstü yazılım", icon: "results" },
+    { value: "Ağ", label: "Bilgisayarlar arası paylaşım", icon: "switch" },
+    { value: "Grafik", label: "İlerleme takibi", icon: "measure" },
+    { value: "EMR", label: "Sistem entegrasyonu", icon: "specs" },
+  ],
+};
+
+const productShowcaseVisuals: Record<
+  string,
+  { src: string; alt: string; fit?: "cover" | "contain" }
+> = {
+  inbody970s: {
+    src: "/images/hero-970s.jpg",
+    alt: "Klinik ortamda InBody970S ile sonuç değerlendirmesi",
+  },
+  inbody770s: {
+    src: "/images/product-experience/inbody770s.png",
+    alt: "InBody770S ürün görseli",
+    fit: "contain",
+  },
+  inbody380: {
+    src: "/images/product-experience/inbody380.png",
+    alt: "Katlanabilir InBody380 cihazının yan görünümü",
+    fit: "contain",
+  },
+  inbody270s: {
+    src: "/images/product-experience/inbody270s.png",
+    alt: "Taşıma çantasıyla InBody270S",
+    fit: "contain",
+  },
+  inbody120: {
+    src: "/images/products/inbody120.png",
+    alt: "Taşınabilir InBody120 cihazı",
+    fit: "contain",
+  },
+  "bwa2-0s": {
+    src: "/images/product-experience/bwa20s.png",
+    alt: "BWA2.0S ile klinik vücut suyu ölçümü",
+  },
+  inbodys10: {
+    src: "/images/product-experience/inbodys10.png",
+    alt: "Taşıma arabası üzerinde InBodyS10",
+    fit: "contain",
+  },
+  "bsm-370": {
+    src: "/images/products/bsm370.png",
+    alt: "BSM 370 boy ve ağırlık ölçüm cihazı",
+    fit: "contain",
+  },
+  "bsm-170": {
+    src: "/images/products/bsm170.png",
+    alt: "BSM 170 dijital boy ölçer",
+    fit: "contain",
+  },
+  fra: {
+    src: "/images/professional-section.jpg",
+    alt: "Profesyonel değerlendirme ortamında InBody çözümü",
+  },
+  ingrip: {
+    src: "/images/product-experience/ingrip.png",
+    alt: "InGrip ile el kavrama gücü ölçümü",
+  },
+  "lookinbody-web": {
+    src: "/images/product-experience/lookinbody.png",
+    alt: "LookinBody veri yönetimi ekranı",
+    fit: "contain",
+  },
+  "lookinbody-120": {
+    src: "/images/product-experience/lookinbody.png",
+    alt: "LookinBody 120 veri yönetimi yazılımı",
+    fit: "contain",
+  },
+};
+
+function ProductMetrics({ product }: { product: Product }) {
+  const metrics = productMetricMap[product.slug];
+  if (!metrics) return null;
+
+  return (
+    <section className="product-metrics" aria-label={`${product.name} temel özellikleri`}>
+      <div className="shell product-metrics__grid">
+        {metrics.map((metric) => (
+          <div key={metric.label}>
+            <Icon name={metric.icon} />
+            <strong>{metric.value}</strong>
+            <span>{metric.label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ProductShowcase({ product }: { product: Product }) {
+  const visual = productShowcaseVisuals[product.slug];
+  if (!visual || !product.details) return null;
+
+  return (
+    <section className="product-showcase section">
+      <div className="shell product-showcase__grid">
+        <div className={`product-showcase__media product-showcase__media--${visual.fit ?? "cover"}`}>
+          <Image
+            src={visual.src}
+            alt={visual.alt}
+            fill
+            sizes="(max-width: 820px) 100vw, 52vw"
+          />
+        </div>
+        <div className="product-showcase__copy">
+          <p className="eyebrow">{product.name} deneyimi</p>
+          <h2>{product.details.title}</h2>
+          <p>{product.details.intro}</p>
+          <ul>
+            {product.details.features.slice(0, 3).map((feature) => (
+              <li key={feature.title}>
+                <Icon name="precision" />
+                <span>{feature.title}</span>
+              </li>
+            ))}
+          </ul>
+          <Link className="text-link" href={brochureHref(product)}>
+            Broşür talep edin <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function ProductBanner({ product }: { product: Product }) {
   const visual = product.bannerImage ?? product.image;
@@ -286,6 +502,7 @@ function StandardProductPage({ product }: { product: Product }) {
           </div>
         </div>
       </section>
+      <ProductMetrics product={product} />
       {product.details ? (
         <>
           <section className="product-content section">
@@ -298,9 +515,10 @@ function StandardProductPage({ product }: { product: Product }) {
               <ul className="product-feature-list">
                 {product.details.features.map((feature, index) => (
                   <li key={feature.title}>
-                    <span className="product-feature-icon" aria-hidden="true">
-                      {featureIcons[index % featureIcons.length]}
-                    </span>
+                    <Icon
+                      name={featureIcons[index % featureIcons.length]}
+                      className="product-feature-icon"
+                    />
                     <h3>{feature.title}</h3>
                     <p>{feature.text}</p>
                   </li>
@@ -308,6 +526,7 @@ function StandardProductPage({ product }: { product: Product }) {
               </ul>
             </div>
           </section>
+          <ProductShowcase product={product} />
           <section id="teknik-ozellikler" className="spec-section section section--soft">
             <div className="shell spec-section__grid">
               <SectionHeading

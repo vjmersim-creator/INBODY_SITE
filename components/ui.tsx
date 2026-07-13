@@ -84,21 +84,94 @@ export function ProductCard({ product }: { product: Product }) {
   );
 }
 
+const contentHeroImages: Record<string, { src: string; alt: string; position?: string }> = {
+  "biz-kimiz": {
+    src: "/images/official/about-hero.png",
+    alt: "InBody teknolojisinin profesyonel kullanım alanı",
+    position: "center 38%",
+  },
+  tarihce: {
+    src: "/images/official/dr-kichul-cha.png",
+    alt: "InBody kurucusu Dr. Kichul Cha ve InBody cihazı",
+    position: "center 22%",
+  },
+  "kuresel-ag": {
+    src: "/images/hero-970s.jpg",
+    alt: "Klinik ortamda InBody teknolojisi",
+    position: "center 46%",
+  },
+  "vucut-kompozisyonu-nedir": {
+    src: "/images/hero-results.jpg",
+    alt: "Vücut kompozisyonu sonuçlarının değerlendirilmesi",
+  },
+  "inbody-teknolojisi": {
+    src: "/images/hero-technology.jpg",
+    alt: "InBody vücut kompozisyonu analiz teknolojisi",
+  },
+  "inbody-testi": {
+    src: "/images/hero-touch.jpg",
+    alt: "InBody testi sırasında elektrot kullanımı",
+  },
+  "sonuc-sayfasi-yorumlama": {
+    src: "/images/hero-results.jpg",
+    alt: "InBody sonuç sayfasının profesyonel değerlendirmesi",
+  },
+  "sikca-sorulan-sorular": {
+    src: "/images/professional-section.jpg",
+    alt: "InBody hakkında bilgi veren sağlık profesyoneli",
+  },
+  "guvenlik-ve-temizlik-ipuclari": {
+    src: "/images/hero-touch.jpg",
+    alt: "InBody cihazında güvenli test deneyimi",
+  },
+};
+
+function getContentHero(page: ContentPage) {
+  if (page.heroImage) return page.heroImage;
+  if (contentHeroImages[page.slug]) return contentHeroImages[page.slug];
+  if (page.eyebrow === "Hakkımızda") return contentHeroImages["biz-kimiz"];
+  if (page.eyebrow === "Öğrenin") return contentHeroImages["inbody-teknolojisi"];
+  if (page.eyebrow === "Uygulamalar") {
+    return {
+      src: "/images/professional-section.jpg",
+      alt: `${page.title} için InBody kullanımı`,
+    };
+  }
+  return {
+    src: "/images/hero-results.jpg",
+    alt: `${page.title} sayfası üst görseli`,
+  };
+}
+
 export function ContentTemplate({ page }: { page: ContentPage }) {
+  const hero = getContentHero(page);
+
   return (
     <main id="ana-icerik">
-      <section className="subpage-hero">
-        <div className="shell shell--narrow">
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: page.eyebrow },
-              { label: page.title },
-            ]}
-          />
-          <p className="eyebrow">{page.eyebrow}</p>
-          <h1>{page.title}</h1>
-          <p className="subpage-hero__lead">{page.description}</p>
+      <section className="subpage-hero subpage-hero--visual">
+        <div className="shell subpage-hero__grid">
+          <div className="subpage-hero__copy">
+            <Breadcrumb
+              items={[
+                { label: "Ana Sayfa", href: "/" },
+                { label: page.eyebrow },
+                { label: page.title },
+              ]}
+            />
+            <p className="eyebrow">{page.eyebrow}</p>
+            <h1>{page.title}</h1>
+            <p className="subpage-hero__lead">{page.description}</p>
+          </div>
+          <div className="subpage-hero__media">
+            <Image
+              src={hero.src}
+              alt={hero.alt}
+              fill
+              priority
+              sizes="(max-width: 820px) 100vw, 46vw"
+              style={{ objectPosition: hero.position }}
+            />
+          </div>
         </div>
       </section>
       <section className="content-page section">
@@ -106,6 +179,25 @@ export function ContentTemplate({ page }: { page: ContentPage }) {
           {page.body.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
+        </div>
+        {page.feature ? (
+          <article className="shell content-feature">
+            <div className="content-feature__media">
+              <Image
+                src={page.feature.image}
+                alt={page.feature.alt}
+                fill
+                sizes="(max-width: 820px) 100vw, 45vw"
+              />
+            </div>
+            <div className="content-feature__copy">
+              <p className="eyebrow">{page.feature.eyebrow}</p>
+              <h2>{page.feature.title}</h2>
+              <p>{page.feature.text}</p>
+            </div>
+          </article>
+        ) : null}
+        <div className="shell shell--narrow content-page__copy content-page__copy--details">
           {page.sections ? (
             <div className="content-sections">
               {page.sections.map((section) => (

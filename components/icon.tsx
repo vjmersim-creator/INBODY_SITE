@@ -5,8 +5,12 @@ export type IconName =
   | "mail"
   | "measure"
   | "phone"
+  | "precision"
+  | "results"
   | "specs"
-  | "switch";
+  | "switch"
+  | "time"
+  | "weight";
 
 const iconGlyphs: Record<IconName, string> = {
   arrow: "→",
@@ -15,8 +19,12 @@ const iconGlyphs: Record<IconName, string> = {
   mail: "@",
   measure: "◎",
   phone: "⌁",
+  precision: "◈",
+  results: "▦",
   specs: "☷",
   switch: "⇄",
+  time: "◷",
+  weight: "↕",
 };
 
 export function Icon({ name, className = "" }: { name: IconName; className?: string }) {

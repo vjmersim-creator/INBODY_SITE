@@ -13,6 +13,14 @@ export type ContentPage = {
   timeline?: Array<{ label: string; text: string }>;
   steps?: Array<{ label: string; text: string }>;
   cta?: { href: string; label: string };
+  heroImage?: { src: string; alt: string; position?: string };
+  feature?: {
+    image: string;
+    alt: string;
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
   sourceUrl?: string;
 };
 
@@ -27,6 +35,18 @@ export const aboutPages: ContentPage[] = [
       "InBody’nin temelleri, Dr. Kichul Cha’nın mevcut Bioelektrik İmpedans Analizi yöntemlerinin sınırlamalarını aşma hedefiyle atıldı. 1996’da kurulan şirket, iki yıl sonra ilk InBody cihazını geliştirdi ve bugün 80’den fazla ülkede sağlık profesyonelleriyle çalışıyor.",
       "Yaklaşımın merkezinde, sağlığı yalnızca vücut ağırlığıyla değil; kas, yağ ve vücut suyu dağılımı gibi ölçülebilir bileşenlerle değerlendirmek yer alır.",
     ],
+    heroImage: {
+      src: "/images/official/about-hero.png",
+      alt: "InBody teknolojisinin profesyonel kullanım alanı",
+      position: "center 38%",
+    },
+    feature: {
+      image: "/images/official/dr-kichul-cha.png",
+      alt: "InBody kurucusu ve CEO'su Dr. Kichul Cha",
+      eyebrow: "Kurucumuz",
+      title: "Dr. Kichul Cha",
+      text: "Makine mühendisliği yaklaşımını vücut kompozisyonu analizine taşıyan Dr. Kichul Cha, daha doğru ve tekrarlanabilir bir BIA sistemi geliştirme hedefiyle InBody'yi 1996 yılında kurdu.",
+    },
     sections: [
       {
         title: "Misyonumuz",
