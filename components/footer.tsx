@@ -1,7 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { aboutLinks, learnLinks } from "@/content/navigation";
-import { listedProducts } from "@/content/products";
+
+const productCategoryLinks = [
+  { label: "Vücut Kompozisyonu Analizi", href: "/urunler#vucut-kompozisyonu" },
+  { label: "Vücut Suyu Analizi", href: "/urunler#vucut-suyu" },
+  { label: "Boy Ölçer", href: "/urunler#boy-olcer" },
+  { label: "InGrip", href: "/urunler#ingrip" },
+  { label: "Veri Yönetimi", href: "/urunler#veri-yonetimi" },
+];
 
 export function Footer() {
   return (
@@ -46,7 +53,7 @@ export function Footer() {
 
         <div className="site-footer__column">
           <p className="footer-title">Öğrenin</p>
-          {learnLinks.slice(0, 4).map((item) => (
+          {learnLinks.map((item) => (
             <Link key={item.href} href={item.href}>
               {item.label}
             </Link>
@@ -55,9 +62,9 @@ export function Footer() {
 
         <div className="site-footer__column">
           <p className="footer-title">Ürünler</p>
-          {listedProducts.slice(0, 6).map((product) => (
-            <Link key={product.slug} href={`/urunler/${product.slug}`}>
-              {product.name}
+          {productCategoryLinks.map((item) => (
+            <Link key={item.href} href={item.href}>
+              {item.label}
             </Link>
           ))}
           <Link href="/urunler" className="footer-all-link">
@@ -68,7 +75,6 @@ export function Footer() {
 
       <div className="site-footer__bottom shell">
         <p>© {new Date().getFullYear()} InBody Türkiye. Tüm hakları saklıdır.</p>
-        <p>Yerel demo sürümü</p>
       </div>
     </footer>
   );

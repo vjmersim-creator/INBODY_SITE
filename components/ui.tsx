@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Icon } from "@/components/icon";
 import type { ContentPage } from "@/content/pages";
 import type { Product } from "@/content/products";
 
@@ -256,6 +257,49 @@ export function ContentTemplate({ page }: { page: ContentPage }) {
             <p className="content-source">İçerik, InBody Türkiye’nin herkese açık sayfasından doğrulanmıştır.</p>
           ) : null}
         </div>
+        {page.locations ? (
+          <section className="shell content-locations" aria-labelledby="global-locations-title">
+            <div className="content-locations__heading">
+              <p className="eyebrow">Küresel InBody ağı</p>
+              <h2 id="global-locations-title">Dünya genelindeki InBody merkezleri</h2>
+              <p>
+                Genel merkez, bölgesel şubeler ve InBody Türkiye iletişim bilgilerini
+                aşağıda bulabilirsiniz.
+              </p>
+            </div>
+            <div className="content-locations__grid">
+              {page.locations.map((location) => (
+                <article className="location-card" key={`${location.name}-${location.region}`}>
+                  <div className="location-card__title">
+                    <Icon name="location" />
+                    <div>
+                      <span>{location.region}</span>
+                      <h3>{location.name}</h3>
+                    </div>
+                  </div>
+                  <address>{location.address}</address>
+                  <dl>
+                    {location.phone ? (
+                      <div>
+                        <dt>Telefon</dt>
+                        <dd>{location.phone}</dd>
+                      </div>
+                    ) : null}
+                    {location.customerCenter ? (
+                      <div>
+                        <dt>Müşteri merkezi</dt>
+                        <dd>{location.customerCenter}</dd>
+                      </div>
+                    ) : null}
+                  </dl>
+                  <a href={location.website} target="_blank" rel="noreferrer" className="text-link">
+                    {location.websiteLabel} <span aria-hidden="true">↗</span>
+                  </a>
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : null}
       </section>
       <ContactCta />
     </main>

@@ -85,6 +85,35 @@ export default async function ContactPage({
           </div>
         </div>
       </section>
+      <section className="contact-map" aria-labelledby="contact-map-title">
+        <iframe
+          title="InBody Türkiye ofis konumu"
+          src="https://www.google.com/maps?q=Fulya%2C%20B%C3%BCy%C3%BCkdere%20Cd.%20No%3A76%20D%3A177%2C%2034394%20%C5%9Ei%C5%9Fli%2F%C4%B0stanbul&z=16&output=embed"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
+        <div className="shell contact-map__overlay">
+          <div className="contact-map__card">
+            <Icon name="location" />
+            <p className="eyebrow">InBody Türkiye ofisi</p>
+            <h2 id="contact-map-title">Şişli, İstanbul</h2>
+            <address>
+              Fulya, Büyükdere Cd. No:76 D:177,
+              <br />
+              34394 Şişli / İstanbul, Türkiye
+            </address>
+            <a
+              className="button button--dark"
+              href="https://www.google.com/maps/search/?api=1&query=Fulya%2C%20B%C3%BCy%C3%BCkdere%20Cd.%20No%3A76%20D%3A177%2C%2034394%20%C5%9Ei%C5%9Fli%2F%C4%B0stanbul"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Yol tarifi alın <Icon name="arrow" />
+            </a>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

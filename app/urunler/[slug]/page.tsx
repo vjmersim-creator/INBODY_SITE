@@ -198,8 +198,8 @@ const productShowcaseVisuals: Record<
   { src: string; alt: string; fit?: "cover" | "contain" }
 > = {
   inbody970s: {
-    src: "/images/hero-970s.jpg",
-    alt: "Klinik ortamda InBody970S ile sonuç değerlendirmesi",
+    src: "/images/home-stories/inbody970s.png",
+    alt: "InBody970S, InGrip ve InBody Touch ile profesyonel sonuç değerlendirmesi",
   },
   inbody770s: {
     src: "/images/product-experience/inbody770s.png",

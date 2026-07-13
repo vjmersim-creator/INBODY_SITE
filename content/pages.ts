@@ -12,6 +12,15 @@ export type ContentPage = {
   faq?: Array<{ question: string; answer: string }>;
   timeline?: Array<{ label: string; text: string }>;
   steps?: Array<{ label: string; text: string }>;
+  locations?: Array<{
+    name: string;
+    region: string;
+    address: string;
+    phone?: string;
+    customerCenter?: string;
+    website: string;
+    websiteLabel: string;
+  }>;
   cta?: { href: string; label: string };
   heroImage?: { src: string; alt: string; position?: string };
   feature?: {
@@ -73,6 +82,13 @@ export const aboutPages: ContentPage[] = [
         title: "Küresel deneyim, yerel destek",
         paragraphs: [
           "InBody Türkiye; ürün seçimi, uygulama, eğitim ve satış sonrası süreçlerde kurumların ihtiyaçlarına uygun bir temas noktası sunar.",
+        ],
+      },
+      {
+        title: "CEO Mesajı",
+        paragraphs: [
+          "InBody, 1996 yılında kurulduğundan bu yana sağlık teknolojisinde kalıcı değer üretmeye ve alanında örnek bir şirket olmaya odaklanmaktadır.",
+          "Dünya lideri teknolojilerle topluma katkıda bulunma misyonu doğrultusunda, yüksek katma değerli ürün ve hizmetlerle sağlık ekosisteminin gelişimini desteklemeyi sürdürmektedir.",
         ],
       },
     ],
@@ -154,7 +170,114 @@ export const aboutPages: ContentPage[] = [
         ],
       },
     ],
-    sourceUrl: "https://tr.inbody.com/about/global-location.php",
+    locations: [
+      {
+        name: "InBody HQ",
+        region: "Kore",
+        address: "625, InBody Binası, Eonju-ro, Gangnam-gu, Seul 06106, Kore",
+        phone: "+82-2-501-3939",
+        customerCenter: "1899-5841",
+        website: "https://inbody.co.kr",
+        websiteLabel: "inbody.co.kr",
+      },
+      {
+        name: "InBody China",
+        region: "Çin",
+        address: "306b-308, MT2 Tower, MIXC, 3999 Hongxin Road, Minhang District, Shanghai, China",
+        phone: "+86-21-6443-9705",
+        website: "https://www.inbodychina.com",
+        websiteLabel: "inbodychina.com",
+      },
+      {
+        name: "InBody Europe",
+        region: "Avrupa",
+        address: "Gyroscoopweg 122, 1042 AZ Amsterdam, Netherlands",
+        phone: "+31 20-238-6080",
+        website: "https://nl.inbody.com",
+        websiteLabel: "nl.inbody.com",
+      },
+      {
+        name: "InBody India",
+        region: "Hindistan",
+        address: "SF-B-03, Roz-A-Rio Bungalow, Phoenix Market City, 2nd floor, Art Guild House, Lal Bahadur Shastri Marg, Kurla West, Mumbai, Maharashtra 400070, India",
+        phone: "+91 89767-86290",
+        website: "https://www.inbody.in",
+        websiteLabel: "inbody.in",
+      },
+      {
+        name: "InBody Japan",
+        region: "Japonya",
+        address: "1 Chome 28-6, Kameido, Koto City, Tokyo 136-0071, Japan",
+        phone: "+81-3-5875-5780",
+        website: "https://inbody.co.jp",
+        websiteLabel: "inbody.co.jp",
+      },
+      {
+        name: "InBody Asia",
+        region: "Malezya",
+        address: "Unit 3A-11 Oval Damansara, No.685 Jalan Damansara, Kuala Lumpur 60000, Malaysia",
+        phone: "+60 3-7732-0790",
+        website: "https://inbodyasia.com",
+        websiteLabel: "inbodyasia.com",
+      },
+      {
+        name: "InBody UK",
+        region: "Birleşik Krallık",
+        address: "Orega, Belmont Road, Uxbridge, UB8 1HE, United Kingdom",
+        phone: "+44 15305 69620",
+        website: "https://uk.inbody.com",
+        websiteLabel: "uk.inbody.com",
+      },
+      {
+        name: "InBody Vietnam",
+        region: "Vietnam",
+        address: "COBI TOWER 2, 2-4 Đường Số 8, Tân Phú, Tân Mỹ, Hồ Chí Minh 70000, Vietnam",
+        phone: "+84 969 836 595",
+        website: "https://inbodyvietnam.com",
+        websiteLabel: "inbodyvietnam.com",
+      },
+      {
+        name: "InBody Oceania",
+        region: "Avustralya",
+        address: "2/82-86 Minnie St, Southport QLD 4215, Australia",
+        phone: "+61 7 5681 1900",
+        website: "https://au.inbody.com",
+        websiteLabel: "au.inbody.com",
+      },
+      {
+        name: "InBody USA",
+        region: "ABD — California",
+        address: "13850 Cerritos Corporate Dr C, Cerritos, CA 90703, United States",
+        phone: "+1 323-932-6503",
+        website: "https://inbodyusa.com",
+        websiteLabel: "inbodyusa.com",
+      },
+      {
+        name: "InBody USA",
+        region: "ABD — New York",
+        address: "2550 Eisenhower Ave, Suite C209, Audubon, PA 19403, United States",
+        phone: "+1-562-741-3986",
+        website: "https://inbodyusa.com",
+        websiteLabel: "inbodyusa.com",
+      },
+      {
+        name: "InBody Mexico",
+        region: "Meksika",
+        address: "Av. Insurgentes Sur 1457, Piso 15, Insurgentes Mixcoac, Benito Juárez, 03920 Ciudad de México, Mexico",
+        phone: "+52 55-5025-0147",
+        website: "https://www.inbodymexico.com",
+        websiteLabel: "inbodymexico.com",
+      },
+      {
+        name: "InBody Türkiye",
+        region: "Türkiye",
+        address: "Fulya, Büyükdere Cd. No:76 D:177, 34394 Şişli / İstanbul, Türkiye",
+        phone: "+90 216 807 05 15",
+        website: "https://tr.inbody.com",
+        websiteLabel: "tr.inbody.com",
+      },
+    ],
+    sourceUrl: "https://tr.inbody.com/kuresel-ag/",
   },
 ];
 

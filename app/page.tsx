@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { HorizontalRail } from "@/components/horizontal-rail";
 import { ContactCta, ProductCard, SectionHeading } from "@/components/ui";
 import { products } from "@/content/products";
 
@@ -63,6 +64,87 @@ const categories = [
 
 const featuredProducts = products.filter((product) => product.featured);
 
+const homeStories = [
+  {
+    eyebrow: "Vücut kompozisyonu",
+    title: "Kapsamlı analiz için InBody970S",
+    description:
+      "3 MHz teknolojisi, farklı sonuç raporu seçenekleri ve ayrıntılı vücut kompozisyonu verileriyle profesyonel değerlendirmeyi destekler.",
+    image: "/images/home-stories/inbody970s.png",
+    alt: "InBody970S, InGrip ve InBody Touch ile profesyonel danışmanlık",
+    href: "/urunler/inbody970s",
+  },
+  {
+    eyebrow: "Vücut suyu analizi",
+    title: "Klinik ve araştırma uygulamaları için BWA2.0S",
+    description:
+      "Yatarak, oturarak veya ayakta ölçüm desteği; diyaliz takibi, araştırma ve hareket kabiliyeti kısıtlı kullanıcılar için esnek bir analiz yaklaşımı sunar.",
+    image: "/images/home-stories/bwa20s.png",
+    alt: "Stüdyo ortamında BWA2.0S vücut suyu analiz cihazı",
+    href: "/urunler/bwa2-0s",
+  },
+  {
+    eyebrow: "Taşınabilir analiz",
+    title: "Profesyonel değerlendirmeyi farklı noktalara taşıyın",
+    description:
+      "InBody270S; kompakt tasarımı, yaklaşık 30 saniyelik testi ve temel kas, yağ ve faz açısı göstergeleriyle saha ve kurum içi ölçümleri kolaylaştırır.",
+    image: "/images/products/inbody270s.png",
+    alt: "Taşınabilir InBody270S vücut kompozisyonu analiz cihazı",
+    href: "/urunler/inbody270s",
+    contain: true,
+  },
+  {
+    eyebrow: "Araştırma seviyesi",
+    title: "Vücut kompozisyonu ve vücut suyunu birlikte değerlendirin",
+    description:
+      "InBody770S; kapsamlı parametreleri, segmental analizleri ve iki farklı sonuç raporuyla klinik ve araştırma odaklı iş akışlarını destekler.",
+    image: "/images/product-experience/inbody770s.png",
+    alt: "InBody770S vücut kompozisyonu analiz cihazı",
+    href: "/urunler/inbody770s",
+    contain: true,
+  },
+];
+
+const knowledgeCards = [
+  {
+    eyebrow: "Temel bilgi",
+    title: "Vücut kompozisyonu nedir?",
+    description:
+      "Yağ, protein, mineral ve vücut suyu bileşenlerinin neden toplam ağırlıktan daha kapsamlı bir değerlendirme sunduğunu öğrenin.",
+    image: "/images/home-stories/athlete.png",
+    alt: "Sporcu performans verilerinin değerlendirilmesi",
+    href: "/ogren/vucut-kompozisyonu-nedir",
+  },
+  {
+    eyebrow: "Test rehberi",
+    title: "InBody testine doğru hazırlanın",
+    description:
+      "Ölçüm koşullarını standartlaştırın, elektrotlara doğru yerleşin ve tekrarlı testleri karşılaştırılabilir hâle getirin.",
+    image: "/images/home-stories/inbody-test.png",
+    alt: "InBody cihazında vücut kompozisyonu testi yapan kullanıcı",
+    href: "/ogren/inbody-testi",
+  },
+  {
+    eyebrow: "Sonuçları anlayın",
+    title: "Sonuç sayfasındaki verileri okuyun",
+    description:
+      "Kas, yağ, vücut suyu, segmental analiz ve değişim geçmişi alanlarını birlikte değerlendirerek sonuçların ne anlattığını keşfedin.",
+    image: "/images/home-stories/result-sheet.png",
+    alt: "InBody970S sonuç sayfası örnekleri",
+    href: "/ogren/sonuc-sayfasi-yorumlama",
+    contain: true,
+  },
+  {
+    eyebrow: "Kas fonksiyonu",
+    title: "El kavrama gücünü değerlendirmeye ekleyin",
+    description:
+      "InGrip, yük hücresi sensörü ve yönlendirici kulp tasarımıyla kavrama gücü ölçümlerini standartlaştırmaya yardımcı olur.",
+    image: "/images/home-stories/ingrip.png",
+    alt: "Sağlık profesyoneli tarafından InGrip ölçümü uygulanması",
+    href: "/urunler/ingrip",
+  },
+];
+
 export default function Home() {
   return (
     <main id="ana-icerik">
@@ -114,16 +196,59 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="cozumler" className="category-section section section--soft">
+      <section className="home-story-section section section--soft">
+        <div className="shell">
+          <div className="section-heading-row section-heading-row--rail">
+            <SectionHeading
+              eyebrow="InBody Türkiye'den öne çıkanlar"
+              title="İhtiyaca göre şekillenen profesyonel çözümler."
+              description="Güncel InBody Türkiye ürün ailesindeki farklı kullanım senaryolarını sağa kaydırarak inceleyin."
+            />
+          </div>
+          <HorizontalRail label="Öne çıkan InBody çözümleri" className="home-story-rail">
+            {homeStories.map((story, index) => (
+              <Link className="home-story-card" href={story.href} key={story.title}>
+                <div
+                  className={`home-story-card__media${story.contain ? " home-story-card__media--contain" : ""}`}
+                >
+                  <Image
+                    src={story.image}
+                    alt={story.alt}
+                    fill
+                    sizes="(max-width: 820px) 88vw, 54vw"
+                  />
+                </div>
+                <div className="home-story-card__copy">
+                  <span className="home-story-card__number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p className="eyebrow">{story.eyebrow}</p>
+                  <h3>{story.title}</h3>
+                  <p>{story.description}</p>
+                  <span className="text-link">
+                    Detayları inceleyin <span aria-hidden="true">↗</span>
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </HorizontalRail>
+        </div>
+      </section>
+
+      <section id="cozumler" className="category-section section">
         <div className="shell">
           <SectionHeading
             eyebrow="Çözüm alanları"
             title="Her ihtiyaca uygun bir InBody çözümü."
             description="Klinik değerlendirmeden fitness takibine, ölçümden veri yönetimine uzanan ürün ailemizi inceleyin."
           />
-          <div className="category-grid">
+          <HorizontalRail label="InBody ürün kategorileri" className="home-category-rail">
             {categories.map((category) => (
-              <Link className="category-card" href={category.href} key={category.title}>
+              <Link
+                className="category-card category-card--rail"
+                href={category.href}
+                key={category.title}
+              >
                 <div className="category-card__copy">
                   <h3>{category.title}</h3>
                   <p>{category.description}</p>
@@ -138,7 +263,7 @@ export default function Home() {
                 />
               </Link>
             ))}
-          </div>
+          </HorizontalRail>
         </div>
       </section>
 
@@ -153,11 +278,11 @@ export default function Home() {
               Tüm ürünler
             </Link>
           </div>
-          <div className="product-grid product-grid--three">
+          <HorizontalRail label="Öne çıkan InBody ürünleri" className="home-product-rail">
             {featuredProducts.map((product) => (
               <ProductCard product={product} key={product.slug} />
             ))}
-          </div>
+          </HorizontalRail>
         </div>
       </section>
 
@@ -182,53 +307,42 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="test-section section">
-        <div className="shell test-section__grid">
-          <div className="test-section__copy">
-            <p className="eyebrow">InBody testi</p>
-            <h2>Doğru ölçüm deneyimine hazırlanın.</h2>
-            <p>
-              Ellerinizi ve ayaklarınızı ölçüme hazırlayın, elektrotlara doğru
-              biçimde yerleşin ve test tamamlanana kadar rahatça hareketsiz
-              kalın. Düzenli takipte benzer ölçüm koşullarını korumak,
-              sonuçların karşılaştırılmasını kolaylaştırır.
-            </p>
-            <Link href="/ogren/inbody-testi" className="text-link">
-              InBody testini inceleyin <span aria-hidden="true">↗</span>
+      <section className="knowledge-section section">
+        <div className="shell">
+          <div className="section-heading-row section-heading-row--rail">
+            <SectionHeading
+              eyebrow="Öğrenin"
+              title="Verinin ne anlattığını adım adım keşfedin."
+              description="Vücut kompozisyonundan test hazırlığına, sonuç yorumlamadan kas fonksiyonuna kadar temel bilgi başlıkları."
+            />
+            <Link href="/ogren/vucut-kompozisyonu-nedir" className="button button--outline">
+              Tüm rehberler
             </Link>
           </div>
-          <div className="test-section__image">
-            <Image
-              src="/images/hero-touch.jpg"
-              alt="InBody cihazında test deneyimi"
-              fill
-              sizes="(max-width: 768px) 100vw, 52vw"
-            />
-          </div>
-        </div>
-      </section>
-
-      <section className="insight-section section">
-        <div className="shell insight-section__grid">
-          <div className="insight-section__image">
-            <Image
-              src="/images/hero-results.jpg"
-              alt="InBody sonuçlarının profesyonel değerlendirmesi"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-          <div className="insight-section__copy">
-            <p className="eyebrow">Sonuçları anlayın</p>
-            <h2>Bir ölçümden daha fazlası.</h2>
-            <p>
-              InBody Sonuç Sayfası, vücut kompozisyonu verilerini düzenli bir
-              yapıda sunar ve zaman içindeki değişimleri izlemeyi kolaylaştırır.
-            </p>
-            <Link href="/ogren/sonuc-sayfasi-yorumlama" className="text-link">
-              Sonuç sayfasını tanıyın <span aria-hidden="true">↗</span>
-            </Link>
-          </div>
+          <HorizontalRail label="InBody bilgi ve kullanım rehberleri" className="home-knowledge-rail">
+            {knowledgeCards.map((card) => (
+              <Link className="knowledge-card" href={card.href} key={card.title}>
+                <div
+                  className={`knowledge-card__media${card.contain ? " knowledge-card__media--contain" : ""}`}
+                >
+                  <Image
+                    src={card.image}
+                    alt={card.alt}
+                    fill
+                    sizes="(max-width: 820px) 82vw, 33vw"
+                  />
+                </div>
+                <div className="knowledge-card__copy">
+                  <p className="eyebrow">{card.eyebrow}</p>
+                  <h3>{card.title}</h3>
+                  <p>{card.description}</p>
+                  <span className="text-link">
+                    İnceleyin <span aria-hidden="true">↗</span>
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </HorizontalRail>
         </div>
       </section>
 
