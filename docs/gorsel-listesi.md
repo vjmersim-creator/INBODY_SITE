@@ -2,7 +2,7 @@
 
 Son güncelleme: 13 Temmuz 2026
 
-Tüm dosyalar Türkiye sitesinin herkese açık sayfalarından yerel projeye alınmıştır. Site çalışma zamanında canlı siteye bağlanmaz.
+Görseller, InBody Türkiye'nin herkese açık sayfalarından veya kullanıcı tarafından sağlanan ürün paketinden yerel projeye alınmıştır. Site çalışma zamanında canlı siteye bağlanmaz.
 
 | Yerel dosya | Boyut | Kaynak | Planlanan kullanım |
 |---|---:|---|---|
@@ -24,6 +24,14 @@ Tüm dosyalar Türkiye sitesinin herkese açık sayfalarından yerel projeye al�
 | `public/images/inbody580-detail-2.jpg` | 278×398 | `https://tr.inbody.com/wp-content/uploads/2026/02/580-cont1-img2.jpg` | InBody580 el elektrodu detayı |
 | `public/images/inbody580-detail-3.jpg` | 278×398 | `https://tr.inbody.com/wp-content/uploads/2026/02/580-cont1-img3.jpg` | InBody580 taban detayı |
 | `public/images/inbody580-detail-4.jpg` | 278×398 | `https://tr.inbody.com/wp-content/uploads/2026/02/580-cont1-img4.jpg` | InBody580 akıllı tanıma detayı |
+| `public/images/products/inbody770s.png` | 1066×1600 | Kullanıcının sağladığı `InBody/770_Front_2.png` | InBody770S ürün kartı ve ürün sayfası |
+| `public/images/products/inbody380.png` | 1202×1600 | Kullanıcının sağladığı `InBody/380_Front.png` | InBody380 ürün kartı ve ürün sayfası |
+| `public/images/products/inbody270s.png` | 681×1600 | Kullanıcının sağladığı `InBody/InBody270S.png` | InBody270S ürün kartı ve ürün sayfası |
+| `public/images/products/inbodys10.png` | 1280×1600 | Kullanıcının sağladığı `BWA/S10.png` | InBodyS10 ürün kartı ve ürün sayfası |
+| `public/images/products/bsm370.png` | 1280×1600 | Kullanıcının sağladığı `BSM370.png` | BSM 370 ürün kartı ve ürün sayfası |
+| `public/images/products/bsm170.png` | 1280×1600 | Kullanıcının sağladığı `BSM170B.png` | BSM 170 ürün kartı ve ürün sayfası |
+| `public/images/products/ingrip.png` | 1280×1600 | Kullanıcının sağladığı `InGrip.png` | InGrip ürün kartı ve ürün sayfası |
+| `public/images/products/lookinbody120.png` | 1280×1600 | Kullanıcının sağladığı `MAC LB.png` | LookinBody 120 ürün kartı ve ürün sayfası |
 
 ## Kullanım kuralları
 
@@ -31,4 +39,3 @@ Tüm dosyalar Türkiye sitesinin herkese açık sayfalarından yerel projeye al�
 - Her görsel açıklayıcı Türkçe `alt` metniyle kullanılır.
 - ABD sitesinin fotoğrafları ve müşteri logoları projeye alınmaz.
 - Bulunmayan cihaz görsellerinin yerine yapay cihaz resmi üretilmez.
-

@@ -8,12 +8,9 @@ Dosyaları nereye ve hangi adla koyacağınız için proje kökündeki
 
 ## Türkçe içerik onayı gereken alanlar
 
-- Tarihçe sayfasının güncel, eksiksiz ve editoryal olarak onaylı Türkçe metni
-- InBody Testi sayfasındaki tüm hazırlık ve uygulama adımlarının güncel metni
 - Sıkça Sorulan Sorular sayfasının güncel cevapları
 - Uygulamalar: Tıbbi, Fitness / Spor Salonu ve Sağlık sayfalarının kapsamlı içerikleri
 - Kaynaklar: blog, video ve katalog/broşür içerik listeleri
-- LookinBody 120 ürününün yeni siteye uygun Türkçe ürün özeti
 - FRA ürününün yeni site navigasyonundaki nihai konumu ve adlandırması
 - Her ürün için onaylı kısa SEO description metni
 
@@ -21,17 +18,17 @@ Bu alanlarda arayüzde `Onaylı Türkçe içerik eklenecek.` etiketi kullanılı
 
 ## Eksik veya doğrulanamayan görseller
 
-- InBody770S izole ürün görseli
-- InBody380 izole ürün görseli
-- InBody270S izole ürün görseli
-- InBodyS10 izole ürün görseli
-- BSM 370 ve BSM 170 ayrı ürün görselleri
 - FRA ayrı ürün görseli
-- InGrip ayrı ürün görseli
-- LookinBody 120 ekran/görsel seti
 - Sonuç Sayfası Yorumlama bölümü için güncel Türkiye sonuç sayfası görseli
 
 Bu sayfalarda yapay cihaz görseli yerine sade, oranı koruyan yer tutucu kullanılır.
+
+## Bu turda eklenenler
+
+- `tarihce.docx` içeriğinden kurumsal zaman çizelgesi
+- `inbodytesti.docx` içeriğinden beş adımlı InBody test prosedürü
+- `lookinbody120.docx` içeriğinden ürün özeti, özellikler ve sistem gereksinimleri
+- InBody770S, InBody380, InBody270S, InBodyS10, BSM 370, BSM 170, InGrip ve LookinBody 120 için optimize edilmiş ürün görselleri
 
 ## Teknik ve entegrasyon eksikleri
 

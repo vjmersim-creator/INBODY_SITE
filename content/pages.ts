@@ -4,6 +4,9 @@ export type ContentPage = {
   eyebrow: string;
   description: string;
   body: string[];
+  timeline?: Array<{ label: string; text: string }>;
+  steps?: Array<{ label: string; text: string }>;
+  cta?: { href: string; label: string };
   sourceUrl?: string;
 };
 
@@ -25,7 +28,55 @@ export const aboutPages: ContentPage[] = [
     title: "Tarihçe",
     eyebrow: "Hakkımızda",
     description: "InBody'nin kuruluşundan bugüne gelişim yolculuğu.",
-    body: ["Onaylı Türkçe içerik eklenecek."],
+    body: [
+      "InBody'nin yolculuğu, Bioelektrik İmpedans Analizi teknolojisini daha doğru ve güvenilir hâle getirme hedefiyle başladı. Sağlanan kurumsal tarihçe metnindeki önemli dönüm noktaları aşağıda yer alıyor.",
+    ],
+    timeline: [
+      {
+        label: "1990'ların başları",
+        text: "Dr. Kichul Cha, dönemin BIA cihazlarının doğru sonuç vermediğini fark ederek vücut kompozisyonu analizine yönelik yeni bir yaklaşım geliştirmeye başladı.",
+      },
+      {
+        label: "1996",
+        text: "InBody Güney Kore'de kuruldu. Doğrudan Segmental Çok Frekanslı BIA ve sekiz noktalı dokunsal elektrot sistemiyle ampirik tahminlere dayanmayan ölçüm yaklaşımı geliştirildi.",
+      },
+      {
+        label: "2000",
+        text: "İlk yurt dışı şubesi Beverly Hills'te açıldı. InBody teknolojisi FDA onayı aldı ve araştırmalarla doğrulandı.",
+      },
+      {
+        label: "2009",
+        text: "GE Healthcare ile stratejik iş ortaklığı kuruldu.",
+      },
+      {
+        label: "2012",
+        text: "ABD ofisi Cerritos'a taşındı.",
+      },
+      {
+        label: "2013",
+        text: "Segmental yağ analizi ve visseral yağ seviyesi sunan InBody570 piyasaya sürüldü.",
+      },
+      {
+        label: "2014",
+        text: "InBody770 piyasaya sürüldü; InBody570, Red Dot Tasarım Ödülü'nü kazandı.",
+      },
+      {
+        label: "2015",
+        text: "InBody770 iF Tasarım Ödülü'nü kazandı. InBody, doğrudan yabancı yatırım ödülüne layık görüldü; BAND ve InLab CES İnovasyon Ödülü aldı ve ilk giyilebilir ürün BAND tanıtıldı.",
+      },
+      {
+        label: "2016",
+        text: "LookinBody Web ve InBody270 piyasaya sürüldü.",
+      },
+      {
+        label: "2017",
+        text: "BAND2 ve EZTraining tanıtıldı.",
+      },
+      {
+        label: "2019",
+        text: "BPBIO320S nisan ayında, H20N ise mayıs ayında piyasaya sürüldü.",
+      },
+    ],
   },
   {
     slug: "kuresel-ag",
@@ -69,7 +120,35 @@ export const learnPages: ContentPage[] = [
     title: "InBody Testi",
     eyebrow: "Öğrenin",
     description: "InBody testine hazırlık ve test prosedürü.",
-    body: ["Onaylı Türkçe içerik eklenecek."],
+    body: [
+      "Doğru ve tutarlı bir test deneyimi için ölçüm sırasında aşağıdaki adımları sırayla uygulayın.",
+    ],
+    steps: [
+      {
+        label: "01",
+        text: "Ellerinizi ve ayaklarınızı bir InBody Bezi ile silin. InBody Bezi, akım iletkenliğini artırmaya yardımcı olacaktır.",
+      },
+      {
+        label: "02",
+        text: "InBody'ye çıkın ve kilonuzu ölçün. Ayaklarınızı ayak elektrotlarıyla hizaladığınızdan emin olun.",
+      },
+      {
+        label: "03",
+        text: "İstendiğinde kişisel profilinizi girin. Profiliniz, ilerlemenizi takip etmenize olanak tanıyacaktır. Kişisel profilinizi onayladıktan sonra Enter tuşuna basarak testi başlatın.",
+      },
+      {
+        label: "04",
+        text: "Kollarınızı tutun ve başparmaklarınızı oval elektrotlara yerleştirin.",
+      },
+      {
+        label: "05",
+        text: "Kollarınızı düz tutun ve vücudunuzdan uzak tutun. Test tamamlanana kadar rahat ve hareketsiz kalın. InBody sonuçlarınız test tamamlandığında otomatik olarak yazdırılacaktır. İşte böylece bir InBody Testi yaptınız.",
+      },
+    ],
+    cta: {
+      href: "/ogren/sonuc-sayfasi-yorumlama",
+      label: "Sonuç Sayfası Yorumunu inceleyin",
+    },
   },
   {
     slug: "sonuc-sayfasi-yorumlama",
@@ -165,4 +244,3 @@ export const resourcePages: ContentPage[] = [
 export function getPageBySlug(pages: ContentPage[], slug: string) {
   return pages.find((page) => page.slug === slug);
 }
-

@@ -900,6 +900,69 @@ h3 {
   line-height: 1.55;
 }
 
+.content-timeline,
+.content-steps {
+  margin: 56px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.content-timeline {
+  border-top: 1px solid var(--line);
+}
+
+.content-timeline li {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 30px;
+  border-bottom: 1px solid var(--line);
+  padding-block: 27px;
+}
+
+.content-timeline strong {
+  color: var(--red);
+  font-family: var(--display);
+  font-size: 1.08rem;
+  font-weight: 750;
+}
+
+.content-timeline p,
+.content-steps p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.content-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.content-steps li {
+  min-height: 230px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  padding: 30px;
+}
+
+.content-steps li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  min-height: 0;
+}
+
+.content-steps span {
+  display: block;
+  margin-bottom: 40px;
+  color: var(--red);
+  font-family: var(--display);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.content-page__cta {
+  margin-top: 36px;
+}
+
 .content-page__copy .content-source {
   margin-top: 54px;
   border-top: 1px solid var(--line);
@@ -1576,6 +1639,41 @@ h3 {
   font-size: 0.9rem;
 }
 
+.product-content__grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 80px;
+}
+
+.product-feature-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product-feature-list li {
+  position: relative;
+  min-height: 145px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  padding: 52px 24px 24px;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.product-feature-list li::before {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  width: 22px;
+  height: 2px;
+  background: var(--red);
+  content: "";
+}
+
 .product-template-note {
   text-align: center;
 }
@@ -1741,8 +1839,13 @@ h3 {
   .product-detail-hero__grid,
   .product-tech__grid,
   .spec-section__grid,
+  .product-content__grid,
   .contact-page__grid {
     grid-template-columns: 1fr;
+  }
+
+  .product-content__grid {
+    gap: 44px;
   }
 
   .product-detail-hero__grid > .product-visual {
@@ -1841,6 +1944,20 @@ h3 {
   .spec-list > div {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+
+  .content-timeline li {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .content-steps,
+  .product-feature-list {
+    grid-template-columns: 1fr;
+  }
+
+  .content-steps li:last-child:nth-child(odd) {
+    grid-column: auto;
   }
 
   .contact-page__form-wrap {

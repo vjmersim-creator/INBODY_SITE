@@ -24,6 +24,16 @@
 .DS_Store
 *.pem
 
+# user-provided source files (optimized copies live under public/images)
+GELEN_ICERIKLER/**/*.docx
+GELEN_ICERIKLER/**/*.pdf
+GELEN_ICERIKLER/**/*.png
+GELEN_ICERIKLER/**/*.jpg
+GELEN_ICERIKLER/**/*.jpeg
+GELEN_ICERIKLER/**/*.webp
+GELEN_ICERIKLER/**/*.xlsx
+GELEN_ICERIKLER/**/*.txt
+
 # debug
 npm-debug.log*
 yarn-debug.log*

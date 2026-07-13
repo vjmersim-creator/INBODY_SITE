@@ -236,13 +236,49 @@ function StandardProductPage({ product }: { product: Product }) {
           </div>
         </div>
       </section>
-      <section className="product-template-note section">
-        <div className="shell shell--narrow">
-          <p className="eyebrow">Ürün içeriği</p>
-          <h2>Bu sayfanın ayrıntılı ürün modülleri hazırlanıyor.</h2>
-          <p>Onaylı Türkçe içerik eklenecek.</p>
-        </div>
-      </section>
+      {product.details ? (
+        <>
+          <section className="product-content section">
+            <div className="shell product-content__grid">
+              <SectionHeading
+                eyebrow={product.name}
+                title="Verilerinizi tek yerde yönetin."
+                description={product.details.intro}
+              />
+              <ul className="product-feature-list">
+                {product.details.features.map((feature) => (
+                  <li key={feature}>{feature}</li>
+                ))}
+              </ul>
+            </div>
+          </section>
+          <section className="spec-section section section--soft">
+            <div className="shell spec-section__grid">
+              <SectionHeading
+                eyebrow="LookinBody120"
+                title="Belgede yer alan sistem gereksinimleri"
+                description={product.details.note}
+              />
+              <dl className="spec-list">
+                {product.details.specifications.map(({ label, value }) => (
+                  <div key={label}>
+                    <dt>{label}</dt>
+                    <dd>{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </section>
+        </>
+      ) : (
+        <section className="product-template-note section">
+          <div className="shell shell--narrow">
+            <p className="eyebrow">Ürün içeriği</p>
+            <h2>Bu sayfanın ayrıntılı ürün modülleri hazırlanıyor.</h2>
+            <p>Onaylı Türkçe içerik eklenecek.</p>
+          </div>
+        </section>
+      )}
       <ContactCta />
     </main>
   );

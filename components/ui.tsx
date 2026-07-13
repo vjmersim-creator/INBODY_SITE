@@ -106,6 +106,31 @@ export function ContentTemplate({ page }: { page: ContentPage }) {
           {page.body.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
+          {page.timeline ? (
+            <ol className="content-timeline" aria-label={`${page.title} zaman çizelgesi`}>
+              {page.timeline.map((item) => (
+                <li key={item.label}>
+                  <strong>{item.label}</strong>
+                  <p>{item.text}</p>
+                </li>
+              ))}
+            </ol>
+          ) : null}
+          {page.steps ? (
+            <ol className="content-steps" aria-label={`${page.title} adımları`}>
+              {page.steps.map((item) => (
+                <li key={item.label}>
+                  <span aria-hidden="true">{item.label}</span>
+                  <p>{item.text}</p>
+                </li>
+              ))}
+            </ol>
+          ) : null}
+          {page.cta ? (
+            <Link className="button button--red content-page__cta" href={page.cta.href}>
+              {page.cta.label} <span aria-hidden="true">↗</span>
+            </Link>
+          ) : null}
           {page.sourceUrl ? (
             <p className="content-source">İçerik, InBody Türkiye’nin herkese açık sayfasından doğrulanmıştır.</p>
           ) : null}
