@@ -30,6 +30,7 @@ Yeni dosyaları nereye ve hangi adla koyacağınız için proje kökündeki
 
 - FRA için ayrı, onaylı ve şeffaf arka planlı PNG ürün görseli
 - Sonuç Sayfası Yorumlama bölümü için güncel Türkiye sonuç sayfası PNG görseli
+- InBody580 dışındaki ürünler için isteğe bağlı yatay kullanım / yaşam tarzı üst görselleri
 
 Güncel ürün menüsündeki cihaz görselleri PNG formatındadır. FRA ana menüde yer
 almadığı için doğrudan rota üzerinde sade yer tutucu kullanılmaya devam eder.

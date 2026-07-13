@@ -35,6 +35,7 @@ Görseller, InBody Türkiye'nin herkese açık sayfalarından veya kullanıcı t
 | `public/images/products/bsm170.png` | 1280×1600 | Kullanıcının sağladığı `BSM170B.png` | BSM 170 ürün kartı ve ürün sayfası |
 | `public/images/products/ingrip.png` | 1280×1600 | Kullanıcının sağladığı `InGrip.png` | InGrip ürün kartı ve ürün sayfası |
 | `public/images/products/lookinbody120.png` | 1280×1600 | Kullanıcının sağladığı `MAC LB.png` | LookinBody 120 ürün kartı ve ürün sayfası |
+| `public/images/product-banners/inbody580.png` | 1312×1100 | Kullanıcının sağladığı `580 usa web1.png` | InBody580 ürün sayfası üst görseli |
 
 ## Kullanım kuralları
 
@@ -43,3 +44,4 @@ Görseller, InBody Türkiye'nin herkese açık sayfalarından veya kullanıcı t
 - Her görsel açıklayıcı Türkçe `alt` metniyle kullanılır.
 - ABD sitesinin fotoğrafları ve müşteri logoları projeye alınmaz.
 - Bulunmayan cihaz görsellerinin yerine yapay cihaz resmi üretilmez.
+- Özel üst fotoğrafı bulunmayan ürünlerde onaylı cihaz PNG'si başlık bandında kullanılır.

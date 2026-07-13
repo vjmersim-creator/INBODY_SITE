@@ -2,10 +2,15 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Icon } from "@/components/icon";
+import {
+  ProductQuickNav,
+  ProductRail,
+  type ProductNavigationItem,
+} from "@/components/product-navigation";
 import {
   Breadcrumb,
   ContactCta,
-  ProductCard,
   ProductVisual,
   SectionHeading,
 } from "@/components/ui";
@@ -14,6 +19,16 @@ import { listedProducts, products, type Product } from "@/content/products";
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
 };
+
+const navigationProducts: ProductNavigationItem[] = listedProducts.map(
+  ({ slug, name, categoryLabel, image }) => ({ slug, name, categoryLabel, image }),
+);
+
+const featureIcons = ["◎", "⌁", "▦", "⇄", "◌", "✓"];
+
+function brochureHref(product: Product) {
+  return `/iletisim?urun=${product.slug}&talep=brosur#iletisim-formu`;
+}
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -33,8 +48,10 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
       title: `${product.name} | InBody Türkiye`,
       description: product.summary,
       url: `/urunler/${product.slug}`,
-      images: product.image
-        ? [{ url: product.image.src, alt: product.image.alt }]
+      images: product.bannerImage
+        ? [{ url: product.bannerImage.src, alt: product.bannerImage.alt }]
+        : product.image
+          ? [{ url: product.image.src, alt: product.image.alt }]
         : undefined,
     },
   };
@@ -82,13 +99,42 @@ const specifications = [
   ["Garanti", "2 yıl"],
 ];
 
-function InBody580Page({ product }: { product: Product }) {
-  const related = listedProducts.filter(
-    (item) => item.category === "body-composition" && item.slug !== product.slug,
-  ).slice(0, 3);
+function ProductBanner({ product }: { product: Product }) {
+  const visual = product.bannerImage ?? product.image;
+  if (!visual) return null;
+
+  const isPhoto = Boolean(product.bannerImage);
 
   return (
+    <section
+      className={`product-page-banner product-page-banner--${isPhoto ? "photo" : "cutout"}`}
+      aria-label={`${product.name} üst görseli`}
+    >
+      <Image
+        src={visual.src}
+        alt={visual.alt}
+        fill
+        priority
+        sizes="100vw"
+        style={{ objectPosition: product.bannerImage?.position }}
+      />
+      <div className="product-page-banner__shade" />
+      <div className="shell product-page-banner__caption">
+        <Icon name="measure" />
+        <div>
+          <span>{product.categoryLabel}</span>
+          <strong>{product.name}</strong>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function InBody580Page({ product }: { product: Product }) {
+  return (
     <main id="ana-icerik">
+      <ProductQuickNav currentSlug={product.slug} products={navigationProducts} />
+      <ProductBanner product={product} />
       <section className="product-detail-hero">
         <div className="shell">
           <Breadcrumb
@@ -105,11 +151,11 @@ function InBody580Page({ product }: { product: Product }) {
               <h2>Uzman görüşleri için derinlemesine sağlık değerlendirmeleri.</h2>
               <p>{product.summary}</p>
               <div className="button-row">
-                <Link className="button button--red" href="/iletisim">
-                  Bilgi alın <span aria-hidden="true">↗</span>
+                <Link className="button button--red" href={brochureHref(product)}>
+                  <Icon name="brochure" /> Broşür Talep Et
                 </Link>
                 <a className="button button--outline" href="#teknik-ozellikler">
-                  Teknik özellikler
+                  <Icon name="specs" /> Teknik özellikler
                 </a>
               </div>
             </div>
@@ -139,10 +185,13 @@ function InBody580Page({ product }: { product: Product }) {
           </div>
         </div>
         <div className="shell product-detail-grid">
-          {detailCards.map((card) => (
+          {detailCards.map((card, index) => (
             <article className="detail-card" key={card.title}>
               <Image src={card.image} alt={card.alt} width={278} height={398} />
               <div>
+                <span className="detail-card__icon" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
                 <h3>{card.title}</h3>
                 <p>{card.text}</p>
               </div>
@@ -196,16 +245,8 @@ function InBody580Page({ product }: { product: Product }) {
         </div>
       </section>
 
-      <section className="related-products section">
-        <div className="shell">
-          <SectionHeading eyebrow="Diğer modeller" title="Ürün ailesini keşfedin." />
-          <div className="product-grid product-grid--three">
-            {related.map((item) => <ProductCard product={item} key={item.slug} />)}
-          </div>
-        </div>
-      </section>
-
       <ContactCta />
+      <ProductRail currentSlug={product.slug} products={navigationProducts} />
     </main>
   );
 }
@@ -213,6 +254,8 @@ function InBody580Page({ product }: { product: Product }) {
 function StandardProductPage({ product }: { product: Product }) {
   return (
     <main id="ana-icerik">
+      <ProductQuickNav currentSlug={product.slug} products={navigationProducts} />
+      <ProductBanner product={product} />
       <section className="product-detail-hero product-detail-hero--standard">
         <div className="shell">
           <Breadcrumb
@@ -228,9 +271,16 @@ function StandardProductPage({ product }: { product: Product }) {
               <h1>{product.name}</h1>
               <h2>{product.eyebrow}</h2>
               <p>{product.summary}</p>
-              <Link className="button button--red" href="/iletisim">
-                Bilgi alın <span aria-hidden="true">↗</span>
-              </Link>
+              <div className="button-row">
+                <Link className="button button--red" href={brochureHref(product)}>
+                  <Icon name="brochure" /> Broşür Talep Et
+                </Link>
+                {product.details ? (
+                  <a className="button button--outline" href="#teknik-ozellikler">
+                    <Icon name="specs" /> Teknik özellikler
+                  </a>
+                ) : null}
+              </div>
             </div>
             <ProductVisual product={product} priority />
           </div>
@@ -246,8 +296,11 @@ function StandardProductPage({ product }: { product: Product }) {
                 description={product.details.intro}
               />
               <ul className="product-feature-list">
-                {product.details.features.map((feature) => (
+                {product.details.features.map((feature, index) => (
                   <li key={feature.title}>
+                    <span className="product-feature-icon" aria-hidden="true">
+                      {featureIcons[index % featureIcons.length]}
+                    </span>
                     <h3>{feature.title}</h3>
                     <p>{feature.text}</p>
                   </li>
@@ -255,7 +308,7 @@ function StandardProductPage({ product }: { product: Product }) {
               </ul>
             </div>
           </section>
-          <section className="spec-section section section--soft">
+          <section id="teknik-ozellikler" className="spec-section section section--soft">
             <div className="shell spec-section__grid">
               <SectionHeading
                 eyebrow={product.name}
@@ -283,6 +336,7 @@ function StandardProductPage({ product }: { product: Product }) {
         </section>
       )}
       <ContactCta />
+      <ProductRail currentSlug={product.slug} products={navigationProducts} />
     </main>
   );
 }

@@ -19,6 +19,11 @@ export type Product = {
     height: number;
     alt: string;
   };
+  bannerImage?: {
+    src: string;
+    alt: string;
+    position?: string;
+  };
   details?: {
     title: string;
     intro: string;
@@ -195,6 +200,11 @@ export const products: Product[] = [
       width: 1202,
       height: 1600,
       alt: "InBody580 vücut kompozisyonu analiz cihazı",
+    },
+    bannerImage: {
+      src: "/images/product-banners/inbody580.png",
+      alt: "InBody580 ile profesyonel vücut kompozisyonu ölçümü",
+      position: "center 34%",
     },
     featured: true,
   },

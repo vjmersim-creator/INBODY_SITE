@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
+import { Icon } from "@/components/icon";
 import { Breadcrumb } from "@/components/ui";
+import { products } from "@/content/products";
 
 export const metadata: Metadata = {
   title: "İletişim",
@@ -16,7 +18,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ urun?: string; talep?: string }>;
+}) {
+  const { urun, talep } = await searchParams;
+  const selectedProduct = products.find((product) => product.slug === urun);
+  const productOptions = products
+    .filter((product) => product.listed !== false || product.slug === selectedProduct?.slug)
+    .map((product) => ({ value: product.slug, label: product.name }));
+  const initialMessage =
+    selectedProduct && talep === "brosur"
+      ? `${selectedProduct.name} ürün broşürünü talep ediyorum.`
+      : "";
+
   return (
     <main id="ana-icerik">
       <section className="contact-page section">
@@ -32,26 +48,39 @@ export default function ContactPage() {
               </p>
               <div className="contact-details">
                 <div>
-                  <span>E-posta</span>
-                  <Link href="mailto:inbody_turkiye@inbody.com">
-                    inbody_turkiye@inbody.com
-                  </Link>
+                  <Icon name="mail" />
+                  <div>
+                    <span>E-posta</span>
+                    <Link href="mailto:inbody_turkiye@inbody.com">
+                      inbody_turkiye@inbody.com
+                    </Link>
+                  </div>
                 </div>
                 <div>
-                  <span>Telefon</span>
-                  <Link href="tel:+902168070515">0216 807 05 15</Link>
+                  <Icon name="phone" />
+                  <div>
+                    <span>Telefon</span>
+                    <Link href="tel:+902168070515">0216 807 05 15</Link>
+                  </div>
                 </div>
                 <div>
-                  <span>Adres</span>
-                  <address>
-                    Fulya, Büyükdere Cd. No:76 D:177, 34394 Şişli / İstanbul,
-                    Türkiye
-                  </address>
+                  <Icon name="location" />
+                  <div>
+                    <span>Adres</span>
+                    <address>
+                      Fulya, Büyükdere Cd. No:76 D:177, 34394 Şişli / İstanbul,
+                      Türkiye
+                    </address>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="contact-page__form-wrap">
-              <ContactForm />
+              <ContactForm
+                initialMessage={initialMessage}
+                initialProduct={selectedProduct?.slug}
+                productOptions={productOptions}
+              />
             </div>
           </div>
         </div>

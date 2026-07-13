@@ -1,8 +1,19 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { Icon } from "@/components/icon";
 
-export function ContactForm() {
+type ProductOption = { value: string; label: string };
+
+export function ContactForm({
+  initialMessage = "",
+  initialProduct = "",
+  productOptions,
+}: {
+  initialMessage?: string;
+  initialProduct?: string;
+  productOptions: ProductOption[];
+}) {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -11,7 +22,16 @@ export function ContactForm() {
   };
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit}>
+    <form id="iletisim-formu" className="contact-form" onSubmit={handleSubmit}>
+      {initialProduct ? (
+        <div className="form-intent">
+          <Icon name="brochure" />
+          <div>
+            <strong>Broşür talebi</strong>
+            <span>Seçtiğiniz ürün formda hazır.</span>
+          </div>
+        </div>
+      ) : null}
       <div className="field-grid">
         <div className="field">
           <label htmlFor="organization">Kuruluş Adı</label>
@@ -33,21 +53,22 @@ export function ContactForm() {
 
       <div className="field">
         <label htmlFor="interest">İlgilendiğiniz ürün veya konu</label>
-        <select id="interest" name="interest" defaultValue="">
+        <select id="interest" name="interest" defaultValue={initialProduct}>
           <option value="" disabled>
             Lütfen seçin
           </option>
-          <option value="body-composition">Vücut Kompozisyonu Analiz Cihazları</option>
-          <option value="body-water">Vücut Suyu Analiz Cihazları</option>
-          <option value="height">Boy Ölçer</option>
-          <option value="data">Veri Yönetimi</option>
+          {productOptions.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
           <option value="other">Diğer</option>
         </select>
       </div>
 
       <div className="field">
         <label htmlFor="message">Mesajınız</label>
-        <textarea id="message" name="message" rows={6} required />
+        <textarea id="message" name="message" rows={6} defaultValue={initialMessage} required />
       </div>
 
       <label className="check-field">
@@ -56,7 +77,7 @@ export function ContactForm() {
       </label>
 
       <button className="button button--red" type="submit">
-        Talebi gönder <span aria-hidden="true">↗</span>
+        Talebi gönder <Icon name="arrow" />
       </button>
 
       <p className="form-note">
@@ -68,4 +89,3 @@ export function ContactForm() {
     </form>
   );
 }
-
