@@ -11,6 +11,7 @@ Dosyaları nereye ve hangi adla koyacağınız için proje kökündeki
 - Sıkça Sorulan Sorular sayfasının güncel cevapları
 - Uygulamalar: Tıbbi, Fitness / Spor Salonu ve Sağlık sayfalarının kapsamlı içerikleri
 - Kaynaklar: blog, video ve katalog/broşür içerik listeleri
+- InBodyS10, BSM 370, BSM 170, FRA, InGrip ve LookinBody Web için ayrıntılı katalog veya onaylı ürün metni
 - FRA ürününün yeni site navigasyonundaki nihai konumu ve adlandırması
 - Her ürün için onaylı kısa SEO description metni
 
@@ -29,6 +30,9 @@ Bu sayfalarda yapay cihaz görseli yerine sade, oranı koruyan yer tutucu kullan
 - `inbodytesti.docx` içeriğinden beş adımlı InBody test prosedürü
 - `lookinbody120.docx` içeriğinden ürün özeti, özellikler ve sistem gereksinimleri
 - InBody770S, InBody380, InBody270S, InBodyS10, BSM 370, BSM 170, InGrip ve LookinBody 120 için optimize edilmiş ürün görselleri
+- InBody970S, InBody770S, InBody380, InBody270S ve BWA2.0S kataloglarından ayrıntılı özellik ve teknik tablolar
+- Sağlanan Türkçe katalogdan yeni InBody120 ürün sayfası
+- InBody580, BWA2.0S ve InBody120 için yüksek çözünürlüklü, şeffaf kanallı PNG ürün görselleri
 
 ## Teknik ve entegrasyon eksikleri
 

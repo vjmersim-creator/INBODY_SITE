@@ -242,12 +242,15 @@ function StandardProductPage({ product }: { product: Product }) {
             <div className="shell product-content__grid">
               <SectionHeading
                 eyebrow={product.name}
-                title="Verilerinizi tek yerde yönetin."
+                title={product.details.title}
                 description={product.details.intro}
               />
               <ul className="product-feature-list">
                 {product.details.features.map((feature) => (
-                  <li key={feature}>{feature}</li>
+                  <li key={feature.title}>
+                    <h3>{feature.title}</h3>
+                    <p>{feature.text}</p>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -255,8 +258,8 @@ function StandardProductPage({ product }: { product: Product }) {
           <section className="spec-section section section--soft">
             <div className="shell spec-section__grid">
               <SectionHeading
-                eyebrow="LookinBody120"
-                title="Belgede yer alan sistem gereksinimleri"
+                eyebrow={product.name}
+                title="Teknik özellikler"
                 description={product.details.note}
               />
               <dl className="spec-list">

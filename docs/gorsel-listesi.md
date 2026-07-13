@@ -19,7 +19,7 @@ Görseller, InBody Türkiye'nin herkese açık sayfalarından veya kullanıcı t
 | `public/images/product-category-data.png` | 151×307 | `https://tr.inbody.com/wp-content/uploads/2026/01/product-img4.png` | Veri yönetimi kategorisi |
 | `public/images/professional-section.jpg` | 613×455 | `https://tr.inbody.com/wp-content/uploads/2026/01/main-professional.jpg` | Kurumsal bölüm |
 | `public/images/products-hero.jpg` | 1920×680 | `https://tr.inbody.com/wp-content/uploads/2026/01/sv3.jpg` | Ürünler sayfası üst alanı |
-| `public/images/inbody580-device.jpg` | 580×740 | `https://tr.inbody.com/wp-content/uploads/2026/02/580-img1.jpg` | InBody580 pilot hero |
+| `public/images/inbody580-device.jpg` | 580×740 | `https://tr.inbody.com/wp-content/uploads/2026/02/580-img1.jpg` | Yerel arşiv; ürün sayfasında kullanılmıyor |
 | `public/images/inbody580-detail-1.jpg` | 278×398 | `https://tr.inbody.com/wp-content/uploads/2026/02/580-cont1-img1.jpg` | InBody580 ekran detayı |
 | `public/images/inbody580-detail-2.jpg` | 278×398 | `https://tr.inbody.com/wp-content/uploads/2026/02/580-cont1-img2.jpg` | InBody580 el elektrodu detayı |
 | `public/images/inbody580-detail-3.jpg` | 278×398 | `https://tr.inbody.com/wp-content/uploads/2026/02/580-cont1-img3.jpg` | InBody580 taban detayı |
@@ -27,6 +27,9 @@ Görseller, InBody Türkiye'nin herkese açık sayfalarından veya kullanıcı t
 | `public/images/products/inbody770s.png` | 1066×1600 | Kullanıcının sağladığı `InBody/770_Front_2.png` | InBody770S ürün kartı ve ürün sayfası |
 | `public/images/products/inbody380.png` | 1202×1600 | Kullanıcının sağladığı `InBody/380_Front.png` | InBody380 ürün kartı ve ürün sayfası |
 | `public/images/products/inbody270s.png` | 681×1600 | Kullanıcının sağladığı `InBody/InBody270S.png` | InBody270S ürün kartı ve ürün sayfası |
+| `public/images/products/inbody580.png` | 1202×1600 | Kullanıcının sağladığı `InBody/580_정면(배경x).png` | InBody580 ürün kartı ve ürün sayfası |
+| `public/images/products/inbody120.png` | 1280×1600 | Kullanıcının sağladığı `InBody/InBody120.png` | InBody120 ürün kartı ve ürün sayfası |
+| `public/images/products/bwa20s.png` | 1202×1600 | Kullanıcının sağladığı `BWA/BWA_front.png` | BWA2.0S ürün kartı ve ürün sayfası |
 | `public/images/products/inbodys10.png` | 1280×1600 | Kullanıcının sağladığı `BWA/S10.png` | InBodyS10 ürün kartı ve ürün sayfası |
 | `public/images/products/bsm370.png` | 1280×1600 | Kullanıcının sağladığı `BSM370.png` | BSM 370 ürün kartı ve ürün sayfası |
 | `public/images/products/bsm170.png` | 1280×1600 | Kullanıcının sağladığı `BSM170B.png` | BSM 170 ürün kartı ve ürün sayfası |
@@ -36,6 +39,7 @@ Görseller, InBody Türkiye'nin herkese açık sayfalarından veya kullanıcı t
 ## Kullanım kuralları
 
 - Görsellerin en-boy oranı korunur.
+- Ürün kartları ve ürün sayfalarında kullanılan cihaz görselleri gerçek PNG/RGBA biçiminde doğrulanır.
 - Her görsel açıklayıcı Türkçe `alt` metniyle kullanılır.
 - ABD sitesinin fotoğrafları ve müşteri logoları projeye alınmaz.
 - Bulunmayan cihaz görsellerinin yerine yapay cihaz resmi üretilmez.
