@@ -36,8 +36,9 @@ ABD sitesi yalnızca deneyim referansı olarak incelendi. Uygulamaya aktarılan 
 
 ## Tipografi
 
-- Gövde ve arayüz: sistem sans-serif ailesi, yüksek okunabilirlik
-- Büyük editoryal vurgu: sistem serif ailesi; yalnızca hero ve büyük bölüm cümlelerinde
+- Tüm site sans serif kullanır.
+- Büyük başlıklar: `Avenir Next`; bulunmadığında Avenir, Helvetica Neue veya Arial
+- Gövde ve arayüz: sistem sans serif ailesi, yüksek okunabilirlik
 - H1: masaüstü 64–84 px, mobil 42–52 px, sıkı satır yüksekliği
 - H2: masaüstü 44–60 px, mobil 34–42 px
 - H3: 24–32 px
@@ -112,4 +113,3 @@ ABD sitesi yalnızca deneyim referansı olarak incelendi. Uygulamaya aktarılan 
 - İçerik yalnızca 8–16 px hareket eder
 - Büyük parallax, sürekli kayan metin ve dikkat dağıtan döngüler kullanılmaz
 - `prefers-reduced-motion: reduce` durumunda animasyonlar kapatılır
-

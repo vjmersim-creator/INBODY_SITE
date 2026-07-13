@@ -2,6 +2,10 @@
 
 Son güncelleme: 13 Temmuz 2026
 
+Dosyaları nereye ve hangi adla koyacağınız için proje kökündeki
+`GELEN_ICERIKLER` klasörünü kullanın. Ayrıntılı yönlendirme:
+`docs/icerik-ekleme-rehberi.md`.
+
 ## Türkçe içerik onayı gereken alanlar
 
 - Tarihçe sayfasının güncel, eksiksiz ve editoryal olarak onaylı Türkçe metni
@@ -45,4 +49,3 @@ Bu sayfalarda yapay cihaz görseli yerine sade, oranı koruyan yer tutucu kullan
 - Eski sayfaların bazıları otomatik isteklerde doğrulama ekranı gösterdi; arama dizininde doğrulanabilen içerikler ve güncel tarayıcı sayfaları kullanıldı.
 - InBody580 sayfasındaki frekans satırlarında kaynaklar arasında 1000 kHz ifadesi açısından tutarsızlık görüldü. Pilot sayfadaki teknik tabloda eski sayfa ve ölçüm satırıyla ortak olan 5, 50, 250 ve 500 kHz değerleri kullanıldı; nihai ürün ekibi onayı gerekir.
 - Erişilemeyen mevcut SEO title/description değerleri kopyalanmadı veya tahmin edilmedi.
-
