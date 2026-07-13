@@ -2,51 +2,40 @@
 
 Son güncelleme: 13 Temmuz 2026
 
-Dosyaları nereye ve hangi adla koyacağınız için proje kökündeki
+Yeni dosyaları nereye ve hangi adla koyacağınız için proje kökündeki
 `GELEN_ICERIKLER` klasörünü kullanın. Ayrıntılı yönlendirme:
 `docs/icerik-ekleme-rehberi.md`.
 
-## Türkçe içerik onayı gereken alanlar
+## Tamamlanan güncel site içeriği
 
-- Sıkça Sorulan Sorular sayfasının güncel cevapları
-- Uygulamalar: Tıbbi, Fitness / Spor Salonu ve Sağlık sayfalarının kapsamlı içerikleri
-- Kaynaklar: blog, video ve katalog/broşür içerik listeleri
-- InBodyS10, BSM 370, BSM 170, FRA, InGrip ve LookinBody Web için ayrıntılı katalog veya onaylı ürün metni
-- FRA ürününün yeni site navigasyonundaki nihai konumu ve adlandırması
-- Her ürün için onaylı kısa SEO description metni
+- Ana menü, güncel InBody Türkiye yapısına göre Hakkımızda, Öğrenin, Ürünler ve Bize Ulaşın olarak düzenlendi.
+- Biz Kimiz, Küresel Ağ, Vücut Kompozisyonu, InBody Teknolojisi, Sonuç Sayfası ve Güvenlik / Temizlik içerikleri güncel resmî sayfalardan derlenerek genişletildi.
+- Sıkça Sorulan Sorular; resmî öğrenme, test ve temizlik bilgilerinden oluşturuldu.
+- Kullanıcının eklediği empedans, Sonuç Sayfası ve ölçüm önlemleri PDF rehberleri ilgili Öğrenin sayfalarına işlendi.
+- InBodyS10, BSM 370, BSM 170, InGrip ve LookinBody Web sayfalarına ayrıntılı özellikler ile teknik bilgiler eklendi.
+- Güncel ürün menüsündeki tüm ürünlerin ayrıntılı içerik modülü bulunuyor.
+- Uygulamalar ve Kaynaklar, güncel üst menüde bulunmadığı için navigasyon ve site haritasından çıkarıldı. Eski yerel rotalar doğrudan bağlantıların bozulmaması için korunuyor.
+- Güncel ürün menüsünde bulunmayan InBody120 ve FRA, eski bağlantı olarak korunup ürün listesi ve site haritasından gizlendi.
 
-Bu alanlarda arayüzde `Onaylı Türkçe içerik eklenecek.` etiketi kullanılır.
+## Hâlâ gerekli olan onaylar
+
+- InBody120 ürününün Türkiye'deki güncel satış ve destek durumu
+- FRA ürününün yeniden güncel ürün listesine alınmasının istenip istenmediği
+- Eski Uygulamalar ve Kaynaklar sayfalarının arşiv olarak tutulup tutulmayacağı
+- İletişim formunun gerçek alıcısı, gönderim servisi ve spam koruması
+- Gizlilik metni, çerez yönetimi ve analitik tercihleri
+- Production canonical alan adı; yerel sürüm `NEXT_PUBLIC_SITE_URL` ile hazırlanmıştır
 
 ## Eksik veya doğrulanamayan görseller
 
-- FRA ayrı ürün görseli
-- Sonuç Sayfası Yorumlama bölümü için güncel Türkiye sonuç sayfası görseli
+- FRA için ayrı, onaylı ve şeffaf arka planlı PNG ürün görseli
+- Sonuç Sayfası Yorumlama bölümü için güncel Türkiye sonuç sayfası PNG görseli
 
-Bu sayfalarda yapay cihaz görseli yerine sade, oranı koruyan yer tutucu kullanılır.
+Güncel ürün menüsündeki cihaz görselleri PNG formatındadır. FRA ana menüde yer
+almadığı için doğrudan rota üzerinde sade yer tutucu kullanılmaya devam eder.
 
-## Bu turda eklenenler
+## Kaynak notları
 
-- `tarihce.docx` içeriğinden kurumsal zaman çizelgesi
-- `inbodytesti.docx` içeriğinden beş adımlı InBody test prosedürü
-- `lookinbody120.docx` içeriğinden ürün özeti, özellikler ve sistem gereksinimleri
-- InBody770S, InBody380, InBody270S, InBodyS10, BSM 370, BSM 170, InGrip ve LookinBody 120 için optimize edilmiş ürün görselleri
-- InBody970S, InBody770S, InBody380, InBody270S ve BWA2.0S kataloglarından ayrıntılı özellik ve teknik tablolar
-- Sağlanan Türkçe katalogdan yeni InBody120 ürün sayfası
-- InBody580, BWA2.0S ve InBody120 için yüksek çözünürlüklü, şeffaf kanallı PNG ürün görselleri
-
-## Teknik ve entegrasyon eksikleri
-
-- İletişim formunun gerçek e-posta alıcısı ve gönderim servisi
-- SMTP veya e-posta API sağlayıcısı
-- Gönderim endpoint'i, doğrulama politikası ve spam koruması
-- Gizlilik metni bağlantısının yeni site için onaylı nihai metni
-- Production canonical alan adı; yerel sürüm `NEXT_PUBLIC_SITE_URL` ile hazırlanmıştır
-- Analitik, çerez yönetimi ve izin metinleri
-
-## Kaynak erişim notları
-
-- Türkiye sitesinin eski `.php` ürün adreslerinin bir bölümü yeni WordPress adreslerine taşınmış veya 404 vermektedir.
-- `sitemap.xml` ve `robots.txt` otomatik incelemede alınamadı.
-- Eski sayfaların bazıları otomatik isteklerde doğrulama ekranı gösterdi; arama dizininde doğrulanabilen içerikler ve güncel tarayıcı sayfaları kullanıldı.
-- InBody580 sayfasındaki frekans satırlarında kaynaklar arasında 1000 kHz ifadesi açısından tutarsızlık görüldü. Pilot sayfadaki teknik tabloda eski sayfa ve ölçüm satırıyla ortak olan 5, 50, 250 ve 500 kHz değerleri kullanıldı; nihai ürün ekibi onayı gerekir.
-- Erişilemeyen mevcut SEO title/description değerleri kopyalanmadı veya tahmin edilmedi.
+- İçerik, kullanıcının sağladığı katalog ve belgeler ile InBody Türkiye'nin güncel herkese açık sayfaları birlikte kullanılarak hazırlanmıştır.
+- LookinBody Web'in bölgesel hizmet kapsamı ve cihaz uyumluluğu satış öncesinde InBody Türkiye tarafından doğrulanmalıdır.
+- Teknik değerler modele ve sürüme göre değişebileceğinden nihai yayın öncesinde ürün ekibi onayı önerilir.

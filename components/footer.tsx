@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { aboutLinks, learnLinks } from "@/content/navigation";
-import { products } from "@/content/products";
+import { listedProducts } from "@/content/products";
 
 export function Footer() {
   return (
@@ -55,7 +55,7 @@ export function Footer() {
 
         <div className="site-footer__column">
           <p className="footer-title">Ürünler</p>
-          {products.slice(0, 6).map((product) => (
+          {listedProducts.slice(0, 6).map((product) => (
             <Link key={product.slug} href={`/urunler/${product.slug}`}>
               {product.name}
             </Link>
@@ -73,4 +73,3 @@ export function Footer() {
     </footer>
   );
 }
-

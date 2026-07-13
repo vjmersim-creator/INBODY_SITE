@@ -30,6 +30,10 @@ export const learnLinks: NavigationItem[] = [
   },
 ];
 
+export const primaryLearnLinks = learnLinks.filter(
+  (item) => item.href !== "/ogren/sikca-sorulan-sorular",
+);
+
 export const applicationLinks: NavigationItem[] = [
   { label: "Tıbbi", href: "/uygulamalar/tibbi" },
   {
@@ -45,4 +49,3 @@ export const resourceLinks: NavigationItem[] = [
   { label: "Video", href: "/kaynaklar/video" },
   { label: "Katalog / Broşür", href: "/kaynaklar/katalog-brosur" },
 ];
-

@@ -106,6 +106,35 @@ export function ContentTemplate({ page }: { page: ContentPage }) {
           {page.body.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
+          {page.sections ? (
+            <div className="content-sections">
+              {page.sections.map((section) => (
+                <section className="content-section" key={section.title}>
+                  <h2>{section.title}</h2>
+                  {section.paragraphs?.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                  {section.items ? (
+                    <ul>
+                      {section.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </section>
+              ))}
+            </div>
+          ) : null}
+          {page.faq ? (
+            <div className="content-faq">
+              {page.faq.map((item) => (
+                <details key={item.question}>
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          ) : null}
           {page.timeline ? (
             <ol className="content-timeline" aria-label={`${page.title} zaman çizelgesi`}>
               {page.timeline.map((item) => (

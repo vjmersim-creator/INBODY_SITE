@@ -4,6 +4,12 @@ export type ContentPage = {
   eyebrow: string;
   description: string;
   body: string[];
+  sections?: Array<{
+    title: string;
+    paragraphs?: string[];
+    items?: string[];
+  }>;
+  faq?: Array<{ question: string; answer: string }>;
   timeline?: Array<{ label: string; text: string }>;
   steps?: Array<{ label: string; text: string }>;
   cta?: { href: string; label: string };
@@ -18,8 +24,37 @@ export const aboutPages: ContentPage[] = [
     description:
       "InBody'nin misyonu, vizyonu ve sağlık teknolojisine yaklaşımı.",
     body: [
-      "InBody, insanları daha sağlıklı bir yaşam sürmeye ilham vermek ve liderlik etmek için kendini adamıştır.",
-      "InBody’nin vizyonu, sağlığın yalnızca kiloyla değil, vücut kompozisyonuna dair doğru içgörüyle değerlendirilmesidir.",
+      "InBody’nin temelleri, Dr. Kichul Cha’nın mevcut Bioelektrik İmpedans Analizi yöntemlerinin sınırlamalarını aşma hedefiyle atıldı. 1996’da kurulan şirket, iki yıl sonra ilk InBody cihazını geliştirdi ve bugün 80’den fazla ülkede sağlık profesyonelleriyle çalışıyor.",
+      "Yaklaşımın merkezinde, sağlığı yalnızca vücut ağırlığıyla değil; kas, yağ ve vücut suyu dağılımı gibi ölçülebilir bileşenlerle değerlendirmek yer alır.",
+    ],
+    sections: [
+      {
+        title: "Misyonumuz",
+        paragraphs: [
+          "Doğru ve kullanışlı vücut kompozisyonu verileriyle insanların daha sağlıklı bir yaşam için harekete geçmesine yardımcı olmak.",
+        ],
+      },
+      {
+        title: "Vizyonumuz",
+        paragraphs: [
+          "Vücut kompozisyonu analizini sağlık değerlendirmesinin doğal bir parçası hâline getirerek klinik, beslenme, spor ve araştırma alanlarında daha bilinçli kararları desteklemek.",
+        ],
+      },
+      {
+        title: "Değerlerimiz",
+        items: [
+          "Eğitim: Vücut kompozisyonu bilgisini anlaşılır ve erişilebilir kılmak.",
+          "Motivasyon: Ölçülebilir ilerlemenin sağlıklı değişimi desteklemesini sağlamak.",
+          "Uygulama: Veriyi günlük danışmanlık ve takip süreçlerinde kullanılabilir hâle getirmek.",
+          "İnovasyon: Ölçüm teknolojisini doğruluk, kullanım kolaylığı ve yeni ihtiyaçlar doğrultusunda geliştirmek.",
+        ],
+      },
+      {
+        title: "Küresel deneyim, yerel destek",
+        paragraphs: [
+          "InBody Türkiye; ürün seçimi, uygulama, eğitim ve satış sonrası süreçlerde kurumların ihtiyaçlarına uygun bir temas noktası sunar.",
+        ],
+      },
     ],
     sourceUrl: "https://tr.inbody.com/hakkimizda/",
   },
@@ -86,6 +121,19 @@ export const aboutPages: ContentPage[] = [
     body: [
       "InBody dünya çapında 80'den fazla ülkede faaliyet göstermektedir. Merkezi Güney Kore'de bulunan InBody'nin Amerika Birleşik Devletleri, Avrupa, Çin, Japonya, Hindistan ve Malezya'da şubeleri bulunmaktadır.",
     ],
+    sections: [
+      {
+        title: "Dünya çapında InBody",
+        paragraphs: [
+          "Küresel ağ; farklı pazarlardaki araştırma, klinik, fitness ve beslenme profesyonellerinin ihtiyaçlarını yerel ekipler ve iş ortakları aracılığıyla destekler.",
+        ],
+        items: [
+          "Genel merkez: Güney Kore",
+          "Bölgesel yapılanmalar: Amerika Birleşik Devletleri, Avrupa, Çin, Japonya, Hindistan ve Malezya",
+          "Erişim: 80’den fazla ülkede ürün ve çözüm ağı",
+        ],
+      },
+    ],
     sourceUrl: "https://tr.inbody.com/about/global-location.php",
   },
 ];
@@ -99,7 +147,36 @@ export const learnPages: ContentPage[] = [
       "Vücudun yağ, protein, mineral ve vücut suyu bileşenlerini anlamaya giriş.",
     body: [
       "Vücut kompozisyonu, vücudu temel bileşenlerine ayırma yöntemidir: yağ, protein, mineraller ve vücut suyu.",
-      "Vücut kompozisyonu analizi; yağ kitlesi, kas kitlesi ve vücut yağ yüzdesindeki değişiklikleri göstermeye yardımcı olur.",
+      "Tartı yalnızca toplam ağırlığı gösterir. Vücut kompozisyonu analizi ise aynı kilodaki iki kişinin kas, yağ ve su dağılımının neden farklı olabileceğini görünür hâle getirir.",
+    ],
+    sections: [
+      {
+        title: "Neden ölçülür?",
+        paragraphs: [
+          "Vücut ağırlığı veya Beden Kütle İndeksi tek başına kas ile yağ arasındaki farkı açıklamaz. Bileşenleri ayrı izlemek; beslenme, egzersiz ve sağlık programlarının etkisini daha anlamlı biçimde değerlendirmeye yardımcı olur.",
+        ],
+      },
+      {
+        title: "Temel göstergeler",
+        items: [
+          "Vücut yağ yüzdesi: Toplam ağırlığın ne kadarının yağ dokusundan oluştuğunu gösterir.",
+          "İskelet kas kütlesi: Hareketi sağlayan kasların izlenmesine yardımcı olur.",
+          "Vücut suyu: Hücre içi ve hücre dışı su dağılımı hakkında bilgi verir.",
+          "Yağsız kütle: Su, protein ve mineral bileşenlerinin toplamını ifade eder.",
+        ],
+      },
+      {
+        title: "Vücut kompozisyonu nasıl ölçülür?",
+        paragraphs: [
+          "Cilt kıvrımı ölçümü, su altı tartımı, hava deplasmanı, DEXA, görüntüleme yöntemleri ve Bioelektrik İmpedans Analizi farklı ortamlarda kullanılan yöntemlerdir. InBody cihazları, hızlı ve girişimsel olmayan BIA yaklaşımını kullanır.",
+        ],
+      },
+      {
+        title: "Tek ölçümden daha fazlası",
+        paragraphs: [
+          "En yararlı değerlendirme, benzer koşullarda yapılan düzenli ölçümlerin birlikte incelenmesidir. Böylece değişimin kas, yağ veya vücut suyu kaynaklı olup olmadığı daha iyi anlaşılır.",
+        ],
+      },
     ],
     sourceUrl: "https://tr.inbody.com/ogren-vucut-kompozisyonu/",
   },
@@ -110,8 +187,34 @@ export const learnPages: ContentPage[] = [
     description:
       "Bioelektrik İmpedans Analizi ve InBody'nin doğrudan segmental ölçüm yaklaşımı.",
     body: [
-      "InBody cihazları vücut kompozisyonunu ölçmek için Bioelektrik İmpedans Analizi yöntemini kullanır.",
-      "InBody teknolojisi, vücudu beş ayrı bölümde değerlendirir ve gövde empedansını ayrı olarak ölçer.",
+      "InBody cihazları, vücuttan güvenli düzeyde alternatif akım geçirerek oluşan empedansı ölçen Bioelektrik İmpedans Analizi yöntemini kullanır.",
+      "Empedans; dokuların akıma gösterdiği direnç ile hücre zarlarının oluşturduğu reaktans bileşenlerinden oluşur. Bu veriler vücut suyu ve kompozisyonunun değerlendirilmesinde kullanılır.",
+    ],
+    sections: [
+      {
+        title: "Sekiz noktalı dokunsal elektrot sistemi",
+        paragraphs: [
+          "El ve ayaklardaki sekiz temas noktası, ölçümün her seferinde aynı anatomik sınırlar üzerinden yapılmasını destekler ve kullanıcı konumlandırmasını kolaylaştırır.",
+        ],
+      },
+      {
+        title: "Doğrudan Segmental Çok Frekanslı BIA",
+        paragraphs: [
+          "Sağ kol, sol kol, gövde, sağ bacak ve sol bacak ayrı ayrı ölçülür. Düşük frekanslar ağırlıklı olarak hücre dışı suyu, yüksek frekanslar ise hücre dışı ve hücre içi suyu birlikte değerlendirmeye yardımcı olur.",
+        ],
+      },
+      {
+        title: "Ampirik tahmin kullanmayan yaklaşım",
+        paragraphs: [
+          "InBody ölçüm yaklaşımı, vücut kompozisyonu sonuçlarını yaş veya cinsiyete dayalı istatistiksel tahminlerle üretmek yerine ölçülen empedans verisini temel alır.",
+        ],
+      },
+      {
+        title: "Teknolojinin gelişimi",
+        paragraphs: [
+          "BIA araştırmalarının 1960’ların sonunda başlamasından sonra tek frekanslı ölçüm sistemleri geliştirildi. InBody, 1996’da doğrudan segmental ölçüm ve sekiz noktalı elektrot yaklaşımını bir araya getirerek teknolojinin profesyonel kullanım alanını genişletti.",
+        ],
+      },
     ],
     sourceUrl: "https://tr.inbody.com/ogren-teknoloji/",
   },
@@ -122,6 +225,24 @@ export const learnPages: ContentPage[] = [
     description: "InBody testine hazırlık ve test prosedürü.",
     body: [
       "Doğru ve tutarlı bir test deneyimi için ölçüm sırasında aşağıdaki adımları sırayla uygulayın.",
+    ],
+    sections: [
+      {
+        title: "Ölçüm öncesi hazırlık",
+        paragraphs: [
+          "BIA sonuçları; vücut pozisyonu, sıvı dağılımı, yiyecek ve içecek tüketimi, ortam ve cilt sıcaklığı ile yakın zamandaki fiziksel aktiviteden etkilenebilir. Düzenli takipte bu koşulları mümkün olduğunca standart tutun.",
+        ],
+        items: [
+          "Ölçümü çıplak ayakla ve mümkün olduğunca hafif kıyafetle yapın.",
+          "Egzersizden, duş veya banyodan önce ölçüm yapın.",
+          "Ölçüm öncesinde yemek ve içecek tüketmeyin; kurumunuzun bekleme süresi talimatını izleyin.",
+          "Gerekliyse ölçümden önce tuvalete gidin.",
+          "Ölçümü normal oda sıcaklığında gerçekleştirin.",
+          "Tekrarlı ölçümlerde aynı boy bilgisini ve benzer gün/saat koşullarını kullanın.",
+          "Kolları düz ve gövdeden ayrı, bacakları birbirine temas etmeyecek biçimde konumlandırın.",
+          "Uyandıktan hemen sonra ölçüm yapmak yerine vücut suyunun yeniden dengelenmesi için kurum prosedürünü izleyin.",
+        ],
+      },
     ],
     steps: [
       {
@@ -158,7 +279,45 @@ export const learnPages: ContentPage[] = [
       "InBody Sonuç Sayfasındaki vücut kompozisyonu verilerini anlamaya giriş.",
     body: [
       "InBody Sonuç Sayfası'nın farklı bölümleri, her vücut kompozisyonu çıktısının ne anlama geldiğine dair genel bir bakış sunar.",
-      "Sonuçları doğru kullanabilmek için verilerin nasıl raporlandığını ve bu verilerle ne yapılabileceğini anlamak gerekir.",
+      "Bölümler ve sunulan parametreler cihaz modeline göre değişebilir. Sonuçlar tek bir değerden çok, kişinin ölçüm geçmişi ve profesyonel değerlendirmeyle birlikte ele alınmalıdır.",
+    ],
+    sections: [
+      {
+        title: "Vücut Kompozisyonu Analizi",
+        paragraphs: [
+          "Toplam vücut suyu, protein, mineral ve vücut yağ kütlesi; toplam ağırlığın hangi bileşenlerden oluştuğunu gösterir.",
+        ],
+      },
+      {
+        title: "Kas-Yağ Analizi",
+        paragraphs: [
+          "Ağırlık, iskelet kas kütlesi ve vücut yağ kütlesini yan yana göstererek kişinin genel kompozisyon profilini hızlıca değerlendirmeye yardımcı olur.",
+        ],
+      },
+      {
+        title: "Obezite Analizi",
+        paragraphs: [
+          "Beden Kütle İndeksi ile vücut yağ yüzdesini birlikte gösterir. Böylece yalnızca boy ve ağırlığa dayalı değerlendirme, doğrudan yağ oranı bilgisiyle tamamlanır.",
+        ],
+      },
+      {
+        title: "Segmental Analiz",
+        paragraphs: [
+          "Kolları, bacakları ve gövdeyi ayrı değerlendirir. Segmental Yağsız Kütle Analizi doğrudan yalnızca kası değil; ilgili bölgedeki kas, su ve diğer yağsız bileşenlerin toplamını gösterir. Modele bağlı olarak segmental yağ kütlesi ve vücut suyu dengesi de görülebilir.",
+        ],
+      },
+      {
+        title: "Vücut Suyu ve Faz Açısı",
+        paragraphs: [
+          "Hücre içi/hücre dışı su ve ECW/TBW oranı sıvı dağılımının; faz açısı ise hücresel bütünlüğün değerlendirilmesine yardımcı olan göstergelerdir. Bu alanlar her modelde bulunmayabilir.",
+        ],
+      },
+      {
+        title: "Değişim Geçmişi",
+        paragraphs: [
+          "Düzenli ölçümler, ağırlıktaki değişimin kas, yağ veya vücut suyundan kaynaklanıp kaynaklanmadığını izlemeyi sağlar. Karşılaştırma için testlerin benzer hazırlık koşullarında yapılması önerilir.",
+        ],
+      },
     ],
     sourceUrl: "https://tr.inbody.com/ogren-sonuclar/",
   },
@@ -167,7 +326,41 @@ export const learnPages: ContentPage[] = [
     title: "Sıkça Sorulan Sorular",
     eyebrow: "Öğrenin",
     description: "InBody cihazları ve test süreci hakkında sık sorulan sorular.",
-    body: ["Onaylı Türkçe içerik eklenecek."],
+    body: [
+      "Aşağıdaki yanıtlar, InBody Türkiye’nin güncel öğrenme ve ürün sayfalarındaki temel bilgilerden derlenmiştir. Cihaza ve kullanım alanına özgü ayrıntılar için ürün kılavuzu ve InBody Türkiye ekibi esas alınmalıdır.",
+    ],
+    faq: [
+      {
+        question: "BIA nedir?",
+        answer:
+          "Bioelektrik İmpedans Analizi, vücuttan düşük düzeyde alternatif akım geçirerek dokuların gösterdiği empedansı ölçen, hızlı ve girişimsel olmayan bir vücut kompozisyonu değerlendirme yöntemidir.",
+      },
+      {
+        question: "Vücut ağırlığı tek başına neden yeterli değildir?",
+        answer:
+          "Aynı ağırlıktaki iki kişinin kas, yağ ve vücut suyu dağılımı farklı olabilir. Vücut kompozisyonu analizi, toplam kilonun hangi bileşenlerden oluştuğunu göstererek daha anlamlı bir takip sunar.",
+      },
+      {
+        question: "InBody ölçümü ne kadar sürer?",
+        answer:
+          "Süre modele göre değişir. Ayakta ölçüm yapan birçok profesyonel modelde test yaklaşık 30 saniyede tamamlanırken bazı vücut suyu analizleri daha uzun sürebilir. Ürün sayfasındaki teknik süreyi kontrol edin.",
+      },
+      {
+        question: "Teste nasıl hazırlanmalıyım?",
+        answer:
+          "Ölçüm öncesinde cihazın ve kurumun hazırlık talimatlarını izleyin; ayakları elektrotlara doğru yerleştirin, el elektrotlarını belirtildiği gibi kavrayın ve test boyunca hareketsiz kalın. Tekrarlı ölçümlerde benzer koşulları korumak karşılaştırmayı kolaylaştırır.",
+      },
+      {
+        question: "Sonuç Sayfası nasıl değerlendirilir?",
+        answer:
+          "Ağırlık, kas, yağ ve vücut suyu göstergeleri birlikte incelenmelidir. Tek bir sonuç tanı amacıyla kullanılmamalı; cihaz modeline ve kişinin durumuna göre yetkin bir profesyonel tarafından yorumlanmalıdır.",
+      },
+      {
+        question: "Cihaz nasıl temizlenmelidir?",
+        answer:
+          "Her testten sonra el ve ayak elektrotları ile sık temas edilen yüzeyler uygun ürünle silinmelidir. Sıvıyı doğrudan cihaza püskürtmeyin; güncel cihaz kılavuzu ve kurumunuzun enfeksiyon kontrol prosedürlerini izleyin.",
+      },
+    ],
   },
   {
     slug: "guvenlik-ve-temizlik-ipuclari",
@@ -175,8 +368,38 @@ export const learnPages: ContentPage[] = [
     eyebrow: "Öğrenin",
     description: "InBody test deneyimi için güvenlik ve temizlik yaklaşımı.",
     body: [
-      "InBody cihazlarının dezenfeksiyon adımları ve test deneyiminin güvenli biçimde düzenlenmesi için güncel kurum yönergeleri izlenmelidir.",
-      "Onaylı ayrıntılı temizlik prosedürü eklenecek.",
+      "InBody cihazlarında hijyen, her testten sonra düzenli yüzey temizliği ve doğru ürün kullanımıyla korunur. Aşağıdaki özet, InBody Türkiye’nin yayımladığı cihaz bakım önerilerini temel alır.",
+      "Tıbbi veya yoğun kullanımlı ortamlarda kurumun enfeksiyon kontrol prosedürü ile ilgili cihazın güncel kullanım kılavuzu her zaman önceliklidir.",
+    ],
+    sections: [
+      {
+        title: "Her ölçümden sonra",
+        items: [
+          "Tek kullanımlık eldiven kullanın.",
+          "El elektrotlarını, ayak plakasını, ekranı ve sık temas edilen diğer yüzeyleri silin.",
+          "Yüzeyin bir sonraki kullanıcıdan önce kurumasını bekleyin.",
+        ],
+      },
+      {
+        title: "Uygun temizlik ürünü",
+        paragraphs: [
+          "InBody Türkiye’nin bakım sayfası, yüzde 70 veya üzeri izopropil alkol içeren mendil kullanımını önerir. Ürünün cihaz modeliniz için uygunluğunu güncel kılavuzdan doğrulayın.",
+        ],
+      },
+      {
+        title: "Kaçınılması gerekenler",
+        items: [
+          "Temizlik sıvısını doğrudan cihazın üzerine püskürtmeyin veya dökmeyin.",
+          "Cihazı ya da herhangi bir parçasını sıvıya batırmayın.",
+          "Renk değişimi veya korozyona yol açabilecek kuaterner amonyum bileşikleri içeren ürünleri kullanmayın.",
+        ],
+      },
+      {
+        title: "Temassız iş akışı seçenekleri",
+        paragraphs: [
+          "Uyumlu modellerde sesli yönlendirme ve LookinBody Web üzerinden dijital sonuç paylaşımı, ortak yüzey temasını azaltan bir test akışını destekleyebilir.",
+        ],
+      },
     ],
     sourceUrl: "https://tr.inbody.com/ogren-ipuclari/",
   },

@@ -2,7 +2,7 @@ export type ProductCategoryId =
   | "body-composition"
   | "body-water"
   | "height"
-  | "wellness"
+  | "ingrip"
   | "data";
 
 export type Product = {
@@ -27,6 +27,7 @@ export type Product = {
     note?: string;
   };
   featured?: boolean;
+  listed?: boolean;
 };
 
 export const productCategories: Array<{
@@ -45,7 +46,7 @@ export const productCategories: Array<{
     shortLabel: "Vücut Suyu",
   },
   { id: "height", label: "Boy Ölçer", shortLabel: "Boy Ölçer" },
-  { id: "wellness", label: "Wellness", shortLabel: "Wellness" },
+  { id: "ingrip", label: "InGrip", shortLabel: "InGrip" },
   { id: "data", label: "Veri Yönetimi", shortLabel: "Veri Yönetimi" },
 ];
 
@@ -384,6 +385,7 @@ export const products: Product[] = [
       note:
         "İçerik ve teknik değerler sağlanan 2022 tarihli InBody120 kataloğundan aktarılmıştır; güncel satış ve uyumluluk durumu doğrulanmalıdır.",
     },
+    listed: false,
   },
   {
     slug: "bwa2-0s",
@@ -464,6 +466,50 @@ export const products: Product[] = [
       height: 1600,
       alt: "InBodyS10 vücut suyu analiz cihazı",
     },
+    details: {
+      title: "Hareket kısıtlılığı olan kullanıcılar için araştırma düzeyinde analiz.",
+      intro:
+        "InBodyS10; sırtüstü, oturarak veya ayakta ölçüm gerektiren durumlarda takılabilir elektrotlarla vücut suyu dağılımını ve hücresel durum göstergelerini değerlendirmek üzere tasarlanmıştır.",
+      features: [
+        {
+          title: "Sırtüstü ölçüm",
+          text: "Hareket edemeyen veya yatak istirahatindeki kullanıcılar, parmaklara ve ayak bileklerine bağlanan elektrotlarla ölçülebilir.",
+        },
+        {
+          title: "Ampütasyon durumuna uyarlanabilir",
+          text: "Takılabilir dokunmatik ya da isteğe bağlı yapışkan elektrot seçenekleri farklı fiziksel koşullara uygun bir test akışını destekler.",
+        },
+        {
+          title: "Segmental vücut suyu",
+          text: "Kollar, bacaklar ve gövdedeki hücre içi ve hücre dışı su dağılımını ayrı ayrı değerlendirmeye yardımcı olur.",
+        },
+        {
+          title: "Faz açısı analizi",
+          text: "50 kHz'de tüm vücut ve segmental faz açısı değerleri üzerinden hücresel bütünlüğün takibini destekler.",
+        },
+        {
+          title: "Değişim geçmişi",
+          text: "Vücut suyu kompozisyonundaki değişikliklerin zaman içinde izlenmesine ve program yanıtının değerlendirilmesine yardımcı olur.",
+        },
+        {
+          title: "Taşınabilir klinik kullanım",
+          text: "İsteğe bağlı tekerlekli taşıma arabası ve batarya, farklı oda ve ölçüm alanlarında kullanımı kolaylaştırır.",
+        },
+      ],
+      specifications: [
+        { label: "Empedans frekansları", value: "1, 5, 50, 250, 500 ve 1000 kHz" },
+        { label: "Empedans ölçümleri", value: "5 segmentte toplam 30 ölçüm" },
+        { label: "Test süresi", value: "Yaklaşık 1 dakika 50 saniye" },
+        { label: "Ağırlık aralığı", value: "10-250 kg" },
+        { label: "Yaş aralığı", value: "3-99 yaş" },
+        { label: "Veri kapasitesi", value: "100.000 sonuç" },
+        { label: "Boyutlar", value: "202 × 53 × 322 mm" },
+        { label: "Cihaz ağırlığı", value: "2 kg" },
+        { label: "Bağlantı", value: "Wi-Fi, Bluetooth ve HL7 uyumlu EMR entegrasyonu" },
+        { label: "Elektrotlar", value: "Dokunmatik tip; isteğe bağlı yapışkan tip" },
+      ],
+      note: "İçerik ve teknik değerler güncel InBody Türkiye ürün sayfasından derlenmiştir.",
+    },
   },
   {
     slug: "bsm-370",
@@ -479,6 +525,49 @@ export const products: Product[] = [
       width: 1280,
       height: 1600,
       alt: "BSM 370 boy ve ağırlık ölçüm cihazı",
+    },
+    details: {
+      title: "Boy, ağırlık ve BMI ölçümünü tek sistemde birleştirin.",
+      intro:
+        "BSM 370, sağlık ve eğitim ortamlarında taşınabilir kullanım için tekerlekli gövdeyi hızlı boy ve ağırlık ölçümüyle bir araya getirir.",
+      features: [
+        {
+          title: "Üç ölçüm modu",
+          text: "Boy ve ağırlık birlikte ya da her biri ayrı olarak ölçülebilir; BMI sonucu otomatik olarak hesaplanabilir.",
+        },
+        {
+          title: "Kolay taşınabilirlik",
+          text: "Katlanabilir boy ölçüm kolu ve gövdeye eklenen tekerlekler, cihazın farklı alanlara taşınmasını kolaylaştırır.",
+        },
+        {
+          title: "Hızlı sonuç",
+          text: "Boy ve ağırlık ölçümü yaklaşık 7 saniyede, yalnızca ağırlık ölçümü yaklaşık 2 saniyede tamamlanır.",
+        },
+        {
+          title: "Uzaktan kontrol seçeneği",
+          text: "İsteğe bağlı uzaktan kumanda ünitesi, ölçüm ve sonuç kontrolünün kullanıcı yerinden ayrılmadan yönetilmesini sağlar.",
+        },
+        {
+          title: "Termal çıktı",
+          text: "İsteğe bağlı termal yazıcıyla boy, ağırlık ve BMI sonuçları basılabilir.",
+        },
+        {
+          title: "Profesyonel bağlantı",
+          text: "RS-232C bağlantısı, desteklenen sistemlerle veri aktarımına olanak tanır.",
+        },
+      ],
+      specifications: [
+        { label: "Ölçümler", value: "Boy, ağırlık ve BMI" },
+        { label: "Boy aralığı", value: "90-200 cm" },
+        { label: "Boy ölçüm hassasiyeti", value: "±1 mm" },
+        { label: "Ağırlık aralığı", value: "10-200 kg" },
+        { label: "Test süresi", value: "Boy + ağırlık yaklaşık 7 sn; ağırlık yaklaşık 2 sn" },
+        { label: "Boyutlar", value: "Kapalı 380 × 510 × 1350 mm; açık 380 × 510 × 2126 mm" },
+        { label: "Cihaz ağırlığı", value: "15,5 kg" },
+        { label: "Bağlantı", value: "RS-232C" },
+        { label: "Yazıcı", value: "İsteğe bağlı termal yazıcı" },
+      ],
+      note: "İçerik ve teknik değerler InBody Türkiye BSM 370 ürün sayfasından derlenmiştir.",
     },
   },
   {
@@ -496,22 +585,102 @@ export const products: Product[] = [
       height: 1600,
       alt: "BSM 170 dijital boy ölçer",
     },
+    details: {
+      title: "Hızlı boy ölçümü ve kablosuz veri aktarımı.",
+      intro:
+        "BSM 170; sade kullanım arayüzü, arkadan aydınlatmalı ekranı ve Bluetooth bağlantısıyla boy ölçümünü profesyonel InBody iş akışına ekler.",
+      features: [
+        {
+          title: "Basit kullanım",
+          text: "Baş çubuğu, iki düğmeli kontrol alanı ve büyük ekran, boy ölçümünü hızlı ve anlaşılır hâle getirir.",
+        },
+        {
+          title: "Bluetooth uyumluluğu",
+          text: "Ölçülen boy değeri, uyumlu profesyonel InBody cihazlarına kablosuz olarak aktarılabilir.",
+        },
+        {
+          title: "Arkadan aydınlatmalı ekran",
+          text: "55 × 31 mm LCD ekran, farklı ortam ışıklarında ölçüm sonucunun okunmasını kolaylaştırır.",
+        },
+        {
+          title: "Otomatik veri kilidi",
+          text: "Ölçüm değeri, kullanıcı sonucunu kaydetmeden önce belirlenen süre boyunca ekranda tutulabilir.",
+        },
+        {
+          title: "Enerji tasarrufu",
+          text: "Cihaz son ölçümden 150 saniye sonra otomatik olarak kapanabilir.",
+        },
+        {
+          title: "Hızlı montaj",
+          text: "Modüler gövde yapısı, parçaların alt bölümden üste doğru birleştirilmesiyle kurulumu kolaylaştırır.",
+        },
+      ],
+      specifications: [
+        { label: "Ölçüm", value: "Boy" },
+        { label: "Boy aralığı", value: "35-210 cm" },
+        { label: "Hassasiyet", value: "±1 mm" },
+        { label: "Minimum ölçüm birimi", value: "1 mm" },
+        { label: "Ekran", value: "55 × 31 mm arkadan aydınlatmalı LCD" },
+        { label: "Veri kilidi", value: "En fazla 10 saniye" },
+        { label: "Otomatik kapanma", value: "Son ölçümden 150 saniye sonra" },
+        { label: "Boyutlar", value: "390 × 500 × 2190 mm" },
+        { label: "Cihaz ağırlığı", value: "8,5 kg" },
+        { label: "Bağlantı", value: "Bluetooth" },
+      ],
+      note: "İçerik ve teknik değerler InBody Türkiye BSM 170 ürün sayfasından derlenmiştir.",
+    },
   },
   {
     slug: "fra",
     name: "FRA",
-    category: "wellness",
+    category: "ingrip",
     categoryLabel: "Wellness",
     eyebrow: "Düşme riski değerlendirmesi",
     summary:
       "FRA, vücut dengesi, alt ekstremite kas kütlesi ve bacak gücünü kapsamlı biçimde değerlendirmek için tasarlanmış bir sistemdir.",
     sourceUrl: "https://tr.inbody.com/product/FRA.php",
+    details: {
+      title: "Denge ve alt ekstremite fonksiyonunu birlikte değerlendirin.",
+      intro:
+        "FRA, denge testlerini alt ekstremite kas kütlesi ve bacak gücü verileriyle bir araya getirerek düşme riski değerlendirmesine yapılandırılmış bir yaklaşım sunar.",
+      features: [
+        {
+          title: "Denge testleri",
+          text: "Farklı test koşullarında salınım indekslerini ölçerek duruş dengesine ilişkin karşılaştırılabilir sonuçlar sunar.",
+        },
+        {
+          title: "Alt ekstremite değerlendirmesi",
+          text: "Uyumlu InBody modeliyle birlikte kullanıldığında bacak kas kütlesi verisini değerlendirme sürecine ekler.",
+        },
+        {
+          title: "Bacak gücü entegrasyonu",
+          text: "IB-LS bacak kas gücü sistemiyle birlikte kuvvet verilerinin değerlendirmeye dâhil edilmesini destekler.",
+        },
+        {
+          title: "Yapılandırılmış sonuç sayfası",
+          text: "Denge, kas kütlesi ve güç verilerini tek bir raporda bir araya getirerek takip sürecini kolaylaştırır.",
+        },
+      ],
+      specifications: [
+        { label: "Test süresi", value: "Yaklaşık 10-15 dakika" },
+        { label: "Ölçüm aralığı", value: "0-150 kg" },
+        { label: "Ekran", value: "19 inç renkli dokunmatik ekran" },
+        { label: "Kiosk boyutları", value: "584 × 635 × 1626 mm" },
+        { label: "Ayaklık boyutları", value: "838 × 914 × 864 mm" },
+        { label: "Kiosk ağırlığı", value: "51 kg" },
+        { label: "Ayaklık ağırlığı", value: "42,5 kg" },
+        { label: "Bağlantı", value: "RS-232C, USB ve LAN" },
+      ],
+      note:
+        "Teknik değerler eski InBody Türkiye FRA sayfasından derlenmiştir. Ürünün güncel satış ve destek durumu doğrulanmalıdır.",
+    },
+    listed: false,
   },
   {
     slug: "ingrip",
     name: "InGrip",
-    category: "wellness",
-    categoryLabel: "Wellness",
+    category: "ingrip",
+    categoryLabel: "InGrip",
     eyebrow: "El kavrama gücü testi",
     summary:
       "InGrip, doğru ve tekrarlanabilir el kavrama gücü ölçümü için yük hücresi yöntemi ve kulp kılavuzu kullanır.",
@@ -521,6 +690,48 @@ export const products: Product[] = [
       width: 1280,
       height: 1600,
       alt: "InGrip el kavrama gücü ölçüm cihazı",
+    },
+    details: {
+      title: "El kavrama gücünü doğru ve tekrarlanabilir biçimde ölçün.",
+      intro:
+        "InGrip, yük hücresi sensörü ve yönlendirici kulp tasarımıyla el kavrama gücü ölçümlerini standartlaştırmaya yardımcı olur; sonuçlar uyumlu InBody cihazlarına aktarılabilir.",
+      features: [
+        {
+          title: "Yük hücresi sensörü",
+          text: "Uygulanan kuvveti elektronik olarak ölçerek hassas ve tekrar edilebilir sonuçlar sunmayı hedefler.",
+        },
+        {
+          title: "Kulp kılavuzu",
+          text: "Elin doğru pozisyonda tutulmasına yardımcı olarak farklı ölçümler arasındaki konum değişkenliğini azaltır.",
+        },
+        {
+          title: "Bluetooth 5.0",
+          text: "Kavrama gücü sonucunu uyumlu InBody ürünlerine kablosuz olarak aktarmayı destekler.",
+        },
+        {
+          title: "Taşınabilir tasarım",
+          text: "Kompakt ve pille çalışan gövde, farklı değerlendirme noktalarında kolay kullanım sağlar.",
+        },
+        {
+          title: "Okunabilir ekran",
+          text: "3 inç LCD ekran ölçüm sırasında ve sonrasında değerin kolayca görülmesini sağlar.",
+        },
+        {
+          title: "Profesyonel değerlendirmeye ek veri",
+          text: "Kavrama gücü, uyumlu InBody sonuçlarıyla birlikte kas fonksiyonu değerlendirmesini destekleyen ek bir gösterge sunar.",
+        },
+      ],
+      specifications: [
+        { label: "Ölçüm aralığı", value: "1-100 kg" },
+        { label: "Hata aralığı", value: "±0,5 kg" },
+        { label: "Ölçüm birimi", value: "0,1 kg" },
+        { label: "Ekran", value: "3 inç LCD" },
+        { label: "Bağlantı", value: "Bluetooth 5.0" },
+        { label: "Güç", value: "2 adet AA pil" },
+        { label: "Boyutlar", value: "140 × 226 × 50 mm" },
+        { label: "Cihaz ağırlığı", value: "650 g" },
+      ],
+      note: "İçerik ve teknik değerler güncel InBody Türkiye InGrip sayfasından derlenmiştir.",
     },
   },
   {
@@ -537,6 +748,46 @@ export const products: Product[] = [
       width: 151,
       height: 307,
       alt: "LookinBody Web veri yönetimi ekranı",
+    },
+    details: {
+      title: "InBody ölçüm verilerini tarayıcı üzerinden yönetin.",
+      intro:
+        "LookinBody Web, uyumlu InBody cihazlarından gelen sonuçları merkezi bir çalışma alanında toplar; danışan takibi, ilerleme analizi ve dijital sonuç paylaşımını destekler.",
+      features: [
+        {
+          title: "Tarayıcı tabanlı erişim",
+          text: "Uyumlu bilgisayar ve tabletlerden ek bir masaüstü kurulumuna bağlı kalmadan ölçüm verilerine erişin.",
+        },
+        {
+          title: "Bireysel danışan yönetimi",
+          text: "Danışan profillerini ve ölçüm geçmişini tek yerde düzenleyerek takip sürecini kolaylaştırın.",
+        },
+        {
+          title: "İlerleme analizi",
+          text: "Kas, yağ ve diğer vücut kompozisyonu göstergelerindeki değişimleri zaman içinde görsel olarak inceleyin.",
+        },
+        {
+          title: "Dijital sonuç paylaşımı",
+          text: "Uyumlu iş akışlarında sonuçların mobil uygulama üzerinden kullanıcıya ulaştırılmasını destekleyin.",
+        },
+        {
+          title: "Merkezi veri görünümü",
+          text: "Birden fazla ölçüm kaydını tek arayüzde görüntüleyerek kurum içi danışmanlık sürecini düzenleyin.",
+        },
+        {
+          title: "Mobil takip",
+          text: "InBody mobil uygulamasıyla uyumlu özellikler üzerinden kullanıcıların kendi ilerlemelerini takip etmesine yardımcı olun.",
+        },
+      ],
+      specifications: [
+        { label: "Platform", value: "Web tarayıcısı" },
+        { label: "Erişim", value: "Uyumlu bilgisayar ve tabletler" },
+        { label: "Temel kullanım", value: "Danışan yönetimi, veri analizi ve ilerleme takibi" },
+        { label: "Mobil deneyim", value: "InBody mobil uygulamasıyla uyumlu özellikler" },
+        { label: "Veri kaynağı", value: "Desteklenen profesyonel InBody cihazları" },
+      ],
+      note:
+        "Bölgesel hizmet kapsamı, cihaz uyumluluğu ve abonelik koşulları için InBody Türkiye ile güncel durum doğrulanmalıdır.",
     },
   },
   {
@@ -612,7 +863,9 @@ export const productBySlug = Object.fromEntries(
   products.map((product) => [product.slug, product]),
 ) as Record<string, Product>;
 
+export const listedProducts = products.filter((product) => product.listed !== false);
+
 export const productsByCategory = productCategories.map((category) => ({
   ...category,
-  products: products.filter((product) => product.category === category.id),
+  products: listedProducts.filter((product) => product.category === category.id),
 }));

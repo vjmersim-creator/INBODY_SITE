@@ -5,9 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import {
   aboutLinks,
-  applicationLinks,
-  learnLinks,
-  resourceLinks,
+  primaryLearnLinks,
   type NavigationItem,
 } from "@/content/navigation";
 import { productsByCategory } from "@/content/products";
@@ -85,8 +83,6 @@ export function Header() {
             >
               Ürünler <span aria-hidden="true">⌄</span>
             </button>
-            <Link href="/uygulamalar/tibbi">Uygulamalar</Link>
-            <Link href="/kaynaklar/blog">Kaynaklar</Link>
           </nav>
 
           <div className="site-header__actions">
@@ -155,7 +151,7 @@ export function Header() {
           />
           <MobileLinkList
             title="Öğrenin"
-            links={learnLinks}
+            links={primaryLearnLinks}
             onNavigate={closeAll}
           />
           <details className="mobile-nav__group">
@@ -180,16 +176,6 @@ export function Header() {
               ))}
             </div>
           </details>
-          <MobileLinkList
-            title="Uygulamalar"
-            links={applicationLinks}
-            onNavigate={closeAll}
-          />
-          <MobileLinkList
-            title="Kaynaklar"
-            links={resourceLinks}
-            onNavigate={closeAll}
-          />
           <div className="mobile-nav__footer">
             <Link className="button button--red" href="/iletisim" onClick={closeAll}>
               Bize Ulaşın

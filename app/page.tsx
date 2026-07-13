@@ -44,6 +44,14 @@ const categories = [
     href: "/urunler#boy-olcer",
   },
   {
+    title: "InGrip",
+    description: "El kavrama gücünü doğru ve tekrarlanabilir biçimde ölçün.",
+    image: "/images/products/ingrip.png",
+    width: 1280,
+    height: 1600,
+    href: "/urunler#ingrip",
+  },
+  {
     title: "Veri Yönetimi",
     description: "InBody sonuçlarını güvenli ve düzenli biçimde yönetin.",
     image: "/images/product-category-data.png",
@@ -179,7 +187,12 @@ export default function Home() {
           <div className="test-section__copy">
             <p className="eyebrow">InBody testi</p>
             <h2>Doğru ölçüm deneyimine hazırlanın.</h2>
-            <p>Onaylı Türkçe içerik eklenecek.</p>
+            <p>
+              Ellerinizi ve ayaklarınızı ölçüme hazırlayın, elektrotlara doğru
+              biçimde yerleşin ve test tamamlanana kadar rahatça hareketsiz
+              kalın. Düzenli takipte benzer ölçüm koşullarını korumak,
+              sonuçların karşılaştırılmasını kolaylaştırır.
+            </p>
             <Link href="/ogren/inbody-testi" className="text-link">
               InBody testini inceleyin <span aria-hidden="true">↗</span>
             </Link>

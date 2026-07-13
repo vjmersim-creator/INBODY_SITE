@@ -9,7 +9,7 @@ import {
   ProductVisual,
   SectionHeading,
 } from "@/components/ui";
-import { products, type Product } from "@/content/products";
+import { listedProducts, products, type Product } from "@/content/products";
 
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
@@ -83,7 +83,7 @@ const specifications = [
 ];
 
 function InBody580Page({ product }: { product: Product }) {
-  const related = products.filter(
+  const related = listedProducts.filter(
     (item) => item.category === "body-composition" && item.slug !== product.slug,
   ).slice(0, 3);
 
