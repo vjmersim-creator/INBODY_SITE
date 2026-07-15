@@ -212,8 +212,8 @@ export function TechnologyPage({ page }: { page: ContentPage }) {
           <div className="shell technology-validation">
             <div className="technology-media technology-media--contain">
               <Image
-                src="/images/learn/technology/validation.png"
-                alt="InBody ile DEXA sonuçlarını karşılaştıran doğrulama grafiği"
+                src="/images/learn/technology/inbody-impedance-development.png"
+                alt="Elektrotlardan empedans analizine uzanan BIA ölçüm yaklaşımı"
                 fill
                 sizes="(max-width: 820px) 100vw, 42vw"
               />
