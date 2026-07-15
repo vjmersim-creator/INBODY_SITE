@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/icon";
+import { LearnPageMedia } from "@/components/learn-page-media";
 import { SectionNavigation } from "@/components/section-navigation";
 import { aboutLinks, learnLinks } from "@/content/navigation";
 import type { ContentPage } from "@/content/pages";
@@ -108,16 +109,16 @@ const contentHeroImages: Record<string, { src: string; alt: string; position?: s
     alt: "Vücut kompozisyonu sonuçlarının değerlendirilmesi",
   },
   "inbody-teknolojisi": {
-    src: "/images/hero-technology.jpg",
-    alt: "InBody vücut kompozisyonu analiz teknolojisi",
+    src: "/images/learn/technology/hero.png",
+    alt: "InBody cihazının ölçüm kolu ve elektrot sistemi",
   },
   "inbody-testi": {
-    src: "/images/hero-touch.jpg",
-    alt: "InBody testi sırasında elektrot kullanımı",
+    src: "/images/learn/inbody-test/handle.png",
+    alt: "InBody testi sırasında el elektrodunun doğru tutulması",
   },
   "sonuc-sayfasi-yorumlama": {
-    src: "/images/hero-results.jpg",
-    alt: "InBody sonuç sayfasının profesyonel değerlendirmesi",
+    src: "/images/learn/results/hero.png",
+    alt: "InBody sonuç sayfaları",
   },
   "sikca-sorulan-sorular": {
     src: "/images/professional-section.jpg",
@@ -198,6 +199,7 @@ export function ContentTemplate({ page }: { page: ContentPage }) {
             <p key={paragraph}>{paragraph}</p>
           ))}
         </div>
+        <LearnPageMedia slug={page.slug} />
         {page.feature ? (
           <article className="shell content-feature">
             <div className="content-feature__media">

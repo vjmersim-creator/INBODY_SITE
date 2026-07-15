@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BodyCompositionPage } from "@/components/body-composition-page";
+import { TechnologyPage } from "@/components/technology-page";
 import { ContentTemplate } from "@/components/ui";
 import { getPageBySlug, learnPages } from "@/content/pages";
 
@@ -30,9 +31,11 @@ export default async function LearnPage({ params }: PageProps) {
   const { slug } = await params;
   const page = getPageBySlug(learnPages, slug);
   if (!page) notFound();
-  return page.slug === "vucut-kompozisyonu-nedir" ? (
-    <BodyCompositionPage page={page} />
-  ) : (
-    <ContentTemplate page={page} />
-  );
+  if (page.slug === "vucut-kompozisyonu-nedir") {
+    return <BodyCompositionPage page={page} />;
+  }
+  if (page.slug === "inbody-teknolojisi") {
+    return <TechnologyPage page={page} />;
+  }
+  return <ContentTemplate page={page} />;
 }

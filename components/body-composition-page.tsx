@@ -112,11 +112,17 @@ export function BodyCompositionPage({ page }: { page: ContentPage }) {
 
         <section className="bodycomp-skinny section">
           <div className="shell bodycomp-skinny__grid">
-            <div>
+            <div className="bodycomp-skinny__media">
+              <Image
+                src="/images/learn/body-composition/skinny-fat.png"
+                alt="Egzersiz sonrasında dinlenen sporcu"
+                fill
+                sizes="(max-width: 720px) 100vw, 48vw"
+              />
+            </div>
+            <div className="bodycomp-skinny__copy">
               <p className="eyebrow eyebrow--light">Görünüm ve sağlık</p>
               <h2>{skinnyFatContent.title}</h2>
-            </div>
-            <div>
               {skinnyFatContent.paragraphs.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
@@ -133,7 +139,7 @@ export function BodyCompositionPage({ page }: { page: ContentPage }) {
               </div>
               <div className="bodycomp-benefits__media">
                 <Image
-                  src="/images/learn/body-composition/coaching.png"
+                  src="/images/learn/body-composition/benefits.png"
                   alt="InBody sonucunu bir sporcuya açıklayan profesyonel"
                   fill
                   sizes="(max-width: 820px) 100vw, 42vw"

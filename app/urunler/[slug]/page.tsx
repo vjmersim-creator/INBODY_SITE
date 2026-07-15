@@ -212,8 +212,8 @@ const productShowcaseVisuals: Record<
     fit: "contain",
   },
   inbody270s: {
-    src: "/images/product-experience/inbody270s.png",
-    alt: "Taşıma çantasıyla InBody270S",
+    src: "/images/product-experience/inbody270s-folded.png",
+    alt: "Katlanarak taşımaya hazır InBody270S",
     fit: "contain",
   },
   inbody120: {
@@ -231,8 +231,8 @@ const productShowcaseVisuals: Record<
     fit: "contain",
   },
   "bsm-370": {
-    src: "/images/products/bsm370.png",
-    alt: "BSM 370 boy ve ağırlık ölçüm cihazı",
+    src: "/images/product-experience/bsm370-colors.png",
+    alt: "BSM 370 yeşil, kahverengi ve siyah renk seçenekleri",
     fit: "contain",
   },
   "bsm-170": {

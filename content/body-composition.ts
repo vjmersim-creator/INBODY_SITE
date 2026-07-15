@@ -31,8 +31,8 @@ export const bodyCompositionStories = [
   {
     eyebrow: "Kas ve yağ dengesi",
     title: "Kilonuzu kas ve yağ olarak anlamanız neden önemlidir?",
-    image: "/images/learn/body-composition/strength.png",
-    imageAlt: "Ağırlık antrenmanı yapan sporcu",
+    image: "/images/learn/body-composition/tape-measure.png",
+    imageAlt: "Tartı üzerinde vücut ölçümü için kullanılan mezura",
     paragraphs: [
       "Normal kilo aralıklarını fark etmiş olabilirsiniz, ancak yalnızca kilo vermeye odaklanmak kas kütlesi kaybına yol açabilir ve çabalarınızı sabote edebilir. Kas ve yağı ayıran vücut kompozisyonu analizi, kilo dalgalanmalarının kas kazanımı, yağ kaybı veya başka bir değişimden kaynaklanıp kaynaklanmadığını anlamanıza yardımcı olur.",
       "Amacınız ne olursa olsun, sağlık yolculuğunda akılda tutulması gereken önemli nokta şudur: zayıf olmak her zaman sağlıklı olmak anlamına gelmez.",

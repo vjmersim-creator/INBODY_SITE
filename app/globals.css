@@ -1826,7 +1826,18 @@ h3 {
 }
 
 .bodycomp-skinny__grid {
-  align-items: start;
+  align-items: center;
+}
+
+.bodycomp-skinny__media {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
+  background: #101416;
+}
+
+.bodycomp-skinny__media img {
+  object-fit: cover;
 }
 
 .bodycomp-skinny h2 {
@@ -2029,6 +2040,7 @@ h3 {
 
   .bodycomp-overview__media,
   .bodycomp-story__media,
+  .bodycomp-skinny__media,
   .bodycomp-benefits__media {
     min-height: 420px;
   }
@@ -2060,6 +2072,260 @@ h3 {
 
   .bodycomp-next a {
     min-height: 240px;
+  }
+}
+
+/* Technology learning guide */
+.technology-guide h2,
+.learn-media-heading h2 {
+  font-size: clamp(2.2rem, 4.4vw, 4.6rem);
+}
+
+.technology-hero__media img {
+  object-position: 68% center;
+}
+
+.technology-intro,
+.technology-resistance,
+.technology-electrodes__grid,
+.technology-validation {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(46px, 7vw, 110px);
+}
+
+.technology-copy {
+  max-width: 650px;
+}
+
+.technology-copy h2,
+.technology-heading h2 {
+  margin-bottom: 28px;
+}
+
+.technology-copy p,
+.technology-heading > p:last-child,
+.technology-principles__grid p,
+.learn-media-heading > p:last-child {
+  color: var(--ink-soft);
+  line-height: 1.78;
+}
+
+.technology-copy p:last-child,
+.technology-heading > p:last-child,
+.technology-principles__grid p:last-child,
+.learn-media-heading > p:last-child {
+  margin-bottom: 0;
+}
+
+.technology-media {
+  position: relative;
+  min-height: 530px;
+  overflow: hidden;
+  background: var(--paper);
+}
+
+.technology-media--contain img,
+.technology-diagram img,
+.technology-comparison__media img,
+.technology-principles__media img {
+  object-fit: contain;
+}
+
+.technology-media--photo img {
+  object-fit: cover;
+}
+
+.technology-diagram {
+  position: relative;
+  min-height: 630px;
+  margin-top: 72px;
+  background: var(--paper);
+}
+
+.technology-heading {
+  max-width: 930px;
+  margin-bottom: 54px;
+}
+
+.technology-comparison__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.technology-comparison__grid figure {
+  margin: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.technology-comparison__media {
+  position: relative;
+  min-height: 510px;
+}
+
+.technology-electrodes {
+  background: var(--dark);
+  color: var(--paper);
+}
+
+.technology-electrodes .technology-copy h2 {
+  color: var(--paper);
+}
+
+.technology-electrodes .technology-copy p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.technology-electrodes .technology-media {
+  background: #f4f5f5;
+}
+
+.technology-principles__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.technology-principles__grid article {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+  padding: 28px;
+}
+
+.technology-principles__media {
+  position: relative;
+  min-height: 300px;
+  margin-bottom: 34px;
+}
+
+.technology-principles__grid article > span {
+  display: block;
+  margin-bottom: 22px;
+  color: var(--red);
+  font-family: var(--display);
+  font-weight: 750;
+}
+
+.technology-principles__grid h3 {
+  font-family: var(--display);
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+}
+
+/* Uploaded media for the test and result guides */
+.learn-test-media,
+.learn-results-media {
+  margin-block: 82px;
+}
+
+.learn-media-heading {
+  max-width: 850px;
+  margin-bottom: 46px;
+}
+
+.learn-test-video {
+  overflow: hidden;
+  background: #090c0d;
+}
+
+.learn-test-video video {
+  display: block;
+  width: 100%;
+  max-height: 760px;
+  object-fit: contain;
+}
+
+.learn-results-media__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+  align-items: stretch;
+  gap: 18px;
+}
+
+.learn-results-media__grid figure {
+  position: relative;
+  min-height: 620px;
+  margin: 0;
+  overflow: hidden;
+  background: var(--soft);
+}
+
+.learn-results-media__overview img {
+  object-fit: cover;
+}
+
+.learn-results-media__guide img {
+  object-fit: contain;
+  padding: 24px;
+}
+
+@media (max-width: 1000px) {
+  .technology-comparison__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .technology-intro,
+  .technology-resistance,
+  .technology-electrodes__grid,
+  .technology-validation,
+  .learn-results-media__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .technology-media,
+  .technology-diagram {
+    min-height: 460px;
+  }
+
+  .technology-diagram {
+    margin-top: 48px;
+  }
+
+  .technology-principles__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .learn-results-media__grid figure {
+    min-height: 520px;
+  }
+
+  .learn-results-media__guide {
+    min-height: 800px;
+  }
+}
+
+@media (max-width: 560px) {
+  .technology-comparison__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .technology-comparison__media {
+    min-height: 560px;
+  }
+
+  .technology-media,
+  .technology-diagram {
+    min-height: 340px;
+  }
+
+  .technology-principles__media {
+    min-height: 260px;
+  }
+
+  .learn-results-media__grid figure {
+    min-height: 360px;
+  }
+
+  .learn-results-media__guide {
+    min-height: 650px;
   }
 }
 
