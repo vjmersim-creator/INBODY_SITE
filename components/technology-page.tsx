@@ -210,14 +210,21 @@ export function TechnologyPage({ page }: { page: ContentPage }) {
 
         <section className="section">
           <div className="shell technology-validation">
-            <div className="technology-media technology-media--contain">
-              <Image
-                src="/images/learn/technology/inbody-impedance-development.png"
-                alt="Elektrotlardan empedans analizine uzanan BIA ölçüm yaklaşımı"
-                fill
-                sizes="(max-width: 820px) 100vw, 42vw"
-              />
-            </div>
+            <figure className="technology-validation__figure">
+              <div className="technology-validation__art">
+                <Image
+                  src="/images/learn/technology/inbody-impedance-development.png"
+                  alt="Elektrotlardan empedans analizine uzanan BIA ölçüm yaklaşımı"
+                  width={1536}
+                  height={1024}
+                  sizes="(max-width: 820px) 92vw, 48vw"
+                />
+              </div>
+              <figcaption>
+                <span>Ölçüm zinciri</span>
+                <p>Elektrot temasından doğrudan empedans verisine uzanan ölçüm yaklaşımı.</p>
+              </figcaption>
+            </figure>
             <div className="technology-copy">
               <p className="eyebrow">Araştırma ve gelişim</p>
               <h2>{development?.title}</h2>

@@ -71,10 +71,11 @@ h2 {
   font-weight: 500;
   letter-spacing: -0.035em;
   line-height: 1.05;
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: clamp(3rem, 6vw, 6.5rem);
+  font-size: clamp(3rem, 6vw, 6rem);
 }
 
 h2 {
@@ -84,6 +85,7 @@ h2 {
 h3 {
   letter-spacing: -0.025em;
   line-height: 1.2;
+  text-wrap: balance;
 }
 
 :focus-visible {
@@ -2087,12 +2089,65 @@ h3 {
 
 .technology-intro,
 .technology-resistance,
-.technology-electrodes__grid,
-.technology-validation {
+.technology-electrodes__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
   gap: clamp(46px, 7vw, 110px);
+}
+
+.technology-validation {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(340px, 0.88fr);
+  align-items: center;
+  gap: clamp(46px, 7vw, 96px);
+}
+
+.technology-validation__figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  box-shadow: 0 26px 70px rgba(12, 25, 35, 0.08);
+}
+
+.technology-validation__art {
+  display: grid;
+  aspect-ratio: 3 / 2;
+  place-items: center;
+  overflow: hidden;
+  background: #f4f5f5;
+  padding: clamp(18px, 2.6vw, 36px);
+}
+
+.technology-validation__art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.technology-validation__figure figcaption {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  border-top: 1px solid var(--line);
+  padding: 24px 28px 27px;
+}
+
+.technology-validation__figure figcaption span {
+  color: var(--red);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.technology-validation__figure figcaption p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.84rem;
+  line-height: 1.6;
 }
 
 .technology-copy {
@@ -2280,6 +2335,10 @@ h3 {
     grid-template-columns: 1fr;
   }
 
+  .technology-validation .technology-copy {
+    order: -1;
+  }
+
   .technology-media,
   .technology-diagram {
     min-height: 460px;
@@ -2318,6 +2377,12 @@ h3 {
 
   .technology-principles__media {
     min-height: 260px;
+  }
+
+  .technology-validation__figure figcaption {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 20px;
   }
 
   .learn-results-media__grid figure {
