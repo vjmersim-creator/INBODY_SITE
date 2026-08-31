@@ -212,7 +212,7 @@ const productShowcaseVisuals: Record<
     fit: "contain",
   },
   inbody270s: {
-    src: "/images/product-experience/inbody270s-folded.png",
+    src: "/images/product-experience/inbody270s-folded-clear.png",
     alt: "Katlanarak taşımaya hazır InBody270S",
     fit: "contain",
   },
@@ -231,7 +231,7 @@ const productShowcaseVisuals: Record<
     fit: "contain",
   },
   "bsm-370": {
-    src: "/images/product-experience/bsm370-colors.png",
+    src: "/images/product-experience/bsm370-colorways.png",
     alt: "BSM 370 yeşil, kahverengi ve siyah renk seçenekleri",
     fit: "contain",
   },
@@ -346,48 +346,245 @@ function ProductBanner({ product }: { product: Product }) {
   );
 }
 
+type CampaignBenefit = {
+  title: string;
+  text: string;
+  icon: IconName;
+};
+
+type CampaignHeroContent = {
+  headline: string;
+  description?: string;
+  visual?: string;
+  visualWidth?: number;
+  visualHeight?: number;
+  benefits?: CampaignBenefit[];
+};
+
+const campaignHeroContent: Record<string, CampaignHeroContent> = {
+  inbody970s: {
+    headline: "Araştırma derinliği. Günlük kullanım kolaylığı.",
+    visual: "/images/product-heroes/normalized/inbody970s-front.png",
+    visualWidth: 1200,
+    visualHeight: 1600,
+    benefits: [
+      { title: "3 MHz hassasiyet", text: "Gelişmiş frekans desteği", icon: "precision" },
+      { title: "130+ parametre", text: "Çok yönlü analiz çıktıları", icon: "results" },
+      { title: "Akıllı tanıma", text: "Hızlı tekrar ölçüm akışı", icon: "switch" },
+    ],
+  },
+  inbody770s: {
+    headline: "Araştırma düzeyi veri. Rahat bir test deneyimi.",
+    visual: "/images/product-heroes/normalized/inbody770s-front.png",
+    visualWidth: 1200,
+    visualHeight: 1600,
+    benefits: [
+      { title: "130+ parametre", text: "Kompozisyon ve vücut suyu", icon: "results" },
+      { title: "Yaklaşık 30 saniye", text: "Hızlı ölçüm akışı", icon: "time" },
+      { title: "Esnek elektrotlar", text: "Doğal kavrama pozisyonu", icon: "measure" },
+    ],
+  },
+  inbody580: {
+    headline: "Ayrıntılı içgörü. Akıcı danışmanlık.",
+    visual: "/images/product-heroes/normalized/inbody580-front.png",
+    visualWidth: 1200,
+    visualHeight: 1600,
+    benefits: [
+      { title: "Segmental faz açısı", text: "Daha ayrıntılı değerlendirme", icon: "precision" },
+      { title: "ECW oranı", text: "Vücut suyu dengesi", icon: "measure" },
+      { title: "100.000 sonuç", text: "Geniş takip kapasitesi", icon: "results" },
+    ],
+  },
+  inbody380: {
+    headline: "Kapsamlı analiz. Daha fazla hareket alanı.",
+    visual: "/images/product-heroes/normalized/inbody380-front.png",
+    visualWidth: 1200,
+    visualHeight: 1600,
+    benefits: [
+      { title: "Hızlı değerlendirme", text: "Yaklaşık 30 saniyede ölçüm", icon: "time" },
+      { title: "Kolay veri akışı", text: "QR kod ve kablosuz bağlantı", icon: "switch" },
+      { title: "İhtiyaca uygun sonuçlar", text: "Özelleştirilebilir takip verileri", icon: "results" },
+    ],
+  },
+  inbody270s: {
+    headline: "Profesyonel analiz. İhtiyaç duyduğunuz her yerde.",
+    visual: "/images/product-heroes/normalized/inbody270s-front.png",
+    visualWidth: 1200,
+    visualHeight: 1600,
+    benefits: [
+      { title: "13,4 kg", text: "Taşınabilir gövde", icon: "weight" },
+      { title: "Katlanabilir tasarım", text: "Kolay taşıma ve kurulum", icon: "measure" },
+      { title: "Mobil sonuçlar", text: "QR kodla kolay paylaşım", icon: "switch" },
+    ],
+  },
+  "bwa2-0s": {
+    headline: "Vücut suyunu daha ayrıntılı görün.",
+    visual: "/images/product-heroes/normalized/bwa20s-front.png",
+    visualWidth: 1200,
+    visualHeight: 1600,
+    benefits: [
+      { title: "3 MHz teknoloji", text: "Ayrıntılı su analizi", icon: "precision" },
+      { title: "16 noktalı elektrot", text: "Farklı pozisyonlarda ölçüm", icon: "measure" },
+      { title: "İki çalışma modu", text: "Tıbbi ve araştırma akışı", icon: "switch" },
+    ],
+  },
+  inbodys10: {
+    headline: "Ölçümü kullanıcıya uyarlayın.",
+    visual: "/images/product-heroes/normalized/inbodys10-front.png",
+    visualWidth: 1400,
+    visualHeight: 1100,
+    benefits: [
+      { title: "Üç ölçüm pozisyonu", text: "Yatarak, oturarak veya ayakta", icon: "measure" },
+      { title: "Segmental su analizi", text: "Beş ayrı bölge", icon: "precision" },
+      { title: "2 kg analiz ünitesi", text: "Taşınabilir klinik kullanım", icon: "weight" },
+    ],
+  },
+  "bsm-370": {
+    headline: "Üç temel ölçüm. Tek akıcı deneyim.",
+    visual: "/images/product-heroes/normalized/bsm370-front.png",
+    visualWidth: 1200,
+    visualHeight: 1600,
+    benefits: [
+      { title: "Yaklaşık 7 saniye", text: "Boy ve ağırlık ölçümü", icon: "time" },
+      { title: "Boy, ağırlık, BMI", text: "Üç sonuç tek sistemde", icon: "results" },
+      { title: "Kolay taşınabilir", text: "Katlanabilir kol ve tekerlekler", icon: "switch" },
+    ],
+  },
+  "bsm-170": {
+    headline: "Boy ölçümünü veri akışına bağlayın.",
+    visual: "/images/product-heroes/normalized/bsm170-front.png",
+    visualWidth: 1200,
+    visualHeight: 1600,
+    benefits: [
+      { title: "±1 mm hassasiyet", text: "Tekrarlanabilir boy ölçümü", icon: "precision" },
+      { title: "Bluetooth aktarımı", text: "Uyumlu InBody bağlantısı", icon: "switch" },
+      { title: "Büyük LCD ekran", text: "Kolay okunan sonuçlar", icon: "results" },
+    ],
+  },
+  ingrip: {
+    headline: "Kas fonksiyonuna güçlü bir bakış.",
+    visual: "/images/product-heroes/normalized/ingrip-front.png",
+    visualWidth: 1200,
+    visualHeight: 1600,
+    benefits: [
+      { title: "±0,5 kg hata aralığı", text: "Hassas kavrama ölçümü", icon: "precision" },
+      { title: "Kulp kılavuzu", text: "Tutarlı el pozisyonu", icon: "measure" },
+      { title: "Bluetooth 5.0", text: "Kablosuz sonuç aktarımı", icon: "switch" },
+    ],
+  },
+  "lookinbody-web": {
+    headline: "Ölçüm verileri. Her yerden erişilebilir.",
+    visual: "/images/product-heroes/normalized/lookinbody-front.png",
+    visualWidth: 1400,
+    visualHeight: 1100,
+    benefits: [
+      { title: "Tarayıcı erişimi", text: "Bilgisayar ve tabletlerden", icon: "results" },
+      { title: "Merkezi danışan takibi", text: "Tek çalışma alanı", icon: "measure" },
+      { title: "Dijital paylaşım", text: "Mobil sonuç deneyimi", icon: "switch" },
+    ],
+  },
+  "lookinbody-120": {
+    headline: "Sonuçları düzenleyin. İlerlemeyi görün.",
+    visual: "/images/product-heroes/normalized/lookinbody-front.png",
+    visualWidth: 1400,
+    visualHeight: 1100,
+    benefits: [
+      { title: "İlerleme grafikleri", text: "Zaman içindeki değişim", icon: "results" },
+      { title: "Özelleştirilebilir çıktı", text: "Kuruma uygun sonuç sayfası", icon: "specs" },
+      { title: "Sistem entegrasyonu", text: "Ağ ve EMR bağlantısı", icon: "switch" },
+    ],
+  },
+};
+
+function ProductCampaignHero({ product }: { product: Product }) {
+  const content = campaignHeroContent[product.slug];
+  if (!content) return null;
+
+  const benefits = content.benefits ?? productMetricMap[product.slug]?.slice(0, 3).map((metric) => ({
+    title: metric.value,
+    text: metric.label,
+    icon: metric.icon,
+  })) ?? [];
+
+  const visual = content.visual ?? product.image?.src;
+  const visualWidth = content.visualWidth ?? product.image?.width ?? 1280;
+  const visualHeight = content.visualHeight ?? product.image?.height ?? 1600;
+
+  return (
+    <section
+      className={`product-campaign-hero product-campaign-hero--${product.slug}`}
+      aria-labelledby="product-campaign-title"
+    >
+      <Image
+        className="product-campaign-hero__background"
+        src="/images/product-heroes/inbody380-clean-studio-background.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+      />
+      <div className="product-campaign-hero__shade" />
+      <div className="shell product-campaign-hero__inner">
+        <Breadcrumb
+          items={[
+            { label: "Ana Sayfa", href: "/" },
+            { label: "Ürünler", href: "/urunler" },
+            { label: product.name },
+          ]}
+        />
+
+        <div className="product-campaign-hero__grid">
+          <div className="product-campaign-hero__copy">
+            <h1 id="product-campaign-title">
+              <span>{product.name}</span>
+              {" "}
+              {content.headline}
+            </h1>
+            <p>{content.description ?? product.summary}</p>
+            <div className="button-row">
+              <Link className="button button--dark" href={brochureHref(product)}>
+                Broşür talep edin <span aria-hidden="true">↗</span>
+              </Link>
+              <a className="product-campaign-hero__spec-link" href="#teknik-ozellikler">
+                Teknik özellikleri görün <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="product-campaign-hero__stage" aria-hidden="true">
+            {visual ? (
+              <Image
+                src={visual}
+                alt=""
+                width={visualWidth}
+                height={visualHeight}
+                priority
+                sizes="(max-width: 760px) 78vw, 42vw"
+              />
+            ) : (
+              <span className="product-campaign-hero__visual-name">{product.name}</span>
+            )}
+          </div>
+        </div>
+
+        <ul className="product-campaign-hero__benefits" aria-label={`${product.name} öne çıkan faydaları`}>
+          {benefits.map((benefit) => (
+            <li key={benefit.title}>
+              <Icon name={benefit.icon} />
+              <span><strong>{benefit.title}</strong>{benefit.text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 function InBody580Page({ product }: { product: Product }) {
   return (
     <main id="ana-icerik">
       <ProductQuickNav currentSlug={product.slug} products={navigationProducts} />
-      <ProductBanner product={product} />
-      <section className="product-detail-hero">
-        <div className="shell">
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: product.name },
-            ]}
-          />
-          <div className="product-detail-hero__grid">
-            <div className="product-detail-hero__copy">
-              <p className="eyebrow">{product.eyebrow}</p>
-              <h1>{product.name}</h1>
-              <h2>Uzman görüşleri için derinlemesine sağlık değerlendirmeleri.</h2>
-              <p>{product.summary}</p>
-              <div className="button-row">
-                <Link className="button button--red" href={brochureHref(product)}>
-                  <Icon name="brochure" /> Broşür Talep Et
-                </Link>
-                <a className="button button--outline" href="#teknik-ozellikler">
-                  <Icon name="specs" /> Teknik özellikler
-                </a>
-              </div>
-            </div>
-            <ProductVisual product={product} priority />
-          </div>
-        </div>
-      </section>
-
-      <section className="product-metrics" aria-label="InBody580 temel özellikleri">
-        <div className="shell product-metrics__grid">
-          <div><strong>≈30 sn</strong><span>Test süresi</span></div>
-          <div><strong>5–300 kg</strong><span>Ağırlık aralığı</span></div>
-          <div><strong>3+</strong><span>Yaş aralığı</span></div>
-          <div><strong>100.000</strong><span>Sonuç kapasitesi</span></div>
-        </div>
-      </section>
+      <ProductCampaignHero product={product} />
 
       <section className="product-story section">
         <div className="shell product-story__intro">
@@ -468,41 +665,49 @@ function InBody580Page({ product }: { product: Product }) {
 }
 
 function StandardProductPage({ product }: { product: Product }) {
+  const hasCampaignHero = Boolean(campaignHeroContent[product.slug]);
+
   return (
     <main id="ana-icerik">
       <ProductQuickNav currentSlug={product.slug} products={navigationProducts} />
-      <ProductBanner product={product} />
-      <section className="product-detail-hero product-detail-hero--standard">
-        <div className="shell">
-          <Breadcrumb
-            items={[
-              { label: "Ana Sayfa", href: "/" },
-              { label: "Ürünler", href: "/urunler" },
-              { label: product.name },
-            ]}
-          />
-          <div className="product-detail-hero__grid">
-            <div className="product-detail-hero__copy">
-              <p className="eyebrow">{product.categoryLabel}</p>
-              <h1>{product.name}</h1>
-              <h2>{product.eyebrow}</h2>
-              <p>{product.summary}</p>
-              <div className="button-row">
-                <Link className="button button--red" href={brochureHref(product)}>
-                  <Icon name="brochure" /> Broşür Talep Et
-                </Link>
-                {product.details ? (
-                  <a className="button button--outline" href="#teknik-ozellikler">
-                    <Icon name="specs" /> Teknik özellikler
-                  </a>
-                ) : null}
+      {hasCampaignHero ? (
+        <ProductCampaignHero product={product} />
+      ) : (
+        <>
+          <ProductBanner product={product} />
+          <section className="product-detail-hero product-detail-hero--standard">
+            <div className="shell">
+              <Breadcrumb
+                items={[
+                  { label: "Ana Sayfa", href: "/" },
+                  { label: "Ürünler", href: "/urunler" },
+                  { label: product.name },
+                ]}
+              />
+              <div className="product-detail-hero__grid">
+                <div className="product-detail-hero__copy">
+                  <p className="eyebrow">{product.categoryLabel}</p>
+                  <h1>{product.name}</h1>
+                  <h2>{product.eyebrow}</h2>
+                  <p>{product.summary}</p>
+                  <div className="button-row">
+                    <Link className="button button--red" href={brochureHref(product)}>
+                      <Icon name="brochure" /> Broşür Talep Et
+                    </Link>
+                    {product.details ? (
+                      <a className="button button--outline" href="#teknik-ozellikler">
+                        <Icon name="specs" /> Teknik özellikler
+                      </a>
+                    ) : null}
+                  </div>
+                </div>
+                <ProductVisual product={product} priority />
               </div>
             </div>
-            <ProductVisual product={product} priority />
-          </div>
-        </div>
-      </section>
-      <ProductMetrics product={product} />
+          </section>
+        </>
+      )}
+      {hasCampaignHero ? null : <ProductMetrics product={product} />}
       {product.details ? (
         <>
           <section className="product-content section">

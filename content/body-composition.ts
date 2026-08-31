@@ -21,7 +21,7 @@ export const bodyCompositionStories = [
     eyebrow: "BMI ve vücut kompozisyonu",
     title: "BMI neden yanıltıcı ve yanlış yönlendiren bir ölçüt olabilir?",
     image: "/images/learn/body-composition/scale.png",
-    imageAlt: "Tartıya çıkan bir kişinin ayağı",
+    imageAlt: "Tartı üzerinde duran bir kişinin iki ayağı",
     paragraphs: [
       "Vücut Kitle İndeksi (BMI), bir kişinin sağlık durumunu taşıdığı ağırlığı boyuyla karşılaştırarak değerlendiren yaygın bir yöntemdir: BMI = kg/m².",
       "BMI klinik pratikte yaygın olarak kullanılsa da birçok sınırlamaya sahiptir. Ağırlıkta meydana gelen değişikliğin yağ mı, kas mı yoksa vücut suyu mu olduğunu göstermez. Sağlık risklerini tek bir sayıyla değerlendirmek, sağlıklı olmayı etkileyen önemli faktörleri göz ardı edebilir.",

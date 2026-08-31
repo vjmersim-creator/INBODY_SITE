@@ -47,9 +47,9 @@ export const aboutPages: ContentPage[] = [
       "Müşterilerimiz InBody'nin kullanım kolaylığı, doğruluk ve tekrarlanabilirliği bir arada sunduğunu biliyor. Yaklaşımın merkezinde, kullanıcıların doğru, kullanışlı ve hassas vücut kompozisyonu verilerine ulaşması yer alıyor.",
     ],
     heroImage: {
-      src: "/images/official/about-hero.png",
-      alt: "InBody teknolojisinin profesyonel kullanım alanı",
-      position: "center 38%",
+      src: "/images/about/founder-showroom.png",
+      alt: "InBody kurucusu Dr. Kichul Cha, InBody showroomunda",
+      position: "center 42%",
     },
     feature: {
       image: "/images/official/dr-kichul-cha.png",
@@ -103,6 +103,11 @@ export const aboutPages: ContentPage[] = [
     title: "Tarihçe",
     eyebrow: "Hakkımızda",
     description: "InBody'nin kuruluşundan bugüne gelişim yolculuğu.",
+    heroImage: {
+      src: "/images/about/history-founder.webp",
+      alt: "Dr. Kichul Cha ve erken dönem InBody cihazı",
+      position: "center 28%",
+    },
     body: [
       "InBody'nin yolculuğu, Bioelektrik İmpedans Analizi teknolojisini daha doğru ve güvenilir hâle getirme hedefiyle başladı. Sağlanan kurumsal tarihçe metnindeki önemli dönüm noktaları aşağıda yer alıyor.",
     ],

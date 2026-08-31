@@ -73,7 +73,7 @@ export function ProductVisual({ product, priority = false }: { product: Product;
 export function ProductCard({ product }: { product: Product }) {
   return (
     <Link className="product-card" href={`/urunler/${product.slug}`}>
-      <div className="product-card__visual">
+      <div className={`product-card__visual product-card__visual--${product.slug}`}>
         <ProductVisual product={product} />
       </div>
       <div className="product-card__body">
@@ -113,20 +113,43 @@ const contentHeroImages: Record<string, { src: string; alt: string; position?: s
     alt: "InBody cihazının ölçüm kolu ve elektrot sistemi",
   },
   "inbody-testi": {
-    src: "/images/learn/inbody-test/handle.png",
-    alt: "InBody testi sırasında el elektrodunun doğru tutulması",
+    src: "/images/curated/learn/faq-measurement.jpg",
+    alt: "InBody cihazında ölçüm yapan sporcu",
+    position: "center 38%",
   },
   "sonuc-sayfasi-yorumlama": {
-    src: "/images/learn/results/hero.png",
-    alt: "InBody sonuç sayfaları",
+    src: "/images/learn/results/result-reports.jpg",
+    alt: "Farklı InBody ölçümlerine ait sonuç sayfaları",
+    position: "68% center",
   },
   "sikca-sorulan-sorular": {
-    src: "/images/professional-section.jpg",
-    alt: "InBody hakkında bilgi veren sağlık profesyoneli",
+    src: "/images/curated/learn/body-composition-coaching.webp",
+    alt: "InBody testi sırasında kullanıcıya bilgi veren uzman",
+    position: "center 44%",
   },
   "guvenlik-ve-temizlik-ipuclari": {
     src: "/images/hero-touch.jpg",
     alt: "InBody cihazında güvenli test deneyimi",
+  },
+};
+
+const contentPageBanners: Record<string, {
+  src: string;
+  alt: string;
+  fit?: "cover" | "contain";
+  width?: number;
+  height?: number;
+}> = {
+  "biz-kimiz": {
+    src: "/images/about/company-values.jpg",
+    alt: "InBody cihazında ölçüm için elektrotları tutan kullanıcı",
+  },
+  "kuresel-ag": {
+    src: "/images/about/global-network-map.png",
+    alt: "InBody'nin dünya çapındaki merkezlerini gösteren harita",
+    fit: "contain",
+    width: 1672,
+    height: 941,
   },
 };
 
@@ -149,6 +172,10 @@ function getContentHero(page: ContentPage) {
 
 export function ContentTemplate({ page }: { page: ContentPage }) {
   const hero = getContentHero(page);
+  const isTestHero = page.slug === "inbody-testi";
+  const isResultsHero = page.slug === "sonuc-sayfasi-yorumlama";
+  const isFaqHero = page.slug === "sikca-sorulan-sorular";
+  const pageBanner = contentPageBanners[page.slug];
   const sectionLinks =
     page.eyebrow === "Hakkımızda"
       ? aboutLinks
@@ -167,7 +194,9 @@ export function ContentTemplate({ page }: { page: ContentPage }) {
           icon={page.eyebrow === "Hakkımızda" ? "precision" : "results"}
         />
       ) : null}
-      <section className="subpage-hero subpage-hero--visual">
+      <section
+        className={`subpage-hero subpage-hero--visual${isTestHero ? " test-page-hero" : isResultsHero ? " results-page-hero" : isFaqHero ? " faq-page-hero" : ""}`}
+      >
         <div className="shell subpage-hero__grid">
           <div className="subpage-hero__copy">
             <Breadcrumb
@@ -181,15 +210,37 @@ export function ContentTemplate({ page }: { page: ContentPage }) {
             <h1>{page.title}</h1>
             <p className="subpage-hero__lead">{page.description}</p>
           </div>
-          <div className="subpage-hero__media">
+          <div
+            className={`subpage-hero__media${isTestHero ? " test-page-hero__media" : isResultsHero ? " results-page-hero__media" : isFaqHero ? " faq-page-hero__media" : ""}`}
+          >
             <Image
               src={hero.src}
               alt={hero.alt}
               fill
-              priority
-              sizes="(max-width: 820px) 100vw, 46vw"
+              preload
+              sizes={
+                isTestHero || isResultsHero || isFaqHero
+                  ? "(max-width: 980px) calc(100vw - 48px), (max-width: 1400px) 43vw, 520px"
+                  : "(max-width: 820px) 100vw, 46vw"
+              }
               style={{ objectPosition: hero.position }}
             />
+            {isTestHero ? (
+              <div className="test-page-hero__note">
+                <strong>Ölçüm öncesi</strong>
+                <span>Çıplak ayak, hafif kıyafet ve sakin bir başlangıç.</span>
+              </div>
+            ) : isResultsHero ? (
+              <div className="results-page-hero__note">
+                <strong>Tek bir değer değil</strong>
+                <span>Sonuçları değişim geçmişiyle birlikte okuyun.</span>
+              </div>
+            ) : isFaqHero ? (
+              <div className="faq-page-hero__note">
+                <strong>Sorun, birlikte bakalım</strong>
+                <span>Hazırlıktan sonuçlara kadar net yanıtlar.</span>
+              </div>
+            ) : null}
           </div>
         </div>
       </section>
@@ -216,6 +267,27 @@ export function ContentTemplate({ page }: { page: ContentPage }) {
               <p>{page.feature.text}</p>
             </div>
           </article>
+        ) : null}
+        {pageBanner ? (
+          <figure className={`shell content-page-banner${pageBanner.fit === "contain" ? " content-page-banner--contain" : ""}`}>
+            {pageBanner.fit === "contain" && pageBanner.width && pageBanner.height ? (
+              <Image
+                src={pageBanner.src}
+                alt={pageBanner.alt}
+                width={pageBanner.width}
+                height={pageBanner.height}
+                sizes="(max-width: 820px) 100vw, 1320px"
+              />
+            ) : (
+              <Image
+                src={pageBanner.src}
+                alt={pageBanner.alt}
+                fill
+                sizes="(max-width: 820px) 100vw, 1320px"
+                style={{ objectFit: pageBanner.fit }}
+              />
+            )}
+          </figure>
         ) : null}
         <div className="shell shell--narrow content-page__copy content-page__copy--details">
           {page.sections ? (

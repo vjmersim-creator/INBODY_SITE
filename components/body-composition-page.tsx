@@ -15,6 +15,11 @@ import {
 import { learnLinks } from "@/content/navigation";
 import type { ContentPage } from "@/content/pages";
 
+const storyCaptions = [
+  "Tartı toplam ağırlığı gösterir; değişimin yağdan, kastan veya vücut suyundan geldiğini göstermez.",
+  "Çevre ölçümü yararlı bir referanstır; kas ve yağ dokusunu tek başına birbirinden ayırmaz.",
+];
+
 export function BodyCompositionPage({ page }: { page: ContentPage }) {
   return (
     <main id="ana-icerik">
@@ -25,7 +30,7 @@ export function BodyCompositionPage({ page }: { page: ContentPage }) {
         icon="results"
       />
 
-      <section className="subpage-hero subpage-hero--visual">
+      <section className="subpage-hero subpage-hero--visual bodycomp-hero">
         <div className="shell subpage-hero__grid">
           <div className="subpage-hero__copy">
             <Breadcrumb
@@ -39,21 +44,25 @@ export function BodyCompositionPage({ page }: { page: ContentPage }) {
             <h1>{page.title}</h1>
             <p className="subpage-hero__lead">{page.description}</p>
           </div>
-          <div className="subpage-hero__media">
+          <figure className="subpage-hero__media bodycomp-hero__media">
             <Image
-              src="/images/hero-results.jpg"
-              alt="Vücut kompozisyonu sonuçlarının profesyonel değerlendirmesi"
+              src="/images/curated/learn/body-composition-measurement.jpg"
+              alt="InBody770 cihazında vücut kompozisyonu ölçümü yapan kullanıcı"
               fill
-              priority
-              sizes="(max-width: 820px) 100vw, 46vw"
+              preload
+              sizes="(max-width: 820px) calc(100vw - 38px), (max-width: 1400px) 43vw, 590px"
             />
-          </div>
+            <figcaption className="bodycomp-hero__note">
+              <span aria-hidden="true" />
+              İyi bir ölçüm, iyi bir sohbetle başlar.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
       <article className="bodycomp-page">
         <section className="bodycomp-overview section">
-          <div className="shell bodycomp-overview__grid">
+          <div className="shell">
             <div className="bodycomp-overview__copy">
               <p className="eyebrow">Vücut kompozisyonu</p>
               <h2>{bodyCompositionOverview.title}</h2>
@@ -61,14 +70,22 @@ export function BodyCompositionPage({ page }: { page: ContentPage }) {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
-            <div className="bodycomp-overview__media">
-              <Image
-                src="/images/learn/body-composition/consultation.png"
-                alt="Sağlık profesyoneli ile sonuç değerlendirmesi"
-                fill
-                sizes="(max-width: 820px) 100vw, 48vw"
-              />
-            </div>
+            <figure className="bodycomp-overview__figure">
+              <div className="bodycomp-overview__media">
+                <Image
+                  src="/images/learn/body-composition/composition-still-life-v2.jpg"
+                  alt="Mezura, egzersiz ekipmanı, su ve vücut kompozisyonu sonuçlarını gösteren doğal bir düzenleme"
+                  fill
+                  sizes="(max-width: 1248px) calc(100vw - 48px), 1200px"
+                />
+              </div>
+              <figcaption className="bodycomp-figure-caption bodycomp-figure-caption--lead">
+                <strong>Bir sayıdan fazlası.</strong>
+                <span>
+                  Kas, yağ ve vücut suyu birlikte değerlendirildiğinde toplam ağırlık anlam kazanır.
+                </span>
+              </figcaption>
+            </figure>
           </div>
         </section>
 
@@ -90,14 +107,22 @@ export function BodyCompositionPage({ page }: { page: ContentPage }) {
               <div
                 className={`shell bodycomp-story__grid${index % 2 ? " bodycomp-story__grid--reverse" : ""}`}
               >
-                <div className="bodycomp-story__media">
-                  <Image
-                    src={story.image}
-                    alt={story.imageAlt}
-                    fill
-                    sizes="(max-width: 820px) 100vw, 42vw"
-                  />
-                </div>
+                <figure className="bodycomp-story__figure">
+                  <div className="bodycomp-story__media">
+                    <Image
+                      src={story.image}
+                      alt={story.imageAlt}
+                      fill
+                      loading="eager"
+                      unoptimized={index === 0}
+                      sizes="(max-width: 720px) calc(100vw - 48px), (max-width: 1400px) 52vw, 720px"
+                    />
+                  </div>
+                  <figcaption className="bodycomp-figure-caption">
+                    <span>{String(index + 2).padStart(2, "0")}</span>
+                    {storyCaptions[index]}
+                  </figcaption>
+                </figure>
                 <div className="bodycomp-story__copy">
                   <p className="eyebrow">{story.eyebrow}</p>
                   <h2>{story.title}</h2>
@@ -112,14 +137,6 @@ export function BodyCompositionPage({ page }: { page: ContentPage }) {
 
         <section className="bodycomp-skinny section">
           <div className="shell bodycomp-skinny__grid">
-            <div className="bodycomp-skinny__media">
-              <Image
-                src="/images/learn/body-composition/skinny-fat.png"
-                alt="Egzersiz sonrasında dinlenen sporcu"
-                fill
-                sizes="(max-width: 720px) 100vw, 48vw"
-              />
-            </div>
             <div className="bodycomp-skinny__copy">
               <p className="eyebrow eyebrow--light">Görünüm ve sağlık</p>
               <h2>{skinnyFatContent.title}</h2>
@@ -127,6 +144,20 @@ export function BodyCompositionPage({ page }: { page: ContentPage }) {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
+            <figure className="bodycomp-skinny__figure">
+              <div className="bodycomp-skinny__media">
+                <Image
+                  src="/images/learn/body-composition/healthy-weight-training.jpg"
+                  alt="Egzersiz sonrasında spor salonunda dinlenen sporcu"
+                  fill
+                  sizes="(max-width: 720px) calc(100vw - 48px), (max-width: 1400px) 52vw, 720px"
+                />
+              </div>
+              <figcaption className="bodycomp-figure-caption bodycomp-figure-caption--dark">
+                <span>04</span>
+                Görünüm tek başına kas miktarını veya visseral yağ düzeyini göstermez.
+              </figcaption>
+            </figure>
           </div>
         </section>
 
@@ -137,14 +168,20 @@ export function BodyCompositionPage({ page }: { page: ContentPage }) {
                 <p className="eyebrow">Somut ilerleme</p>
                 <h2>Vücut kompozisyonunuzu anlamanın faydaları nelerdir?</h2>
               </div>
-              <div className="bodycomp-benefits__media">
-                <Image
-                  src="/images/learn/body-composition/benefits.png"
-                  alt="InBody sonucunu bir sporcuya açıklayan profesyonel"
-                  fill
-                  sizes="(max-width: 820px) 100vw, 42vw"
-                />
-              </div>
+              <figure className="bodycomp-benefits__figure">
+                <div className="bodycomp-benefits__media">
+                  <Image
+                    src="/images/learn/body-composition/benefits.png"
+                    alt="InBody sonucunu bir sporcuya açıklayan profesyonel"
+                    fill
+                    sizes="(max-width: 720px) calc(100vw - 48px), (max-width: 1400px) 54vw, 740px"
+                  />
+                </div>
+                <figcaption className="bodycomp-figure-caption">
+                  <span>05</span>
+                  Düzenli ölçüm, planın vücudunuzda gerçekten neyi değiştirdiğini görünür kılar.
+                </figcaption>
+              </figure>
             </div>
             <div className="bodycomp-benefits__grid">
               {bodyCompositionBenefits.map((benefit) => (
@@ -194,15 +231,25 @@ export function BodyCompositionPage({ page }: { page: ContentPage }) {
             <div className="bodycomp-methods__list">
               {bodyCompositionMethods.map((method, index) => (
                 <article className="bodycomp-method" key={method.title}>
-                  <div className="bodycomp-method__media">
-                    <Image
-                      src={method.image}
-                      alt={method.imageAlt}
-                      fill
-                      sizes="(max-width: 700px) 100vw, 30vw"
-                    />
-                    <span>{method.credit}</span>
-                  </div>
+                  <figure
+                    className={`bodycomp-method__figure${
+                      index === 2 || index === 4 ? " bodycomp-method__figure--compact" : ""
+                    }`}
+                  >
+                    <div className="bodycomp-method__media">
+                      <Image
+                        src={method.image}
+                        alt={method.imageAlt}
+                        fill
+                        sizes={
+                          index === 2 || index === 4
+                            ? "(max-width: 720px) calc(100vw - 96px), 360px"
+                            : "(max-width: 720px) calc(100vw - 48px), (max-width: 1400px) 34vw, 440px"
+                        }
+                      />
+                    </div>
+                    <figcaption>{method.credit}</figcaption>
+                  </figure>
                   <div className="bodycomp-method__copy">
                     <span className="bodycomp-method__number">
                       {String(index + 1).padStart(2, "0")}

@@ -150,7 +150,6 @@ export const products: Product[] = [
       ],
       note: "İçerik ve teknik değerler sağlanan InBody970S kataloğundan aktarılmıştır.",
     },
-    featured: true,
   },
   {
     slug: "inbody770s",
@@ -315,6 +314,7 @@ export const products: Product[] = [
       ],
       note: "İçerik ve teknik değerler sağlanan InBody380 kataloğundan aktarılmıştır.",
     },
+    featured: true,
   },
   {
     slug: "inbody270s",
@@ -386,6 +386,7 @@ export const products: Product[] = [
       ],
       note: "İçerik ve teknik değerler sağlanan InBody270S kataloğundan aktarılmıştır.",
     },
+    featured: true,
   },
   {
     slug: "inbody120",
@@ -512,7 +513,6 @@ export const products: Product[] = [
       ],
       note: "İçerik ve teknik değerler sağlanan BWA2.0S kataloğundan aktarılmıştır.",
     },
-    featured: true,
   },
   {
     slug: "inbodys10",

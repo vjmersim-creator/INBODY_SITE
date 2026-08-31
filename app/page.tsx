@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { HomeHeroCarousel } from "@/components/home-hero-carousel";
 import { HorizontalRail } from "@/components/horizontal-rail";
+import { TestimonialShowcase } from "@/components/testimonial-showcase";
 import { ContactCta, ProductCard, SectionHeading } from "@/components/ui";
 import { products } from "@/content/products";
 
@@ -15,12 +17,13 @@ export const metadata: Metadata = {
     description:
       "InBody Türkiye’nin vücut kompozisyonu, vücut suyu analizi, boy ölçümü ve veri yönetimi çözümlerini keşfedin.",
     url: "/",
-    images: [{ url: "/images/hero-970s.jpg", alt: "InBody analiz çözümü" }],
+    images: [{ url: "/images/home-hero/product-family.png", alt: "InBody ürün ailesi" }],
   },
 };
 
 const categories = [
   {
+    id: "body-composition",
     title: "Vücut Kompozisyonu",
     description: "Profesyoneller için ayrıntılı vücut kompozisyonu analizi.",
     image: "/images/inbody-hero-device.png",
@@ -29,6 +32,7 @@ const categories = [
     href: "/urunler#vucut-kompozisyonu",
   },
   {
+    id: "body-water",
     title: "Vücut Suyu",
     description: "Klinik ihtiyaçlar için gelişmiş vücut suyu değerlendirmesi.",
     image: "/images/product-category-water.png",
@@ -37,6 +41,7 @@ const categories = [
     href: "/urunler#vucut-suyu",
   },
   {
+    id: "height-measurement",
     title: "Boy Ölçer",
     description: "Boy ve ağırlık ölçümünü InBody ekosistemiyle birleştirin.",
     image: "/images/product-category-height.png",
@@ -45,6 +50,7 @@ const categories = [
     href: "/urunler#boy-olcer",
   },
   {
+    id: "ingrip",
     title: "InGrip",
     description: "El kavrama gücünü doğru ve tekrarlanabilir biçimde ölçün.",
     image: "/images/products/ingrip.png",
@@ -53,6 +59,7 @@ const categories = [
     href: "/urunler#ingrip",
   },
   {
+    id: "data-management",
     title: "Veri Yönetimi",
     description: "InBody sonuçlarını güvenli ve düzenli biçimde yönetin.",
     image: "/images/product-category-data.png",
@@ -62,7 +69,10 @@ const categories = [
   },
 ];
 
-const featuredProducts = products.filter((product) => product.featured);
+const featuredProductSlugs = ["inbody270s", "inbody380", "inbody580"];
+const featuredProducts = featuredProductSlugs
+  .map((slug) => products.find((product) => product.slug === slug))
+  .filter((product): product is (typeof products)[number] => product !== undefined);
 
 const homeStories = [
   {
@@ -145,39 +155,31 @@ const knowledgeCards = [
   },
 ];
 
+const testimonialPlaceholders = [
+  {
+    focus: "Klinik değerlendirme",
+    quote: "Onaylı Türkçe müşteri görüşü eklenecek.",
+    name: "İsim ve unvan onayı bekleniyor",
+    organization: "Kurum adı onayı bekleniyor",
+  },
+  {
+    focus: "Performans takibi",
+    quote: "Onaylı Türkçe müşteri görüşü eklenecek.",
+    name: "İsim ve unvan onayı bekleniyor",
+    organization: "Kurum adı onayı bekleniyor",
+  },
+  {
+    focus: "Wellness programları",
+    quote: "Onaylı Türkçe müşteri görüşü eklenecek.",
+    name: "İsim ve unvan onayı bekleniyor",
+    organization: "Kurum adı onayı bekleniyor",
+  },
+];
+
 export default function Home() {
   return (
     <main id="ana-icerik">
-      <section className="home-hero">
-        <Image
-          className="home-hero__background"
-          src="/images/hero-970s.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-        />
-        <div className="home-hero__overlay" />
-        <div className="home-hero__content shell">
-          <p className="hero-pill">Vücut kompozisyonunda yeni bir bakış</p>
-          <h1>Sağlığı yalnızca tartmayın. Derinlemesine anlayın.</h1>
-          <p>
-            InBody teknolojisi, sağlık profesyonellerinin vücut
-            kompozisyonunu ayrıntılı verilerle değerlendirmesine yardımcı olur.
-          </p>
-          <div className="button-row">
-            <Link className="button button--light" href="/urunler">
-              Ürünleri keşfedin <span aria-hidden="true">↗</span>
-            </Link>
-            <Link className="button button--ghost-light" href="/iletisim">
-              Bize ulaşın
-            </Link>
-          </div>
-        </div>
-        <a className="hero-scroll" href="#cozumler" aria-label="Çözümlere ilerle">
-          <span aria-hidden="true">↓</span>
-        </a>
-      </section>
+      <HomeHeroCarousel />
 
       <section className="home-intro section">
         <div className="shell home-intro__grid">
@@ -205,7 +207,11 @@ export default function Home() {
               description="Güncel InBody Türkiye ürün ailesindeki farklı kullanım senaryolarını sağa kaydırarak inceleyin."
             />
           </div>
-          <HorizontalRail label="Öne çıkan InBody çözümleri" className="home-story-rail">
+          <HorizontalRail
+            label="Öne çıkan InBody çözümleri"
+            className="home-story-rail"
+            pageByPage
+          >
             {homeStories.map((story, index) => (
               <Link className="home-story-card" href={story.href} key={story.title}>
                 <div
@@ -245,7 +251,7 @@ export default function Home() {
           <HorizontalRail label="InBody ürün kategorileri" className="home-category-rail">
             {categories.map((category) => (
               <Link
-                className="category-card category-card--rail"
+                className={`category-card category-card--rail category-card--${category.id}`}
                 href={category.href}
                 key={category.title}
               >
@@ -254,13 +260,15 @@ export default function Home() {
                   <p>{category.description}</p>
                   <span className="round-arrow" aria-hidden="true">↗</span>
                 </div>
-                <Image
-                  src={category.image}
-                  alt={`${category.title} ürün kategorisi`}
-                  width={category.width}
-                  height={category.height}
-                  sizes="(max-width: 768px) 40vw, 18vw"
-                />
+                <div className="category-card__media">
+                  <Image
+                    src={category.image}
+                    alt={`${category.title} ürün kategorisi`}
+                    width={category.width}
+                    height={category.height}
+                    sizes="(max-width: 768px) 40vw, 18vw"
+                  />
+                </div>
               </Link>
             ))}
           </HorizontalRail>
@@ -289,8 +297,17 @@ export default function Home() {
       <section className="research-proof section">
         <div className="shell research-proof__grid">
           <div className="research-proof__metric">
-            <strong>8.000+</strong>
-            <span>hakemli uluslararası yayın</span>
+            <span className="research-proof__metric-label">Yayınlanmış araştırma</span>
+            <strong>
+              8.000<sup>+</sup>
+            </strong>
+            <span className="research-proof__metric-caption">Hakemli uluslararası yayın</span>
+            <div className="research-proof__fields" aria-label="Araştırma alanları">
+              <span>Klinik</span>
+              <span>Beslenme</span>
+              <span>Spor</span>
+              <span>Vücut kompozisyonu</span>
+            </div>
           </div>
           <div className="research-proof__copy">
             <p className="eyebrow eyebrow--light">Profesyoneller için güvenilir kalite</p>
@@ -364,6 +381,29 @@ export default function Home() {
               </Link>
             ))}
           </HorizontalRail>
+        </div>
+      </section>
+
+      <section className="home-testimonials section" aria-labelledby="musteri-gorusleri">
+        <div className="shell home-testimonials__grid">
+          <div className="home-testimonials__intro">
+            <p className="eyebrow">Müşteri görüşleri</p>
+            <h2 id="musteri-gorusleri">Gerçek çalışma düzenleri. Daha anlaşılır sonuçlar.</h2>
+            <p>
+              Klinikler, performans ekipleri ve wellness programları; değerlendirme
+              sürecini daha görünür verilerle desteklemek için InBody çözümlerinden
+              yararlanır.
+            </p>
+            <p className="home-testimonials__notice">
+              Yayınlanacak görüşler, kurum ve konuşmacı onayı tamamlandıktan sonra
+              burada yer alacaktır.
+            </p>
+            <Link href="/iletisim" className="text-link">
+              Kendi kullanım alanınızı konuşalım <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
+
+          <TestimonialShowcase items={testimonialPlaceholders} />
         </div>
       </section>
 

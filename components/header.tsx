@@ -2,7 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState, type FocusEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type FocusEvent,
+  type MouseEvent,
+  type PointerEvent,
+} from "react";
 import {
   aboutLinks,
   primaryLearnLinks,
@@ -75,6 +82,7 @@ function MobileLinkList({
 export function Header() {
   const [activeMenu, setActiveMenu] = useState<MenuKey | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const lastPointerType = useRef<string | null>(null);
 
   const closeAll = () => {
     setActiveMenu(null);
@@ -89,6 +97,29 @@ export function Header() {
   const toggleMenu = (menu: MenuKey) => {
     setActiveMenu((current) => (current === menu ? null : menu));
     setMobileOpen(false);
+  };
+
+  const handleTriggerPointerEnter = (
+    event: PointerEvent<HTMLButtonElement>,
+    menu: MenuKey,
+  ) => {
+    if (event.pointerType === "mouse") openMenu(menu);
+  };
+
+  const handleTriggerClick = (
+    event: MouseEvent<HTMLButtonElement>,
+    menu: MenuKey,
+  ) => {
+    const usedKeyboard = event.detail === 0;
+    const usedTouch = lastPointerType.current === "touch" || lastPointerType.current === "pen";
+
+    if (usedKeyboard || usedTouch) {
+      toggleMenu(menu);
+      return;
+    }
+
+    // Mouse hover already opens the menu. Keep it open when the same trigger is clicked.
+    openMenu(menu);
   };
 
   const handleHeaderBlur = (event: FocusEvent<HTMLElement>) => {
@@ -136,9 +167,11 @@ export function Header() {
               className="desktop-nav__trigger"
               aria-expanded={activeMenu === "about"}
               aria-controls="site-mega-menu"
-              onMouseEnter={() => openMenu("about")}
-              onFocus={() => openMenu("about")}
-              onClick={() => toggleMenu("about")}
+              onPointerEnter={(event) => handleTriggerPointerEnter(event, "about")}
+              onPointerDown={(event) => {
+                lastPointerType.current = event.pointerType;
+              }}
+              onClick={(event) => handleTriggerClick(event, "about")}
             >
               Hakkımızda <span aria-hidden="true">⌄</span>
             </button>
@@ -147,9 +180,11 @@ export function Header() {
               className="desktop-nav__trigger"
               aria-expanded={activeMenu === "learn"}
               aria-controls="site-mega-menu"
-              onMouseEnter={() => openMenu("learn")}
-              onFocus={() => openMenu("learn")}
-              onClick={() => toggleMenu("learn")}
+              onPointerEnter={(event) => handleTriggerPointerEnter(event, "learn")}
+              onPointerDown={(event) => {
+                lastPointerType.current = event.pointerType;
+              }}
+              onClick={(event) => handleTriggerClick(event, "learn")}
             >
               Öğrenin <span aria-hidden="true">⌄</span>
             </button>
@@ -158,9 +193,11 @@ export function Header() {
               className="desktop-nav__trigger"
               aria-expanded={activeMenu === "products"}
               aria-controls="site-mega-menu"
-              onMouseEnter={() => openMenu("products")}
-              onFocus={() => openMenu("products")}
-              onClick={() => toggleMenu("products")}
+              onPointerEnter={(event) => handleTriggerPointerEnter(event, "products")}
+              onPointerDown={(event) => {
+                lastPointerType.current = event.pointerType;
+              }}
+              onClick={(event) => handleTriggerClick(event, "products")}
             >
               Ürünler <span aria-hidden="true">⌄</span>
             </button>

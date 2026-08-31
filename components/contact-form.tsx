@@ -22,7 +22,14 @@ export function ContactForm({
   };
 
   return (
-    <form id="iletisim-formu" className="contact-form" onSubmit={handleSubmit}>
+    <form
+      id="iletisim-formu"
+      className="contact-form"
+      onSubmit={handleSubmit}
+      onChange={() => {
+        if (submitted) setSubmitted(false);
+      }}
+    >
       {initialProduct ? (
         <div className="form-intent">
           <Icon name="brochure" />
@@ -77,13 +84,25 @@ export function ContactForm({
       </label>
 
       <button className="button button--red" type="submit">
-        Talebi gönder <Icon name="arrow" />
+        {submitted ? (
+          <>
+            Talep alındı <span aria-hidden="true">✓</span>
+          </>
+        ) : (
+          <>
+            Talebi gönder <Icon name="arrow" />
+          </>
+        )}
       </button>
 
       <p className="form-note">
         Bu form yalnızca demo amaçlıdır; gerçek e-posta gönderimi yapmaz.
       </p>
-      <div className="form-status" role="status" aria-live="polite">
+      <div
+        className={`form-status${submitted ? " is-visible" : ""}`}
+        role="status"
+        aria-live="polite"
+      >
         {submitted ? "Talebiniz demo ortamında alınmıştır." : ""}
       </div>
     </form>
