@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import nasaInBodyHero from "@/GELEN_ICERIKLER/SAYFA_GORSELLERI/09. Sayfa Bazli Gorseller/01. Ana Sayfa/ChatGPT Image Jul 22, 2026 at 02_49_16 PM.png";
 
 const slides = [
   {
@@ -33,7 +32,7 @@ const slides = [
     title: "Her ölçümün arkasındaki teknolojiyi keşfedin.",
     description:
       "InBody’nin çok frekanslı ve segmental analiz yaklaşımı, vücudu daha ayrıntılı değerlendirmeye yardımcı olur.",
-    image: nasaInBodyHero,
+    image: "/images/hero-770s.jpg",
     primaryHref: "/ogren/inbody-teknolojisi",
     primaryLabel: "Teknolojiyi keşfedin",
     secondaryHref: "/iletisim",
