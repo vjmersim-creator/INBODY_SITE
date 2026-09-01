@@ -1,20 +1,40 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useSyncExternalStore } from "react";
 import { Icon } from "@/components/icon";
 
-type ProductOption = { value: string; label: string };
+type ProductOption = { value: string; label: string; listed: boolean };
+
+const subscribeToLocation = () => () => {};
+const getLocationSearch = () => window.location.search;
+const getServerLocationSearch = () => "";
 
 export function ContactForm({
-  initialMessage = "",
-  initialProduct = "",
   productOptions,
 }: {
-  initialMessage?: string;
-  initialProduct?: string;
   productOptions: ProductOption[];
 }) {
   const [submitted, setSubmitted] = useState(false);
+  const [editedProduct, setEditedProduct] = useState<string | null>(null);
+  const [editedMessage, setEditedMessage] = useState<string | null>(null);
+  const locationSearch = useSyncExternalStore(
+    subscribeToLocation,
+    getLocationSearch,
+    getServerLocationSearch,
+  );
+  const searchParams = new URLSearchParams(locationSearch);
+  const requestedProduct = searchParams.get("urun") ?? "";
+  const productOption = productOptions.find(
+    (option) => option.value === requestedProduct,
+  );
+  const isBrochureRequest =
+    Boolean(productOption) && searchParams.get("talep") === "brosur";
+  const product = editedProduct ?? productOption?.value ?? "";
+  const message =
+    editedMessage ??
+    (isBrochureRequest
+      ? `${productOption?.label} ürün broşürünü talep ediyorum.`
+      : "");
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -30,7 +50,7 @@ export function ContactForm({
         if (submitted) setSubmitted(false);
       }}
     >
-      {initialProduct ? (
+      {isBrochureRequest ? (
         <div className="form-intent">
           <Icon name="brochure" />
           <div>
@@ -60,22 +80,36 @@ export function ContactForm({
 
       <div className="field">
         <label htmlFor="interest">İlgilendiğiniz ürün veya konu</label>
-        <select id="interest" name="interest" defaultValue={initialProduct}>
+        <select
+          id="interest"
+          name="interest"
+          value={product}
+          onChange={(event) => setEditedProduct(event.target.value)}
+        >
           <option value="" disabled>
             Lütfen seçin
           </option>
-          {productOptions.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
+          {productOptions
+            .filter((option) => option.listed || option.value === requestedProduct)
+            .map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           <option value="other">Diğer</option>
         </select>
       </div>
 
       <div className="field">
         <label htmlFor="message">Mesajınız</label>
-        <textarea id="message" name="message" rows={6} defaultValue={initialMessage} required />
+        <textarea
+          id="message"
+          name="message"
+          rows={6}
+          value={message}
+          onChange={(event) => setEditedMessage(event.target.value)}
+          required
+        />
       </div>
 
       <label className="check-field">

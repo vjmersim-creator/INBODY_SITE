@@ -18,20 +18,12 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function ContactPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ urun?: string; talep?: string }>;
-}) {
-  const { urun, talep } = await searchParams;
-  const selectedProduct = products.find((product) => product.slug === urun);
-  const productOptions = products
-    .filter((product) => product.listed !== false || product.slug === selectedProduct?.slug)
-    .map((product) => ({ value: product.slug, label: product.name }));
-  const initialMessage =
-    selectedProduct && talep === "brosur"
-      ? `${selectedProduct.name} ürün broşürünü talep ediyorum.`
-      : "";
+export default function ContactPage() {
+  const productOptions = products.map((product) => ({
+    value: product.slug,
+    label: product.name,
+    listed: product.listed !== false,
+  }));
 
   return (
     <main id="ana-icerik">
@@ -76,11 +68,7 @@ export default async function ContactPage({
               </div>
             </div>
             <div className="contact-page__form-wrap">
-              <ContactForm
-                initialMessage={initialMessage}
-                initialProduct={selectedProduct?.slug}
-                productOptions={productOptions}
-              />
+              <ContactForm productOptions={productOptions} />
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { withBasePath } from "@/lib/paths";
 
 export function LearnPageMedia({ slug }: { slug: string }) {
   if (slug === "inbody-testi") {
@@ -17,9 +18,12 @@ export function LearnPageMedia({ slug }: { slug: string }) {
             controls
             playsInline
             preload="metadata"
-            poster="/images/learn/inbody-test/handle.png"
+            poster={withBasePath("/images/learn/inbody-test/handle.png")}
           >
-            <source src="/videos/inbody-test-procedure.mp4" type="video/mp4" />
+            <source
+              src={withBasePath("/videos/inbody-test-procedure.mp4")}
+              type="video/mp4"
+            />
             Tarayıcınız video oynatmayı desteklemiyor.
           </video>
         </div>

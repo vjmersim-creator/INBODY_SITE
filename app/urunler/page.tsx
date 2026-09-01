@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SectionNavigation } from "@/components/section-navigation";
 import { Breadcrumb, ProductCard, SectionHeading } from "@/components/ui";
 import { productsByCategory } from "@/content/products";
+import { withBasePath } from "@/lib/paths";
 
 export const metadata: Metadata = {
   title: "Ürünler",
@@ -42,7 +43,13 @@ export default function ProductsPage() {
         icon="measure"
       />
       <section className="products-hero">
-        <div className="products-hero__image" aria-hidden="true" />
+        <div
+          className="products-hero__image"
+          aria-hidden="true"
+          style={{
+            backgroundImage: `url("${withBasePath("/images/products-hero.jpg")}")`,
+          }}
+        />
         <div className="products-hero__shade" />
         <div className="shell products-hero__content">
           <Breadcrumb items={[{ label: "Ana Sayfa", href: "/" }, { label: "Ürünler" }]} />

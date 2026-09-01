@@ -114,7 +114,6 @@ export function BodyCompositionPage({ page }: { page: ContentPage }) {
                       alt={story.imageAlt}
                       fill
                       loading="eager"
-                      unoptimized={index === 0}
                       sizes="(max-width: 720px) calc(100vw - 48px), (max-width: 1400px) 52vw, 720px"
                     />
                   </div>
